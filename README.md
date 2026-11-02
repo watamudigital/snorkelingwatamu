@@ -26,12 +26,14 @@ python3 -m http.server 8000
 # http://localhost:8000
 ```
 
-## Deployment automatico (quando collegato a GitHub)
+## Deployment GitHub → Vercel
 
-- Repository prevista: `Equipe-Creative-Agency/snorkelingwatamu` (branch `main`).
-- Importa la repo su Vercel nel team **Equipe Creative Agency**.
-- Framework: `Other` / static HTML; Root Directory: `/`; nessuna installazione e nessun build command.
-- Push su `main` -> deployment del sito demo; PR / altri branch -> preview.
+- Repository: `Equipe-Creative-Agency/snorkelingwatamu` (privata, branch `main`).
+- Progetto Vercel collegato: **snorkelingwatamu**, team **Equipe Creative Agency**.
+- **Demo online:** https://snorkelingwatamu.vercel.app/
+- Framework: `Other` / static HTML; Root Directory: `/`; nessuna installazione o build custom.
+- Push su `main` → deployment del sito demo; PR / altri branch → preview.
+- La demo rimane `noindex` finché l'operatore, le condizioni e il dominio non sono confermati.
 - Non associare il dominio `snorkelingwatamu.com` prima di avere registrazione, operatore e termini verificati.
 
 ## Checklist prima del lancio
