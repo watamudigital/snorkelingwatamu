@@ -1,6 +1,6 @@
 # Snorkeling Watamu · demo v0.2
 
-Landing page **dimostrativa** mobile-first, bilingue italiano/inglese, per un futuro sito dedicato allo snorkeling a Watamu (Kenya).
+Landing page **dimostrativa** mobile-first, in quattro lingue: italiano, inglese, tedesco e francese, per un futuro sito dedicato allo snorkeling a Watamu (Kenya).
 
 ## Stato
 
@@ -47,3 +47,11 @@ python3 -m http.server 8000
 7. Configurare il dominio definitivo e, **solo dopo la verifica**, rimuovere i blocchi `noindex` in tutti e tre i punti.
 
 Il sito è un concept indipendente creato per validare l'idea. Non rappresenta una società di tour già autorizzata.
+## Lingue (IT / EN / DE / FR)
+
+- `assets/app.js` gestisce il selettore lingua, i testi del form e le richieste WhatsApp.
+- `assets/translations.js` contiene le traduzioni tedesche e francesi e i nuovi testi condivisi dalle quattro lingue.
+- Si può condividere la pagina con `?lang=de` o `?lang=fr`; senza parametro viene usata la lingua del browser quando disponibile.
+- Nessun cookie o local storage viene utilizzato per salvare la lingua. Il form non invia dati a un backend.
+- Le traduzioni sono lato client. Prima dell'indicizzazione serviranno URL dedicati per lingua, contenuto statico, tag hreflang e verifica legale/commerciale. Il sito rimane `noindex`.
+- Eseguire `node scripts/check-i18n.cjs` per il controllo di completezza delle traduzioni.

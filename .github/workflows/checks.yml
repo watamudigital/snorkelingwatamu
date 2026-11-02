@@ -20,3 +20,8 @@ jobs:
           python-version: '3.12'
       - name: Check files and demo guardrails
         run: python3 scripts/check_site.py
+      - name: Validate translations and JavaScript
+        run: |
+          node --check assets/translations.js
+          node --check assets/app.js
+          node scripts/check-i18n.cjs

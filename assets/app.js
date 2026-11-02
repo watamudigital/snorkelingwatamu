@@ -3,14 +3,91 @@
  en:{galleryHead:'On board',galleryAccent:'the Subira.',galleryIntro:'Real photos of the Subira boat and guests during outings in Watamu. Activities and availability must be confirmed with the operator.',navExperiences:'Experiences',navDiscover:'Marine park',navHow:'How it works',navCta:'Plan an experience',heroEyebrow:'WATAMU, KENYA · BELOW THE SURFACE',heroOne:'Another',heroTwo:'world awaits.',heroThree:'Below.',heroSub:'Turquoise waters, coral gardens and tropical fish. Explore Watamu’s most surprising side, where nature meets wonder.',heroPrimary:'Explore experiences',heroSecondary:'Plan your ocean day',heroMeta1:'Kenyan coast',heroMeta2:'Protected nature',exKicker:'Dive into wonder',exHeading1:'Find your',exHeading2:'blue moment.',exIntro:'Three experience ideas to tailor with a local operator. Every trip depends on sea conditions, tides and availability.',card1Tag:'The classic',card1Title:'Coral Garden Explorer',card1Text:'Look into the colourful reef from the surface and observe marine life respectfully with a local guide.',card2Tag:'Go at your pace',card2Title:'Ocean & Glass-Boat',card2Text:'An idea that combines observing the sea from the boat with an optional snorkeling session.',card3Tag:'Something personal',card3Title:'Your Private Blue',card3Text:'Imagine a tailored ocean morning for couples, friends or small groups. Details and availability to be confirmed.',cardFoot:'Quote on request',exNote:'* Illustrative experience ideas under development. No operator or itinerary has yet been confirmed; wildlife sightings are never guaranteed.',marineKicker:'A place worth protecting',marineH1:'The magic',marineH2:'of the Marine',marineH3:'Park.',marineText:'Watamu is home to a protected marine park with coral reefs, tropical fish and sea turtles. Exploring it also means respecting it: do not touch coral or chase wildlife, and follow local guides and Kenya Wildlife Service guidance.',marineText2:'Park entry is managed by Kenya Wildlife Service. Check official fees and payment details before your visit.',marineButton:'Official KWS information',howKicker:'Easy from the start',howH1:'Three steps.',howH2:'One special day.',step1H:'Choose your experience',step1P:'Explore our concepts and select what you would love to do — or tell us your own idea.',step2H:'Prepare your request',step2P:'Add a date, group size and swimming confidence. The demo will prepare a message you can share.',step3H:'Confirm with your guide',step3P:'When a real operator is connected, they can confirm the route, safety, equipment and price.',bookKicker:'Your next adventure',bookH1:'See you',bookH2:'in the ocean?',bookLede:'Tell us what kind of experience you are dreaming of. This is currently only a demo: no personal information is sent to a server or tour operator.',point1:'Tailored ideas for your group',point2:'Sea, tides and weather come first',point3:'No payments on the demo site',formH:'Prepare your enquiry',formSub:'Fill in the details. You can copy the message or share it on WhatsApp by choosing the recipient yourself.',labExp:'Experience',labDate:'Preferred date',labPeople:'Guests',labLevel:'Swimming confidence',labNote:'Notes (optional)',phNote:'E.g. two adults, leaving from Watamu Beach...',formCta:'Prepare WhatsApp message',formHint:'Demo without a connected recipient: WhatsApp opens with a prefilled message, but you choose who receives it. Availability always needs confirmation.',copyCta:'Or copy the enquiry text',faqH1:'Before you',faqH2:'jump in.',faq1Q:'Do I need to be a strong swimmer?',faq1A:'Safety depends on the route, sea conditions and your swimming ability. Tell the future operator your level before booking and follow their guidance.',faq2Q:'Will I definitely see turtles?',faq2A:'No. Turtles live in these waters, but sightings are natural and never guaranteed. Never touch or chase wildlife.',faq3Q:'Is the Marine Park entry fee included?',faq3A:'It depends on the operator and package. Always confirm what the quote includes and check official KWS fees.',faq4Q:'Can I actually book here?',faq4A:'Not yet. This is a demonstration: the form prepares a message, but there is no connected operator or payment system.',footerH:'The ocean is calling.',footerH2:'Watamu is waiting.',footerCta:'Plan your ocean day',footerNote:'Independent demo concept · Not affiliated with Kenya Wildlife Service.\nIllustrative Unsplash photographs: not necessarily taken in Watamu.',sticky:'Enquire about an experience'},
  it:{galleryHead:'A bordo della',galleryAccent:'Subira.',galleryIntro:'Immagini autentiche della barca Subira e degli ospiti durante le escursioni a Watamu. Le attività e la disponibilità vanno confermate con l’operatore.',navExperiences:'Esperienze',navDiscover:'Il parco marino',navHow:'Come funziona',navCta:"Richiedi un'escursione",heroEyebrow:'WATAMU, KENYA · SOTTO LA SUPERFICIE',heroOne:'Un mondo',heroTwo:'da scoprire.',heroThree:"Sott'acqua.",heroSub:'Acque turchesi, giardini di corallo e pesci tropicali. Vivi il lato più sorprendente di Watamu, tra natura e meraviglia.',heroPrimary:'Scopri le esperienze',heroSecondary:'Organizza la tua uscita',heroMeta1:'Costa del Kenya',heroMeta2:'Natura protetta',exKicker:'Immergiti nella bellezza',exHeading1:'Scegli il tuo',exHeading2:'momento blu.',exIntro:'Tre idee di esperienza da personalizzare con un operatore locale. Ogni uscita dipende dalle condizioni del mare, dalla marea e dalla disponibilità.',card1Tag:'Il grande classico',card1Title:'Coral Garden Explorer',card1Text:'Esplora in superficie i colori del reef e osserva il mondo marino con rispetto, accompagnato da una guida locale.',card2Tag:'Per tutti i ritmi',card2Title:'Ocean & Glass-Boat',card2Text:"Una proposta che combina l'osservazione del mare dalla barca con un eventuale momento di snorkeling.",card3Tag:"Un'idea più intima",card3Title:'Your Private Blue',card3Text:'Immagina una mattina in mare su misura per coppie, amici o piccoli gruppi: dettagli e disponibilità da confermare.',cardFoot:'Preventivo su richiesta',exNote:'* Esperienze illustrative in fase di sviluppo. Nessun operatore o itinerario è stato ancora confermato; gli avvistamenti di fauna non sono garantiti.',marineKicker:'Un luogo da proteggere',marineH1:'La magia',marineH2:'del Marine',marineH3:'Park.',marineText:'Watamu ospita un parco marino protetto con barriere coralline, pesci tropicali e tartarughe marine. Esplorarlo significa anche rispettarlo: non toccare i coralli, non inseguire gli animali e seguire le indicazioni delle guide e del Kenya Wildlife Service.',marineText2:"L'ingresso al parco è regolato dal Kenya Wildlife Service: eventuali tariffe e modalità di pagamento vanno verificate sul sito ufficiale prima della visita.",marineButton:'Informazioni ufficiali KWS',howKicker:"Semplice dall'inizio",howH1:'Tre passi.',howH2:'Una giornata speciale.',step1H:"Scegli l'esperienza",step1P:'Esplora le proposte e scegli quella che vorresti vivere, oppure raccontaci la tua idea.',step2H:'Invia la richiesta',step2P:'Indica data, numero di partecipanti e livello in acqua. La demo prepara un messaggio da condividere.',step3H:'Conferma con la guida',step3P:'Un operatore reale, una volta collegato, potrà confermare itinerario, sicurezza, attrezzatura e prezzo.',bookKicker:'La tua prossima avventura',bookH1:'Ci vediamo',bookH2:'in acqua?',bookLede:'Raccontaci che tipo di esperienza vuoi vivere. Per ora questa è una demo: non raccogliamo dati su un server e non inviamo richieste a un operatore.',point1:'Proposte su misura per il tuo gruppo',point2:'Attenzione a mare, meteo e maree',point3:'Nessun pagamento sul sito demo',formH:'Prepara la tua richiesta',formSub:'Completa i campi: potrai copiare il testo oppure condividerlo su WhatsApp scegliendo tu il destinatario.',labExp:'Esperienza',labDate:'Data desiderata',labPeople:'Partecipanti',labLevel:'Confidenza in acqua',labNote:'Note (facoltativo)',phNote:'Es. due adulti, partenza da Watamu Beach...',formCta:'Prepara messaggio WhatsApp',formHint:'Demo senza destinatario configurato: WhatsApp si aprirà con il testo precompilato, ma dovrai scegliere tu a chi inviarlo. La disponibilità va sempre verificata.',copyCta:'Oppure copia il testo della richiesta',faqH1:'Prima di',faqH2:'tuffarti.',faq1Q:'Devo saper nuotare?',faq1A:"La sicurezza dipende dall'itinerario, dalle condizioni del mare e dalle capacità personali. Comunica sempre il tuo livello al futuro operatore prima di prenotare e segui le sue istruzioni.",faq2Q:'Le tartarughe si vedono sempre?',faq2A:'No. Le tartarughe abitano queste acque, ma ogni avvistamento è naturale e non può essere garantito. Mai toccarle né inseguirle.',faq3Q:'Il biglietto del Marine Park è incluso?',faq3A:'Dipende dall’operatore e dal pacchetto. Verifica sempre cosa comprende il preventivo e controlla le tariffe ufficiali KWS.',faq4Q:'Posso prenotare davvero da qui?',faq4A:'Non ancora. Questa è una dimostrazione: il modulo prepara il messaggio, ma non esiste ancora un operatore collegato né un sistema di pagamento.',footerH:'The ocean is calling.',footerH2:'Watamu is waiting.',footerCta:'Progetta la tua uscita',footerNote:'Progetto dimostrativo indipendente · Non affiliato a Kenya Wildlife Service.\nFotografie illustrative da Unsplash: non necessariamente scattate a Watamu.',sticky:'Richiedi la tua esperienza'}
  };
- let lang='it'; const itBtn=document.getElementById('it'),enBtn=document.getElementById('en');
- function setLang(l){lang=l; document.documentElement.lang=l; document.querySelectorAll('[data-i18n]').forEach(e=>{let k=e.getAttribute('data-i18n');if(tr[l][k])e.textContent=tr[l][k]});document.querySelectorAll('[data-i18n-placeholder]').forEach(e=>{let k=e.getAttribute('data-i18n-placeholder');e.placeholder=tr[l][k]||''});itBtn.classList.toggle('active',l==='it');enBtn.classList.toggle('active',l==='en');itBtn.setAttribute('aria-pressed',l==='it');enBtn.setAttribute('aria-pressed',l==='en');document.getElementById('status').textContent=''}
- itBtn.addEventListener('click',()=>setLang('it'));enBtn.addEventListener('click',()=>setLang('en'));
+
+ const additionalTranslations=window.SW_TRANSLATIONS||{};
+ for(const code of ['it','en','de','fr']) tr[code]={...(tr[code]||{}),...(additionalTranslations[code]||{})};
+ const supported=['it','en','de','fr'];
+ let lang='it';
+ const langButtons=supported.map(code=>document.getElementById(code));
+ const metaDescription=document.querySelector('meta[name="description"]');
+ function setLang(code,updateUrl=false){
+  if(!tr[code])return;
+  lang=code;
+  const t=tr[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+   const key=el.getAttribute('data-i18n');
+   if(typeof t[key]==='string')el.textContent=t[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+   const key=el.getAttribute('data-i18n-placeholder');
+   if(typeof t[key]==='string')el.setAttribute('placeholder',t[key]);
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el=>{
+   const key=el.getAttribute('data-i18n-alt');
+   if(typeof t[key]==='string')el.setAttribute('alt',t[key]);
+  });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el=>{
+   const key=el.getAttribute('data-i18n-aria-label');
+   if(typeof t[key]==='string')el.setAttribute('aria-label',t[key]);
+  });
+  langButtons.forEach((btn,index)=>{
+   const active=supported[index]===lang;
+   btn.classList.toggle('active',active);
+   btn.setAttribute('aria-pressed',String(active));
+  });
+  if(t.pageTitle)document.title=t.pageTitle;
+  if(metaDescription&&t.metaDescription)metaDescription.setAttribute('content',t.metaDescription);
+  document.getElementById('status').textContent='';
+  if(updateUrl){
+   try{
+    const url=new URL(window.location.href);
+    url.searchParams.set('lang',code);
+    window.history.replaceState(null,'',url.pathname+url.search+url.hash);
+   }catch(err){/* A denied history update must not block language switching. */}
+  }
+ }
+ langButtons.forEach((button,index)=>button.addEventListener('click',()=>setLang(supported[index],true)));
+ const queryLanguage=new URLSearchParams(window.location.search).get('lang');
+ const browserLanguage=(navigator.language||'').slice(0,2).toLowerCase();
+ const initialLang=supported.includes(queryLanguage)?queryLanguage:(supported.includes(browserLanguage)?browserLanguage:'it');
  document.getElementById('tripDate').min=new Date().toISOString().slice(0,10);
  document.querySelectorAll('[data-exp]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('trip').value=btn.dataset.exp;document.getElementById('booking').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('trip').focus({preventScroll:true}),450)}));
  const WA_NUMBER=''; // Insert real guide/agency WhatsApp after permission and verification.
- function makeText(){const exp=document.getElementById('trip').selectedOptions[0].textContent;const date=document.getElementById('tripDate').value||'To be confirmed';const ppl=document.getElementById('people').value||'—';const level=document.getElementById('level').selectedOptions[0].textContent;const note=document.getElementById('note').value.trim();return (lang==='it'?`Ciao! Vorrei informazioni su un'esperienza snorkeling a Watamu.\nEsperienza: ${exp}\nData: ${date}\nPartecipanti: ${ppl}\nConfidenza in acqua: ${level}`:`Hello! I'd like to enquire about a snorkeling experience in Watamu.\nExperience: ${exp}\nPreferred date: ${date}\nGuests: ${ppl}\nSwimming level: ${level}`)+(note?'\n'+(lang==='it'?'Note':'Notes')+': '+note:'')+'\n'+(lang==='it'?'Potete confermare disponibilità, prezzo, cosa è incluso e le condizioni?':'Could you confirm availability, price, inclusions and conditions?')}
- document.getElementById('requestForm').addEventListener('submit',e=>{e.preventDefault();if(!e.target.reportValidity())return;const url='https://wa.me/'+(WA_NUMBER||'')+'?text='+encodeURIComponent(makeText());window.open(url,'_blank','noopener,noreferrer');document.getElementById('status').textContent=lang==='it'?'Demo: scegli tu il destinatario in WhatsApp. Nessuna richiesta è stata inviata dal sito.':'Demo: choose the recipient in WhatsApp. The website has not sent any request.'});
- document.getElementById('copyBtn').addEventListener('click',async()=>{let t=makeText();try{await navigator.clipboard.writeText(t);document.getElementById('status').textContent=lang==='it'?'Testo copiato: ora puoi incollarlo in WhatsApp.':'Text copied: paste it into WhatsApp.'}catch(e){window.prompt(lang==='it'?'Copia il testo:':'Copy the text:',t)}});
- setLang('it');
+
+ function makeText(){
+  const t=tr[lang];
+  const experience=document.getElementById('trip').selectedOptions[0].textContent;
+  const date=document.getElementById('tripDate').value||t.dateFallback;
+  const guests=document.getElementById('people').value||'—';
+  const level=document.getElementById('level').selectedOptions[0].textContent;
+  const note=document.getElementById('note').value.trim();
+  const lines=[t.msgOpening,'',
+    t.msgExperience+': '+experience,
+    t.msgDate+': '+date,
+    t.msgPeople+': '+guests,
+    t.msgLevel+': '+level
+  ];
+  if(note)lines.push(t.msgNotes+': '+note);
+  lines.push('',t.msgEnding);
+  return lines.join('\n');
+ }
+ document.getElementById('requestForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!e.target.reportValidity())return;
+  const url='https://wa.me/'+(WA_NUMBER||'')+'?text='+encodeURIComponent(makeText());
+  window.open(url,'_blank','noopener,noreferrer');
+  document.getElementById('status').textContent=tr[lang].statusSent;
+ });
+ document.getElementById('copyBtn').addEventListener('click',async()=>{
+  const message=makeText();
+  try{
+   await navigator.clipboard.writeText(message);
+   document.getElementById('status').textContent=tr[lang].statusCopied;
+  }catch(err){
+   window.prompt(tr[lang].copyPrompt,message);
+  }
+ });
+ setLang(initialLang);
+
 })();
