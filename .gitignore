@@ -1,0 +1,9 @@
+# Local tooling / deployments
+.vercel/
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
