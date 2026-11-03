@@ -23,6 +23,8 @@ for(const lang of langs){
  assert(src.includes('data-i18n="faq1Q"'),p+' FAQ missing');
  assert(src.includes('name="robots" content="noindex,nofollow,noarchive"'),p+' premature indexing');
  assert(!src.includes('src="https://www.googletagmanager.com/'),p+' GA4 must be configured only after ECM');
+ assert(src.includes('src="/assets/ecm-bootstrap.js"'),p+' missing ECM bootstrap');
+ assert(src.includes('siteId: "c64f3c2a-13ae-4ec1-8362-8bc54a7538e4"'),p+' wrong ECM site ID');
 }
 const template=fs.readFileSync('dist/index.html','utf8');
 assert(template.includes('rel="canonical" href="'+root+'/it/"'), 'root canonical missing');

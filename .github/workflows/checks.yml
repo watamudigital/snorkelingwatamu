@@ -29,3 +29,5 @@ jobs:
         run: |
           node scripts/build-locales.cjs
           node scripts/check-seo.cjs
+          node --check assets/ecm-bootstrap.js
+          node scripts/check-ecm.cjs

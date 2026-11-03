@@ -71,3 +71,9 @@ Il sito è un concept indipendente creato per validare l'idea. Non rappresenta u
 - Non aggiungere direttamente Google Analytics o GTM. Dopo il provisioning di ECM e del Measurement ID `G-...`, configurare il tag GA4 nella categoria Analitici di una policy ECM in bozza e pubblicarla dopo test del consenso.
 - ECM è il solo orchestratore di caricamento/consenso, evitando due installazioni GA4 e verificando il modello Basic di Consent Mode con blocco prima del consenso, ove richiesto.
 - Tracciamenti utili dopo il lancio: selezione esperienza, richiesta WhatsApp e lingua selezionata; solo con consenso e test in GA4 DebugView.
+
+## ECM consent bootstrap
+
+ECM site: `c64f3c2a-13ae-4ec1-8362-8bc54a7538e4` (tenant Equipe). Every language loads synchronous Google Consent Mode v2 defaults with `analytics_storage=denied` and other non-essential signals denied. `assets/ecm-bootstrap.js` queries the official ECM public configuration and loads `https://ecm.plus/ecm.js` only once **after a policy has been published**. If policy is draft, absent, or unreachable, no consent banner or analytics script is injected. Publishing the ECM policy activates the runtime on the next page load; no new website deployment is needed.
+
+No GA4 or GTM installation on the site. GA4 should be configured as an **Analytics** policy script within ECM, with consent acceptance/rejection/revocation tested before production use. Validation: `node scripts/check-ecm.cjs`.
