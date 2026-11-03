@@ -25,5 +25,7 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "node scripts/build-locales.cjs",
+  "outputDirectory": "dist"
 }

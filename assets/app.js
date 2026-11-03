@@ -40,17 +40,19 @@
   if(metaDescription&&t.metaDescription)metaDescription.setAttribute('content',t.metaDescription);
   document.getElementById('status').textContent='';
   if(updateUrl){
-   try{
-    const url=new URL(window.location.href);
-    url.searchParams.set('lang',code);
-    window.history.replaceState(null,'',url.pathname+url.search+url.hash);
-   }catch(err){/* A denied history update must not block language switching. */}
+   // Each language has a real, server-rendered URL. Retain the anchor when switching.
+   const destination='/'+code+'/' + (window.location.hash||'');
+   if(window.location.pathname!==('/'+code+'/')){
+    window.location.assign(destination);
+    return;
+   }
   }
  }
  langButtons.forEach((button,index)=>button.addEventListener('click',()=>setLang(supported[index],true)));
  const queryLanguage=new URLSearchParams(window.location.search).get('lang');
  const browserLanguage=(navigator.language||'').slice(0,2).toLowerCase();
- const initialLang=supported.includes(queryLanguage)?queryLanguage:(supported.includes(browserLanguage)?browserLanguage:'it');
+ const pathLanguage=(window.location.pathname.match(/^\/(it|en|de|fr)\/?$/)||[])[1]||null;
+ const initialLang=pathLanguage||(supported.includes(queryLanguage)?queryLanguage:(supported.includes(browserLanguage)?browserLanguage:'it'));
  document.getElementById('tripDate').min=new Date().toISOString().slice(0,10);
  document.querySelectorAll('[data-exp]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('trip').value=btn.dataset.exp;document.getElementById('booking').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('trip').focus({preventScroll:true}),450)}));
  const WA_NUMBER=''; // Insert real guide/agency WhatsApp after permission and verification.
@@ -88,6 +90,6 @@
    window.prompt(tr[lang].copyPrompt,message);
   }
  });
- setLang(initialLang);
+ if(pathLanguage){lang=pathLanguage;}else{setLang(initialLang);}
 
 })();

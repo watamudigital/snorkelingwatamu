@@ -55,3 +55,19 @@ Il sito è un concept indipendente creato per validare l'idea. Non rappresenta u
 - Nessun cookie o local storage viene utilizzato per salvare la lingua. Il form non invia dati a un backend.
 - Le traduzioni sono lato client. Prima dell'indicizzazione serviranno URL dedicati per lingua, contenuto statico, tag hreflang e verifica legale/commerciale. Il sito rimane `noindex`.
 - Eseguire `node scripts/check-i18n.cjs` per il controllo di completezza delle traduzioni.
+
+## SEO multilingua — predisposizione senza indicizzazione
+
+- Pagine HTML pre-renderizzate (non solo traduzioni client-side): `/it/`, `/en/`, `/de/`, `/fr/`.
+- Canonical self-referential e `hreflang` reciproci su ogni pagina; `x-default` punta alla home `/` (fallback).
+- Meta title, description, lingua HTML e contenuti traducibili nel sorgente HTML iniziale.
+- `sitemap.xml` generata con gli URL delle quattro lingue, da inviare a Google Search Console solo al lancio.
+- Su Vercel: `node scripts/build-locales.cjs` produce `dist/` (assets inclusi); progetto con framework `Other`, output `dist`.
+- La home `/` rimane compatibile con i precedenti link `?lang=...` e usa canonical `/it/`.
+- Manteniamo per ora i blocchi `noindex`, l'header `X-Robots-Tag` e `robots.txt` con `Disallow: /`. Non rimuoverli prima del lancio verificato.
+- `node scripts/check-seo.cjs` controlla i contenuti generati, gli URL, canonical/hreflang e le immagini Subira.
+
+### Analytics con ECM
+- Non aggiungere direttamente Google Analytics o GTM. Dopo il provisioning di ECM e del Measurement ID `G-...`, configurare il tag GA4 nella categoria Analitici di una policy ECM in bozza e pubblicarla dopo test del consenso.
+- ECM è il solo orchestratore di caricamento/consenso, evitando due installazioni GA4 e verificando il modello Basic di Consent Mode con blocco prima del consenso, ove richiesto.
+- Tracciamenti utili dopo il lancio: selezione esperienza, richiesta WhatsApp e lingua selezionata; solo con consenso e test in GA4 DebugView.

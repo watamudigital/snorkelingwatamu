@@ -1,0 +1,105 @@
+#!/usr/bin/env node
+'use strict';
+
+/**
+ * Build real, fully localised static HTML for each supported language.
+ * Source of truth: index.html + assets/app.js + assets/translations.js.
+ * No network requests, secrets, analytics, framework or external dependencies.
+ */
+const fs=require('node:fs');
+const path=require('node:path');
+const vm=require('node:vm');
+
+const ROOT=path.resolve(__dirname,'..');
+const DIST=path.join(ROOT,'dist');
+const ORIGIN='https://www.snorkelingwatamu.com';
+const LANGUAGES=['it','en','de','fr'];
+const read=(name)=>fs.readFileSync(path.join(ROOT,name),'utf8');
+const template=read('index.html');
+const app=read('assets/app.js');
+const extrasSource=read('assets/translations.js');
+
+const baseMatch=app.match(/const tr=(\{[\s\S]*?\n \});/);
+if(!baseMatch)throw new Error('Cannot extract base translation dictionary from assets/app.js');
+const base=vm.runInNewContext('('+baseMatch[1]+')',{}, {timeout:2000});
+const context={window:{}};
+vm.runInNewContext(extrasSource,context,{timeout:2000});
+const extra=context.window.SW_TRANSLATIONS||{};
+
+const escapeHtml=(value)=>String(value)
+ .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+ .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const allowedKeys=[...new Set([...template.matchAll(/data-i18n(?:-placeholder|-alt|-aria-label)?="([^"]+)"/g)].map(m=>m[1]))];
+const alternateLinks=LANGUAGES.map(code=>
+ '  <link rel="alternate" hreflang="'+code+'" href="'+ORIGIN+'/'+code+'/">'
+).join('\n')+'\n  <link rel="alternate" hreflang="x-default" href="'+ORIGIN+'/">';
+const canonical=(code)=>ORIGIN+'/'+code+'/';
+
+function withSeo(document,code,dictionary){
+ const title=escapeHtml(dictionary.pageTitle);
+ const description=escapeHtml(dictionary.metaDescription);
+ document=document.replace(/<html lang="[^"]*">/,'<html lang="'+code+'">');
+ document=document.replace(/<title>[\s\S]*?<\/title>/,'<title>'+title+'</title>');
+ document=document.replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+description+'">');
+ const seo=['  <link rel="canonical" href="'+canonical(code)+'">',alternateLinks].join('\n');
+ return document.replace('</head>',seo+'\n</head>');
+}
+function localize(templateHtml,code,dictionary){
+ let html=withSeo(templateHtml,code,dictionary);
+ for(const key of allowedKeys){
+  if(typeof dictionary[key]!=='string'||!dictionary[key].trim())throw new Error('Missing translation '+code+':'+key);
+ }
+ let total=0;
+ // All data-i18n elements in the site's template contain text (some have <br>).
+ html=html.replace(/<([a-z][\w-]*)(\s[^>]*?\bdata-i18n="([^"]+)"[^>]*)>([\s\S]*?)<\/\1>/gi,
+  (all,tag,attributes,key,_inner)=>{
+    if(typeof dictionary[key]!=='string')throw new Error('Missing element translation '+code+':'+key);
+    total++;
+    const value=escapeHtml(dictionary[key]).replace(/\n/g,'<br>');
+    return '<'+tag+attributes+'>'+value+'</'+tag+'>';
+  });
+ const count=(templateHtml.match(/\bdata-i18n="/g)||[]).length;
+ if(total!==count)throw new Error('Untranslated HTML text nodes '+code+': '+total+'/'+count);
+ html=html.replace(/<([a-z][\w-]*)(\s[^>]*\bdata-i18n-(?:placeholder|alt|aria-label)="([^"]+)"[^>]*)>/gi,
+ (original,tag,attributes,key)=>{
+    const translated=escapeHtml(dictionary[key]);
+    const attr=attributes.includes('data-i18n-placeholder=')?'placeholder':
+      attributes.includes('data-i18n-alt=')?'alt':'aria-label';
+    const old=new RegExp('(\\b'+attr+'=")[^"]*(")');
+    if(!old.test(attributes))throw new Error('Missing attribute '+attr+' on '+tag);
+    return '<'+tag+attributes.replace(old,(_all,before,after)=>before+translated+after)+'>';
+ });
+ for(const buttonLang of LANGUAGES){
+   const idRegex=new RegExp('(<button\\b[^>]*\\bid="'+buttonLang+'"[^>]*>)','g');
+   html=html.replace(idRegex,tag=>{
+    tag=tag.replace(/\sclass="active"/,'');
+    if(buttonLang===code)tag=tag.replace('<button','<button class="active"');
+    return tag.replace(/aria-pressed="(?:true|false)"/,'aria-pressed="'+(buttonLang===code?'true':'false')+'"');
+   });
+ }
+ html=html.replace(/(\b(?:src|href)=")\.\/assets\//g,'$1/assets/');
+ return html;
+}
+function copyAssets(){
+ fs.cpSync(path.join(ROOT,'assets'),path.join(DIST,'assets'),{recursive:true});
+ fs.copyFileSync(path.join(ROOT,'robots.txt'),path.join(DIST,'robots.txt'));
+}
+function sitemap(){
+ const locations=LANGUAGES.map(lang=>'  <url><loc>'+canonical(lang)+'</loc></url>').join('\n');
+ return '<?xml version="1.0" encoding="UTF-8"?>\n'+
+   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+locations+'\n</urlset>\n';
+}
+fs.rmSync(DIST,{recursive:true,force:true});
+fs.mkdirSync(DIST,{recursive:true});
+copyAssets();
+for(const lang of LANGUAGES){
+ const dictionary={...(base[lang]||{}),...(extra[lang]||{})};
+ const output=path.join(DIST,lang,'index.html');
+ fs.mkdirSync(path.dirname(output),{recursive:true});
+ fs.writeFileSync(output,localize(template,lang,dictionary),'utf8');
+}
+const itDictionary={...(base.it||{}),...(extra.it||{})};
+// Root is a backwards-compatible multilingual entry point. Its canonical is /it/.
+fs.writeFileSync(path.join(DIST,'index.html'),withSeo(template,'it',itDictionary).replace(/(\b(?:src|href)=")\.\/assets\//g,'$1/assets/'),'utf8');
+fs.writeFileSync(path.join(DIST,'sitemap.xml'),sitemap(),'utf8');
+console.log('Built multilingual static site: '+LANGUAGES.join(', ')+'; noindex kept until launch.');
