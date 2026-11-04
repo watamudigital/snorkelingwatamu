@@ -1,6 +1,15 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "experiencesCarouselLabel": "Juma experience carousel",
+    "experiencePrev": "Previous experience",
+    "experienceNext": "Next experience",
+    "photoPrev": "Previous photo",
+    "photoNext": "Next photo",
+    "photo1": "Photo 1 of 3",
+    "photo2": "Photo 2 of 3",
+    "photo3": "Photo 3 of 3",
+    "carouselHint": "Swipe through experiences and browse the photos to discover more.",
     "heroSub": "Watamu’s ocean has a thousand shades. Discover them with Juma—from coral gardens to turquoise waters, at a pace that feels like yours.",
     "exIntro": "Not just another boat trip: three ways to discover Watamu with Juma, from snorkeling and glass-boat views to a tailored escape. Tell him what you imagine; the sea sets the pace.",
     "card1Text": "Discover the reef’s colours from the surface with Juma, taking time to admire marine life respectfully.",
@@ -69,6 +78,15 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "experiencesCarouselLabel": "Carousel delle esperienze con Juma",
+    "experiencePrev": "Esperienza precedente",
+    "experienceNext": "Esperienza successiva",
+    "photoPrev": "Foto precedente",
+    "photoNext": "Foto successiva",
+    "photo1": "Foto 1 di 3",
+    "photo2": "Foto 2 di 3",
+    "photo3": "Foto 3 di 3",
+    "carouselHint": "Scorri le esperienze e sfoglia le foto per scoprire di più.",
     "heroSub": "Il mare di Watamu ha mille sfumature. Scoprile con Juma: tra coralli, acque turchesi e momenti da vivere al tuo ritmo.",
     "exIntro": "Non una gita qualsiasi: tre modi di vivere Watamu con Juma, tra snorkeling, glass boat e momenti in mare su misura. Tu racconti i tuoi desideri, il mare detta il ritmo.",
     "card1Text": "Lasciati sorprendere dai colori del reef: con Juma osservi la vita marina dalla superficie, con rispetto e senza fretta.",
@@ -137,6 +155,15 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "experiencesCarouselLabel": "Karussell der Erlebnisse mit Juma",
+    "experiencePrev": "Vorheriges Erlebnis",
+    "experienceNext": "Nächstes Erlebnis",
+    "photoPrev": "Vorheriges Foto",
+    "photoNext": "Nächstes Foto",
+    "photo1": "Foto 1 von 3",
+    "photo2": "Foto 2 von 3",
+    "photo3": "Foto 3 von 3",
+    "carouselHint": "Wische durch die Erlebnisse und blättere durch die Fotos.",
     "jumaKicker": "Mehr als eine Bootsfahrt",
     "jumaHeading1": "Dein Meer,",
     "jumaHeading2": "mit Juma.",
@@ -269,6 +296,15 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "experiencesCarouselLabel": "Carrousel des expériences avec Juma",
+    "experiencePrev": "Expérience précédente",
+    "experienceNext": "Expérience suivante",
+    "photoPrev": "Photo précédente",
+    "photoNext": "Photo suivante",
+    "photo1": "Photo 1 sur 3",
+    "photo2": "Photo 2 sur 3",
+    "photo3": "Photo 3 sur 3",
+    "carouselHint": "Faites défiler les expériences et parcourez les photos pour en découvrir davantage.",
     "jumaKicker": "Bien plus qu'une excursion",
     "jumaHeading1": "Votre océan,",
     "jumaHeading2": "avec Juma.",
