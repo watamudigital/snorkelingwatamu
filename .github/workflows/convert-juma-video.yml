@@ -26,14 +26,26 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y -qq ffmpeg
           fi
-          # Source MOV stores sideways frames and a -90-degree display matrix.
-          # Reset the input rotation metadata, rotate the actual pixels once clockwise,
-          # then encode upright portrait frames with NO residual rotation matrix.
+          # The GitHub-uploaded MOV has a different pixel orientation from the
+          # original chat attachment. Inspect its actual frame dimensions first:
+          # portrait pixels must NOT be transposed, even if display metadata rotates them.
+          SOURCE="assets/videos/IMG_9153.mov"
+          ffprobe -v error -select_streams v:0 \
+            -show_entries stream=width,height:stream_side_data=rotation -of json "$SOURCE"
+          WIDTH=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$SOURCE")
+          HEIGHT=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$SOURCE")
+          if (( WIDTH > HEIGHT )); then
+            FILTER="transpose=clock,scale=720:-2"
+          else
+            FILTER="scale=720:-2"
+          fi
+          echo "Input dimensions: ${WIDTH}x${HEIGHT}; using filter: ${FILTER}"
+          # Discard rotation metadata; encode the physical pixels upright.
           ffmpeg -hide_banner -loglevel error -nostdin -y \
             -noautorotate -display_rotation:v:0 0 \
-            -i "assets/videos/IMG_9153.mov" \
+            -i "$SOURCE" \
             -map 0:v:0 -map '0:a:0?' \
-            -vf "transpose=clock,scale=720:-2" \
+            -vf "$FILTER" \
             -c:v libx264 -preset veryfast -crf 26 -pix_fmt yuv420p \
             -c:a aac -b:a 96k -movflags +faststart \
             "assets/videos/juma-ocean-upright.mp4"
