@@ -30,6 +30,20 @@ assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo 
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
 assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected three photos per experience');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
+const experienceOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
+assert(experienceOrder.join('|')==='Blue Safari|Deep-Sea Fishing|Watersports','Experience cards must be Blue Safari, fishing, Watersports');
+assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
+assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
+assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
+for(const key of ['altWaterSport1','altWaterSport2','altWaterSport3']){
+ assert(html.includes('data-i18n-alt="'+key+'"'),'Missing Watersports gallery photo '+key);
+}
+for(const code of languages){
+ const dict={...(base[code]||{}),...(extras[code]||{})};
+ for(const key of ['card3Tag','card3Title','card3Text','altWaterSport1','altWaterSport2','altWaterSport3','chooseWatersports']){
+  assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing Watersports translation '+key);
+ }
+}
 assert(!html.includes('Coral Garden Explorer'),'Removed snorkeling-only offer must not appear');
 assert(html.includes('data-exp="Deep-Sea Fishing"'),'Fishing card not selectable');
 assert(html.includes('value="Deep-Sea Fishing"'),'Fishing form choice missing');
