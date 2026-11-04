@@ -82,5 +82,6 @@ No GA4 or GTM installation on the site. GA4 should be configured as an **Analyti
 
 - Public click-to-call contact: `+254741457022`.
 - Direct chat link: `https://wa.me/254741457022` (no + in wa.me route) in the booking section and mobile CTA.
+- Second Swiss WhatsApp contact: `+41 77 512 92 41` (`https://wa.me/41775129241`) is offered alongside Juma in the booking section and footer, with labels in IT/EN/DE/FR. The prefilled enquiry form continues to target Juma.
 - The enquiry form generates a message in the selected language addressed to Juma, opening WhatsApp with the recipient preselected. The visitor must press **Send** in WhatsApp; no message is sent by the site automatically.
 - IT, EN, DE, FR copy is in `assets/translations.js`, and `scripts/check-seo.cjs` verifies the four static output pages. This is still a non-indexed concept: the site itself does not confirm bookings or take payments.
