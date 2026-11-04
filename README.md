@@ -5,14 +5,14 @@ Landing page **dimostrativa** mobile-first, in quattro lingue: italiano, inglese
 ## Stato
 
 - Solo demo: **non accetta prenotazioni né pagamenti**.
-- Nessun operatore è stato ancora confermato; tutte le escursioni e le durate sono idee da validare.
+- Juma è il contatto diretto per le proposte di escursione; itinerari, durata, servizi inclusi e disponibilità restano da concordare con lui. Il sito non costituisce conferma di un servizio acquistato.
 - Le foto Unsplash sono illustrative: **non sono dichiarate fotografie di Watamu**.
 - Niente analytics, cookie pubblicitari, storage o backend. Le informazioni del form restano nel browser e possono essere copiate o condivise tramite WhatsApp su iniziativa del visitatore.
 - Per sicurezza `index.html`, `robots.txt` e `vercel.json` prevedono `noindex` finché non avviene il lancio commerciale.
 
 ## Contenuto
 
-- `index.html` — markup semantico / contenuti
+- `index.html` — markup semantico / contenuti, inclusa la sezione dedicata a Juma e alla Subira
 - `assets/styles.css` — stile responsive
 - `assets/app.js` — localizzazione, selezione esperienze e form WhatsApp
 - `robots.txt` / `vercel.json` — configurazione SEO prototipo e header
@@ -38,7 +38,7 @@ python3 -m http.server 8000
 
 ## Checklist prima del lancio
 
-1. Identificare l'operatore reale e controllare autorizzazioni, assicurazione, eventuali licenze e partner locali.
+1. Verificare con Juma autorizzazioni, assicurazione, eventuali licenze e collaborazioni necessarie per le escursioni.
 2. Confermare i pacchetti, tempi di percorrenza, servizi inclusi, materiale, trasporto, tasse del parco, prezzi e politiche di cancellazione.
 3. Sostituire le foto illustrative con immagini proprie e liberatorie appropriate.
 4. Verificare il numero WhatsApp, poi valorizzare `WA_NUMBER` in `assets/app.js` con il numero internazionale, sole cifre.
@@ -46,7 +46,7 @@ python3 -m http.server 8000
 6. Verificare tariffe e regole ufficiali KWS: https://kws.go.ke/park/watamu-marine-national-park-reserve/
 7. Verificare DNS e HTTPS dei domini collegati e, **solo dopo la verifica commerciale**, rimuovere i blocchi `noindex` in tutti e tre i punti.
 
-Il sito è un concept indipendente creato per validare l'idea. Non rappresenta una società di tour già autorizzata.
+Il sito è un concept indipendente con Juma come contatto diretto delle esperienze; non rappresenta una conferma di abilitazioni, licenze o prenotazioni già effettuate.
 ## Lingue (IT / EN / DE / FR)
 
 - `assets/app.js` gestisce il selettore lingua, i testi del form e le richieste WhatsApp.
