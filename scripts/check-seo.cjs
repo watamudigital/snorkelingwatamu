@@ -27,6 +27,10 @@ for(const lang of langs){
  assert(src.includes('siteId: "c64f3c2a-13ae-4ec1-8362-8bc54a7538e4"'),p+' wrong ECM site ID');
  assert(src.includes('href="https://wa.me/254741457022"'),p+' missing direct WhatsApp CTA');
  assert(src.includes('href="tel:+254741457022"'),p+' missing click-to-call number');
+ assert(src.includes('href="https://wa.me/41775129241"'),p+' missing secondary WhatsApp CTA');
+ assert(src.includes('href="tel:+41775129241"'),p+' missing secondary click-to-call number');
+ const swissLabels={it:'Invia messaggio WhatsApp (+41)',en:'Send a WhatsApp message (+41)',de:'WhatsApp-Nachricht senden (+41)',fr:'Envoyer un message WhatsApp (+41)'};
+ assert(src.includes(swissLabels[lang]),p+' secondary WhatsApp button label untranslated');
  const labels={it:'Invia messaggio WhatsApp',en:'Send a WhatsApp message',de:'WhatsApp-Nachricht senden',fr:'Envoyer un message WhatsApp'};
  assert(src.includes(labels[lang]),p+' WhatsApp button label untranslated');
 }
