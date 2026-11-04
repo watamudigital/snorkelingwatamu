@@ -175,3 +175,10 @@
 @media(max-width:360px){
  .hero h1 [data-i18n="heroThree"]{font-size:clamp(26px,6.7vw,34px)}
 }
+
+/* Show the complete portrait Rocket photo in the Watersports gallery. */
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altWaterSport2"] {
+  object-fit: contain;
+  object-position: center;
+  background-color: #0b4b55;
+}
