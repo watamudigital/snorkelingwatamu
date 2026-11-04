@@ -3,7 +3,7 @@ window.SW_TRANSLATIONS = {
   "en": {
     "jumaVideoAria": "Video of the ocean experience with Juma",
     "card3Tag": "Adventure on the water",
-    "altWaterSport1": "Kitesurfing over turquoise water, illustrative photo not taken in Watamu",
+    "altWaterSport1": "Guests enjoying a yellow banana boat on the water in Watamu",
     "altWaterSport2": "People paddleboarding in turquoise water, illustrative photo not taken in Watamu",
     "altWaterSport3": "Kayakers on turquoise water, illustrative photo not taken in Watamu",
     "chooseWatersports": "Choose Watersports",
@@ -95,7 +95,7 @@ window.SW_TRANSLATIONS = {
   "it": {
     "jumaVideoAria": "Video dell'esperienza in mare con Juma",
     "card3Tag": "Sport e divertimento",
-    "altWaterSport1": "Kitesurf in acque turchesi, fotografia illustrativa non scattata a Watamu",
+    "altWaterSport1": "Ospiti su una banana boat gialla nelle acque di Watamu",
     "altWaterSport2": "Persone che praticano stand up paddle, fotografia illustrativa non scattata a Watamu",
     "altWaterSport3": "Escursione in kayak su acque turchesi, fotografia illustrativa non scattata a Watamu",
     "chooseWatersports": "Scegli Watersports",
@@ -186,7 +186,7 @@ window.SW_TRANSLATIONS = {
   },
   "de": {
     "jumaVideoAria": "Video vom Meereserlebnis mit Juma",
-    "altWaterSport1": "Kitesurfen auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
+    "altWaterSport1": "Gäste auf einem gelben Bananenboot vor Watamu",
     "altWaterSport2": "Menschen beim Stand-up-Paddling auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
     "altWaterSport3": "Kajakfahrer auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
     "chooseWatersports": "Watersports auswählen",
@@ -336,7 +336,7 @@ window.SW_TRANSLATIONS = {
   },
   "fr": {
     "jumaVideoAria": "Vidéo de l'expérience en mer avec Juma",
-    "altWaterSport1": "Kitesurf sur des eaux turquoise, photo illustrative non prise à Watamu",
+    "altWaterSport1": "Des passagers sur une bouée banane jaune dans les eaux de Watamu",
     "altWaterSport2": "Personnes pratiquant le stand-up paddle, photo illustrative non prise à Watamu",
     "altWaterSport3": "Kayakistes sur des eaux turquoise, photo illustrative non prise à Watamu",
     "chooseWatersports": "Choisir Watersports",
