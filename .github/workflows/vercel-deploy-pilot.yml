@@ -1,0 +1,77 @@
+name: Vercel CI deployment (pilot)
+
+# This workflow is staged in a PR. Do not merge until the production
+# environment, protected main branch and dedicated credentials are configured.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-ci-production
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Static checks
+        run: |
+          set -euo pipefail
+          python3 scripts/check_site.py
+          node --check assets/translations.js
+          node --check assets/app.js
+          node scripts/check-i18n.cjs
+          node scripts/build-locales.cjs
+          node scripts/check-seo.cjs
+          node --check assets/ecm-bootstrap.js
+          node scripts/check-ecm.cjs
+
+  deploy:
+    needs: verify
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    environment: production
+    env:
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      VERCEL_CLI_VERSION: ${{ vars.VERCEL_CLI_VERSION }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Validate deployment configuration
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "${VERCEL_TOKEN:-}" || { echo "::error::Missing VERCEL_TOKEN (production environment)"; exit 1; }
+          test -n "${VERCEL_ORG_ID:-}" || { echo "::error::Missing VERCEL_ORG_ID variable"; exit 1; }
+          test -n "${VERCEL_PROJECT_ID:-}" || { echo "::error::Missing VERCEL_PROJECT_ID variable"; exit 1; }
+          test -n "${VERCEL_CLI_VERSION:-}" || { echo "::error::Missing reviewed exact VERCEL_CLI_VERSION"; exit 1; }
+          test "${VERCEL_ORG_ID}" = "team_Ku2tGQAdOPd2AgeXaNGL14WL" || { echo "::error::Wrong Vercel team"; exit 1; }
+          test "${VERCEL_PROJECT_ID}" = "prj_haHa64D3od4f1mPbcKqgUptPYDdf" || { echo "::error::Wrong Vercel project"; exit 1; }
+      - name: Install pinned Vercel CLI
+        run: npm install --global "vercel@${VERCEL_CLI_VERSION:?Set VERCEL_CLI_VERSION}"
+      - name: Load project configuration
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --scope equipecreative
+      - name: Build production artifacts
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel build --prod
+      - name: Deploy reviewed main to production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          set -euo pipefail
+          url="$(vercel deploy --prebuilt --prod)"
+          echo "Production deployment: ${url}" >> "${GITHUB_STEP_SUMMARY}"
