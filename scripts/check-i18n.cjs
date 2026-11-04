@@ -30,6 +30,19 @@ assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo 
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
 assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected three photos per experience');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
+assert(!html.includes('Coral Garden Explorer'),'Removed snorkeling-only offer must not appear');
+assert(html.includes('data-exp="Deep-Sea Fishing"'),'Fishing card not selectable');
+assert(html.includes('value="Deep-Sea Fishing"'),'Fishing form choice missing');
+assert(app.includes("tripField.value!=='Deep-Sea Fishing'"),'Fishing form should not request swimming ability');
+for(const key of ['altFishing1','altFishing2','altFishing3']){
+ assert(html.includes('data-i18n-alt="'+key+'"'),'Missing fishing gallery image '+key);
+}
+for(const code of languages){
+ const dict={...(base[code]||{}),...(extras[code]||{})};
+ for(const key of ['card1Tag','card1Title','card1Text','card2Tag','card2Text','altFishing1','altFishing2','altFishing3','chooseFishing']){
+  assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing fishing translation '+key);
+ }
+}
 for(const code of languages){
  for(const key of ['experiencesCarouselLabel','experiencePrev','experienceNext','photoPrev','photoNext','photo1','photo2','photo3','carouselHint']){
   assert(typeof extras[code][key]==='string' && extras[code][key].trim(),code+': missing carousel translation '+key);
