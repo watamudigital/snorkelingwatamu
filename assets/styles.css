@@ -154,3 +154,24 @@
  outline:3px solid #c9f37b;
  outline-offset:-4px;
 }
+
+
+/* Keep the extended "above and below the water" headline readable on all screens. */
+.hero h1 [data-i18n="heroThree"]{
+ display:inline-block;
+ font-size:clamp(36px,6.3vw,94px);
+ line-height:1.12;
+ letter-spacing:-.055em;
+ max-width:100%;
+ overflow-wrap:normal;
+}
+@media(max-width:700px){
+ .hero h1 [data-i18n="heroThree"]{
+  font-size:clamp(29px,7vw,49px);
+  letter-spacing:-.06em;
+  line-height:1.15;
+ }
+}
+@media(max-width:360px){
+ .hero h1 [data-i18n="heroThree"]{font-size:clamp(26px,6.7vw,34px)}
+}
