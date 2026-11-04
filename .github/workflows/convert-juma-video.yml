@@ -26,19 +26,34 @@ jobs:
             sudo apt-get update -qq
             sudo apt-get install -y -qq ffmpeg
           fi
+          # Source MOV stores sideways frames and a -90-degree display matrix.
+          # Reset the input rotation metadata, rotate the actual pixels once clockwise,
+          # then encode upright portrait frames with NO residual rotation matrix.
           ffmpeg -hide_banner -loglevel error -nostdin -y \
+            -noautorotate -display_rotation:v:0 0 \
             -i "assets/videos/IMG_9153.mov" \
             -map 0:v:0 -map '0:a:0?' \
-            -vf "scale=1280:-2:force_original_aspect_ratio=decrease" \
+            -vf "transpose=clock,scale=720:-2" \
             -c:v libx264 -preset veryfast -crf 26 -pix_fmt yuv420p \
             -c:a aac -b:a 96k -movflags +faststart \
-            "assets/videos/juma-ocean-experience.mp4"
-          test -s "assets/videos/juma-ocean-experience.mp4"
+            "assets/videos/juma-ocean-upright.mp4"
+          test -s "assets/videos/juma-ocean-upright.mp4"
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json \
+            "assets/videos/juma-ocean-upright.mp4" > /tmp/juma-orientation.json
+          python3 - <<'PY'
+          import json
+          with open('/tmp/juma-orientation.json', encoding='utf-8') as f:
+              s = json.load(f)['streams'][0]
+          assert s['height'] > s['width'], f"Video must be portrait, got {s}"
+          rotations = [v['rotation'] for v in s.get('side_data_list', []) if 'rotation' in v]
+          assert not rotations or all(float(v) == 0 for v in rotations), f"Unexpected rotation metadata: {rotations}"
+          print(f"Verified upright video: {s['width']}x{s['height']}, rotation={rotations or 'none'}")
+          PY
       - name: Publish the MP4 in the website repository
         shell: bash
         run: |
           set -euo pipefail
-          git add -- "assets/videos/juma-ocean-experience.mp4"
+          git add -- "assets/videos/juma-ocean-upright.mp4"
           if git diff --cached --quiet; then
             echo "The MP4 is already up to date."
             exit 0
