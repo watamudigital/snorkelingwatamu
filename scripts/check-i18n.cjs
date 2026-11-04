@@ -27,4 +27,12 @@ for(const code of languages){
 assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scripts loaded in wrong order');
 assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
+assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
+assert((html.match(/class="photo-slide/g)||[]).length===9,'Expected three photos per experience');
+assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
+for(const code of languages){
+ for(const key of ['experiencesCarouselLabel','experiencePrev','experienceNext','photoPrev','photoNext','photo1','photo2','photo3','carouselHint']){
+  assert(typeof extras[code][key]==='string' && extras[code][key].trim(),code+': missing carousel translation '+key);
+ }
+}
 console.log('OK: IT / EN / DE / FR translations, form messages, accessibility labels, and gallery');
