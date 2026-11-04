@@ -1,3 +1,5 @@
+/* Localisation data for Snorkeling Watamu. No tracking or external requests. */
+window.SW_TRANSLATIONS = {
   "en": {
     "card3Title": "Your Blue Safari",
     "card2Title": "Blue Safari",
