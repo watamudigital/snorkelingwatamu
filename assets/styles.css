@@ -67,3 +67,36 @@
 .juma-story-copy .btn{margin-top:22px}
 @media(max-width:800px){.juma-story-grid{grid-template-columns:1fr;gap:34px}.juma-story-visual{height:auto;min-height:0;aspect-ratio:4/3}.juma-story-copy h2{font-size:clamp(42px,10vw,64px)}}
 @media(max-width:480px){.juma-story-visual{aspect-ratio:1.1}.juma-story-copy .btn{width:100%;text-align:center}}
+
+
+/* Scrollable experience carousel, with independent mini galleries in every card. */
+.experience-carousel-bar{display:flex;justify-content:flex-end;align-items:center;margin:-14px 0 20px}
+.experience-carousel-buttons{display:flex;gap:10px}
+.experience-carousel-arrow{width:46px;height:46px;border-radius:50%;border:1px solid #bfd0ce;color:var(--ink);background:#fff;font-size:21px;display:grid;place-items:center;transition:background .2s,transform .2s}
+.experience-carousel-arrow:not(:disabled):hover{background:var(--mint);transform:translateY(-2px)}
+.experience-carousel-arrow:disabled{opacity:.35;cursor:default}
+.experience-carousel{display:flex;gap:21px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:0;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:8px}
+.experience-carousel::-webkit-scrollbar{display:none}
+.experience-carousel .experience{flex:0 0 calc((100% - 21px) / 2.16);min-width:0;scroll-snap-align:start;display:flex;flex-direction:column}
+.experience-carousel .experience-body{display:flex;flex-direction:column;flex:1}
+.experience-carousel .experience p{min-height:0}
+.experience-carousel .card-foot{margin-top:auto}
+.experience-carousel-hint{font-size:12px;line-height:1.5;color:#657d7f;margin:12px 0 0}
+.photo-gallery{isolation:isolate}
+.photo-slides{position:absolute;inset:0;overflow:hidden}
+.photo-gallery .photo-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;visibility:hidden;transform:none;transition:opacity .32s ease,visibility .32s ease}
+.photo-gallery .photo-slide.is-active{opacity:1;visibility:visible}
+.experience:hover .photo-gallery .photo-slide{transform:none}
+.experience .photo-gallery .pill{z-index:2;max-width:calc(100% - 52px)}
+.photo-arrow{z-index:3;position:absolute;top:50%;transform:translateY(-50%);width:37px;height:37px;border:1px solid rgba(255,255,255,.7);background:rgba(7,31,43,.58);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:30px;line-height:1;padding:0;opacity:.85;transition:background .2s}
+.photo-arrow:hover{background:#073b44;opacity:1}
+.photo-prev{left:13px}
+.photo-next{right:13px}
+.photo-dots{z-index:3;position:absolute;left:50%;bottom:13px;transform:translateX(-50%);display:flex;gap:9px;align-items:center;justify-content:center;background:rgba(7,31,43,.6);border-radius:99px;padding:9px 12px}
+.photo-dot{width:9px;height:9px;min-width:9px;border-radius:50%;border:1px solid #fff;background:rgba(255,255,255,.35);padding:0;transition:background .2s,transform .2s}
+.photo-dot.is-active{background:var(--mint);border-color:var(--mint);transform:scale(1.24)}
+.experience-carousel button:focus-visible,.experience-carousel-arrow:focus-visible,.experience-carousel:focus-visible{outline:3px solid #08796f;outline-offset:3px}
+@media(max-width:900px){.experience-carousel .experience{flex-basis:68%}}
+@media(max-width:700px){.experience-carousel .experience{flex-basis:88%}.experience-carousel{gap:15px}.experience-carousel-bar{margin:0 0 14px}.experience-carousel .experience-photo{height:280px}}
+@media(max-width:420px){.experience-carousel .experience{flex-basis:94%}.photo-arrow{width:34px;height:34px}.experience-carousel .experience-photo{height:240px}}
+@media(prefers-reduced-motion:reduce){.photo-gallery .photo-slide,.photo-arrow,.photo-dot{transition:none}}
