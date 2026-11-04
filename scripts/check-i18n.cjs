@@ -30,6 +30,10 @@ assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo 
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
 assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected three photos per experience');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
+assert(html.includes('data-juma-video'),'Juma story video player missing');
+assert(html.includes('data-video-src="/assets/videos/juma-ocean-experience.mp4"'),'Juma video target missing');
+assert(html.includes('class="juma-story-fallback"'),'Missing image fallback while video is unavailable');
+assert(html.includes('data-i18n-aria-label="jumaVideoAria"'),'Missing translated video accessibility label');
 const experienceOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
 assert(experienceOrder.join('|')==='Blue Safari|Deep-Sea Fishing|Watersports','Experience cards must be Blue Safari, fishing, Watersports');
 assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
