@@ -15,6 +15,7 @@ Landing page **dimostrativa** mobile-first, in quattro lingue: italiano, inglese
 - `index.html` — markup semantico / contenuti, inclusa la sezione dedicata a Juma e alla Subira
 - `assets/styles.css` — stile responsive
 - `assets/app.js` — localizzazione, selezione esperienze e form WhatsApp
+- `assets/experience-carousel.js` — carosello orizzontale delle tre esperienze con tre foto per card, frecce e swipe da mobile.
 - `robots.txt` / `vercel.json` — configurazione SEO prototipo e header
 - `scripts/check_site.py` — controlli statici CI
 - `.github/workflows/checks.yml` — verifica ad ogni push e PR
