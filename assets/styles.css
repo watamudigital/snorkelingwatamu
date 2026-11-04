@@ -100,3 +100,38 @@
 @media(max-width:700px){.experience-carousel .experience{flex-basis:88%}.experience-carousel{gap:15px}.experience-carousel-bar{margin:0 0 14px}.experience-carousel .experience-photo{height:280px}}
 @media(max-width:420px){.experience-carousel .experience{flex-basis:94%}.photo-arrow{width:34px;height:34px}.experience-carousel .experience-photo{height:240px}}
 @media(prefers-reduced-motion:reduce){.photo-gallery .photo-slide,.photo-arrow,.photo-dot{transition:none}}
+
+
+/* All three experiences visible at once on desktop, without horizontal scrolling.
+   On smaller screens show two or one full cards rather than clipping any offer. */
+.experience-carousel{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:clamp(12px,1.8vw,23px);
+ overflow:visible;
+ scroll-snap-type:none;
+ scroll-padding-inline:0;
+ overscroll-behavior-x:auto;
+ padding-bottom:0;
+}
+.experience-carousel .experience{
+ width:100%;
+ min-width:0;
+ flex:none;
+ scroll-snap-align:none;
+}
+.experience-carousel .experience-photo{height:clamp(185px,21vw,285px)}
+.experience-carousel .experience-body{padding:clamp(17px,1.9vw,25px)}
+.experience-carousel .experience h3{font-size:clamp(20px,2vw,25px);overflow-wrap:anywhere}
+.experience-carousel .experience p{min-height:0}
+.experience-carousel-hint{margin-top:16px}
+@media(max-width:850px){
+ .experience-carousel{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .experience-carousel .experience-photo{height:clamp(200px,31vw,310px)}
+}
+@media(max-width:590px){
+ .experience-carousel{grid-template-columns:1fr;gap:18px}
+ .experience-carousel .experience-photo{height:clamp(225px,61vw,340px)}
+ .experience-carousel .experience h3{font-size:24px}
+ .experience-carousel .experience p{font-size:14px}
+}
