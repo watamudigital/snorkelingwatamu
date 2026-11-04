@@ -23,6 +23,13 @@ for(const lang of langs){
  assert(src.includes('data-i18n="faq1Q"'),p+' FAQ missing');
  assert(src.includes('id="meet-juma"'),p+' Juma story section missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
+ const fishingTitles={it:'Pesca d&#39;altura',en:'Deep-Sea Fishing',de:'Hochseefischen',fr:'Pêche au large'};
+ const snorkelingTags={it:'Snorkeling incluso',en:'Snorkeling included',de:'Schnorcheln inklusive',fr:'Snorkeling inclus'};
+ assert(src.includes(fishingTitles[lang]),p+' missing localized deep-sea fishing title');
+ assert(src.includes(snorkelingTags[lang]),p+' snorkeling must be included in glass-boat tour');
+ assert(!src.includes('Coral Garden Explorer'),p+' old standalone snorkeling activity still visible');
+ assert(src.includes('value="Deep-Sea Fishing"'),p+' missing fishing option in enquiry form');
+ assert(src.includes('src="https://images.unsplash.com/photo-1707314176599-a6ef9ef7f731'),p+' missing fishing illustration');
  assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===9,p+' missing three images for every experience');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
