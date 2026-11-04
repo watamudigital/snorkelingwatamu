@@ -23,6 +23,14 @@ for(const lang of langs){
  assert(src.includes('data-i18n="faq1Q"'),p+' FAQ missing');
  assert(src.includes('id="meet-juma"'),p+' Juma story section missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
+ const cardKeys=['data-exp="Blue Safari"','data-exp="Deep-Sea Fishing"','data-exp="Watersports"'];
+ const cardPositions=cardKeys.map(key=>src.indexOf(key));
+ assert(cardPositions.every((pos,i)=>pos>=0&&(i===0||pos>cardPositions[i-1])),p+' wrong experience order');
+ assert(src.includes('value="Watersports"'),p+' Watersports enquiry option missing');
+ assert(src.includes('src="https://images.unsplash.com/photo-1647967076859-d37d0befead3'),p+' Watersports photo missing');
+ assert(!src.includes('Your Blue Safari'),p+' old private safari offer remains');
+ const sportTitles={it:'Watersports',en:'Watersports',de:'Watersports',fr:'Watersports'};
+ assert(src.includes(sportTitles[lang]),p+' missing translated Watersports title');
  const fishingTitles={it:'Pesca d&#39;altura',en:'Deep-Sea Fishing',de:'Hochseefischen',fr:'Pêche au large'};
  const snorkelingTags={it:'Snorkeling incluso',en:'Snorkeling included',de:'Schnorcheln inklusive',fr:'Snorkeling inclus'};
  assert(src.includes(fishingTitles[lang]),p+' missing localized deep-sea fishing title');
