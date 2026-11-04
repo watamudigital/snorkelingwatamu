@@ -1,0 +1,7 @@
+# Watamu Digital — protected areas. Enforcement requires main branch protection.
+# One trusted maintainer must review changes to release plumbing.
+/.github/ @phate6872
+/vercel.json @phate6872
+/robots.txt @phate6872
+/scripts/ @phate6872
+/assets/ecm-bootstrap.js @phate6872
