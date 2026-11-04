@@ -21,6 +21,10 @@ for(const lang of langs){
  assert(!src.includes('href="./assets/'),p+' relative assets broken');
  assert(src.includes('src="/assets/images/glass-boat-watamu-subira-sandbar-tour.jpg"'),p+' glass-boat image missing');
  assert(src.includes('data-i18n="faq1Q"'),p+' FAQ missing');
+ assert(src.includes('id="meet-juma"'),p+' Juma story section missing');
+ const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
+ assert(src.includes(jumaHead[lang]),p+' missing translated Juma headline');
+ assert(!src.includes('opérateur local') && !src.includes('operatore locale') && !src.includes('lokalen Anbieter') && !src.includes('local operator'),p+' obsolete operator phrasing');
  assert(src.includes('name="robots" content="noindex,nofollow,noarchive"'),p+' premature indexing');
  assert(!src.includes('src="https://www.googletagmanager.com/'),p+' GA4 must be configured only after ECM');
  assert(src.includes('src="/assets/ecm-bootstrap.js"'),p+' missing ECM bootstrap');
