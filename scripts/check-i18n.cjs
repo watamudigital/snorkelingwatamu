@@ -28,7 +28,7 @@ assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scr
 assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
-assert((html.match(/class="photo-slide/g)||[]).length===9,'Expected three photos per experience');
+assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected three photos per experience');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
 for(const code of languages){
  for(const key of ['experiencesCarouselLabel','experiencePrev','experienceNext','photoPrev','photoNext','photo1','photo2','photo3','carouselHint']){
