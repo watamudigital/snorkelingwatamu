@@ -28,13 +28,13 @@ python3 -m http.server 8000
 
 ## Deployment GitHub → Vercel
 
-- Repository: `Equipe-Creative-Agency/snorkelingwatamu` (privata, branch `main`).
+- Repository: `watamudigital/snorkelingwatamu` (privata, branch `main`).
 - Progetto Vercel collegato: **snorkelingwatamu**, team **Equipe Creative Agency**.
 - **Demo online:** https://snorkelingwatamu.vercel.app/
 - Framework: `Other` / static HTML; Root Directory: `/`; nessuna installazione o build custom.
 - Push su `main` → deployment del sito demo; PR / altri branch → preview.
 - La demo rimane `noindex` finché l'operatore, le condizioni e il dominio non sono confermati.
-- Non associare il dominio `snorkelingwatamu.com` prima di avere registrazione, operatore e termini verificati.
+- I domini `snorkelingwatamu.com` e `www.snorkelingwatamu.com` sono associati al progetto Vercel. Il sito resta una demo protetta da `noindex` fino alla validazione commerciale.
 
 ## Checklist prima del lancio
 
@@ -44,7 +44,7 @@ python3 -m http.server 8000
 4. Verificare il numero WhatsApp, poi valorizzare `WA_NUMBER` in `assets/app.js` con il numero internazionale, sole cifre.
 5. Pubblicare privacy policy, contatti, condizioni di vendita e dati identificativi dell'operatore.
 6. Verificare tariffe e regole ufficiali KWS: https://kws.go.ke/park/watamu-marine-national-park-reserve/
-7. Configurare il dominio definitivo e, **solo dopo la verifica**, rimuovere i blocchi `noindex` in tutti e tre i punti.
+7. Verificare DNS e HTTPS dei domini collegati e, **solo dopo la verifica commerciale**, rimuovere i blocchi `noindex` in tutti e tre i punti.
 
 Il sito è un concept indipendente creato per validare l'idea. Non rappresenta una società di tour già autorizzata.
 ## Lingue (IT / EN / DE / FR)
