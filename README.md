@@ -15,9 +15,9 @@ Landing page **dimostrativa** mobile-first, in quattro lingue: italiano, inglese
 - `index.html` — markup semantico / contenuti, inclusa la sezione dedicata a Juma e alla Subira
 - `assets/styles.css` — stile responsive
 - `assets/app.js` — localizzazione, selezione esperienze e form WhatsApp
-- `assets/experience-carousel.js` — carosello orizzontale delle tre esperienze con tre foto per card, frecce e swipe da mobile.
-- Offerte nel carosello: **Pesca d'altura** (separata), **Ocean & Glass-Boat** (snorkeling incluso quando il mare lo permette) e **Your Private Blue**. La vecchia offerta standalone Coral Garden Explorer è stata ritirata.
-- La selezione Pesca d'altura nel modulo WhatsApp non richiede il livello di nuoto. Attrezzatura, durata, tariffe, disponibilità e norme sulla pesca sono da verificare con Juma.
+- `assets/experience-carousel.js` — gallerie fotografiche indipendenti: tre foto per ogni esperienza, con frecce e indicatori.
+- Ordine delle offerte: **Blue Safari** (escursione glass boat con snorkeling incluso, mare permettendo), **Your Blue Safari** (esperienza privata), **Pesca d'altura**. La vecchia offerta standalone Coral Garden Explorer è stata ritirata.
+- Le tre schede si vedono insieme su desktop (griglia tre colonne), passano a due colonne su tablet e a una su smartphone: nessuna scheda viene nascosta orizzontalmente. La selezione Pesca d'altura nel modulo WhatsApp non richiede il livello di nuoto. Attrezzatura, durata, tariffe, disponibilità e norme sulla pesca sono da verificare con Juma.
 - Le tre foto della scheda Pesca d'altura sono **illustrative** (non fotografie di Juma o di Watamu): [Aristos Aristidou](https://unsplash.com/photos/two-fishing-rods-on-a-boat-in-the-ocean-C5ZjqNY-Y6g), [Ben Koorengevel](https://unsplash.com/photos/fishing-rod-over-the-blue-ocean-water-gB9IR96PEbU), [krzhck](https://unsplash.com/photos/a-close-up-of-a-fishing-rod-with-a-boat-in-the-background-AnYtbq5tTgo) — Unsplash License. Sostituire con immagini autentiche autorizzate quando disponibili.
 - `robots.txt` / `vercel.json` — configurazione SEO prototipo e header
 - `scripts/check_site.py` — controlli statici CI
