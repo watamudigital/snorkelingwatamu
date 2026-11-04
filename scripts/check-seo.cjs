@@ -23,7 +23,7 @@ for(const lang of langs){
  assert(src.includes('data-i18n="faq1Q"'),p+' FAQ missing');
  assert(src.includes('id="meet-juma"'),p+' Juma story section missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
- assert((src.match(/class="photo-slide/g)||[]).length===9,p+' missing three images for every experience');
+ assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===9,p+' missing three images for every experience');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
  const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
