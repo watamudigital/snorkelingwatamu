@@ -5,7 +5,7 @@ const assert=require('node:assert/strict');
 const langs=['it','en','de','fr'];
 const root='https://www.snorkelingwatamu.com';
 const expected={
- it:'Un mondo',en:'Another',de:'Eine Welt',fr:'Un monde'
+ it:'Un mondo',en:'A world',de:'Eine Welt',fr:'Un monde'
 };
 for(const lang of langs){
  const p='dist/'+lang+'/index.html';
@@ -30,7 +30,8 @@ for(const lang of langs){
  const cardPositions=cardKeys.map(key=>src.indexOf(key));
  assert(cardPositions.every((pos,i)=>pos>=0&&(i===0||pos>cardPositions[i-1])),p+' wrong experience order');
  assert(src.includes('value="Watersports"'),p+' Watersports enquiry option missing');
- assert(src.includes('src="https://images.unsplash.com/photo-1647967076859-d37d0befead3'),p+' Watersports photo missing');
+ assert(src.includes('src="/assets/images/IMG_0034.jpeg"'),p+' first Watersports photo missing');
+ assert(src.includes('src="/assets/Vier Fahrer auf dem gelben Rocket.png"'),p+' second Watersports Rocket photo missing');
  assert(!src.includes('Your Blue Safari'),p+' old private safari offer remains');
  const sportTitles={it:'Watersports',en:'Watersports',de:'Watersports',fr:'Watersports'};
  assert(src.includes(sportTitles[lang]),p+' missing translated Watersports title');
