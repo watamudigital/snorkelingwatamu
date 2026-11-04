@@ -22,6 +22,9 @@ for(const lang of langs){
  assert(src.includes('src="/assets/images/glass-boat-watamu-subira-sandbar-tour.jpg"'),p+' glass-boat image missing');
  assert(src.includes('data-i18n="faq1Q"'),p+' FAQ missing');
  assert(src.includes('id="meet-juma"'),p+' Juma story section missing');
+ assert(src.includes('data-video-src="/assets/videos/juma-ocean-experience.mp4"'),p+' Juma story video configuration missing');
+ assert(src.includes('src="/assets/juma-video.js"'),p+' Juma video bootstrap missing');
+ assert(src.includes('class="juma-story-fallback"'),p+' Juma video image fallback missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
  const cardKeys=['data-exp="Blue Safari"','data-exp="Deep-Sea Fishing"','data-exp="Watersports"'];
  const cardPositions=cardKeys.map(key=>src.indexOf(key));
