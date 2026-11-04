@@ -55,7 +55,7 @@
  const initialLang=pathLanguage||(supported.includes(queryLanguage)?queryLanguage:(supported.includes(browserLanguage)?browserLanguage:'it'));
  document.getElementById('tripDate').min=new Date().toISOString().slice(0,10);
  document.querySelectorAll('[data-exp]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('trip').value=btn.dataset.exp;document.getElementById('booking').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('trip').focus({preventScroll:true}),450)}));
- const WA_NUMBER=''; // Insert real guide/agency WhatsApp after permission and verification.
+ const WA_NUMBER='254741457022'; // Provided contact for Juma, without + as required by wa.me.
 
  function makeText(){
   const t=tr[lang];
@@ -77,7 +77,7 @@
  document.getElementById('requestForm').addEventListener('submit',e=>{
   e.preventDefault();
   if(!e.target.reportValidity())return;
-  const url='https://wa.me/'+(WA_NUMBER||'')+'?text='+encodeURIComponent(makeText());
+  const url='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(makeText());
   window.open(url,'_blank','noopener,noreferrer');
   document.getElementById('status').textContent=tr[lang].statusSent;
  });

@@ -25,6 +25,10 @@ for(const lang of langs){
  assert(!src.includes('src="https://www.googletagmanager.com/'),p+' GA4 must be configured only after ECM');
  assert(src.includes('src="/assets/ecm-bootstrap.js"'),p+' missing ECM bootstrap');
  assert(src.includes('siteId: "c64f3c2a-13ae-4ec1-8362-8bc54a7538e4"'),p+' wrong ECM site ID');
+ assert(src.includes('href="https://wa.me/254741457022"'),p+' missing direct WhatsApp CTA');
+ assert(src.includes('href="tel:+254741457022"'),p+' missing click-to-call number');
+ const labels={it:'Invia messaggio WhatsApp',en:'Send a WhatsApp message',de:'WhatsApp-Nachricht senden',fr:'Envoyer un message WhatsApp'};
+ assert(src.includes(labels[lang]),p+' WhatsApp button label untranslated');
 }
 const template=fs.readFileSync('dist/index.html','utf8');
 assert(template.includes('rel="canonical" href="'+root+'/it/"'), 'root canonical missing');

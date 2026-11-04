@@ -77,3 +77,10 @@ Il sito è un concept indipendente creato per validare l'idea. Non rappresenta u
 ECM site: `c64f3c2a-13ae-4ec1-8362-8bc54a7538e4` (tenant Equipe). Every language loads synchronous Google Consent Mode v2 defaults with `analytics_storage=denied` and other non-essential signals denied. `assets/ecm-bootstrap.js` queries the official ECM public configuration and loads `https://ecm.plus/ecm.js` only once **after a policy has been published**. If policy is draft, absent, or unreachable, no consent banner or analytics script is injected. Publishing the ECM policy activates the runtime on the next page load; no new website deployment is needed.
 
 No GA4 or GTM installation on the site. GA4 should be configured as an **Analytics** policy script within ECM, with consent acceptance/rejection/revocation tested before production use. Validation: `node scripts/check-ecm.cjs`.
+
+## Juma WhatsApp contact
+
+- Public click-to-call contact: `+254741457022`.
+- Direct chat link: `https://wa.me/254741457022` (no + in wa.me route) in the booking section and mobile CTA.
+- The enquiry form generates a message in the selected language addressed to Juma, opening WhatsApp with the recipient preselected. The visitor must press **Send** in WhatsApp; no message is sent by the site automatically.
+- IT, EN, DE, FR copy is in `assets/translations.js`, and `scripts/check-seo.cjs` verifies the four static output pages. This is still a non-indexed concept: the site itself does not confirm bookings or take payments.

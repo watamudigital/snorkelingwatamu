@@ -34,7 +34,9 @@ assert "form" in p.tags
 assert "noindex,nofollow,noarchive" in html
 assert "Disallow: /" in (ROOT / "robots.txt").read_text()
 assert any(h.get("headers") for h in conf["headers"])
-assert "WA_NUMBER=''" in js
+assert "WA_NUMBER='254741457022'" in js
+assert "https://wa.me/254741457022" in html
+assert "tel:+254741457022" in html
 assert "requestForm" in p.ids
 assert "addEventListener" in js
 assert css.strip()
