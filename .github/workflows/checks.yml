@@ -25,6 +25,7 @@ jobs:
           node --check assets/translations.js
           node --check assets/app.js
           node --check assets/experience-carousel.js
+          node --check assets/juma-video.js
           node scripts/check-i18n.cjs
       - name: Build and verify localized pages
         run: |
