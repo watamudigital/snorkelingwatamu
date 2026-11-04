@@ -1,6 +1,7 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "jumaVideoAria": "Video of the ocean experience with Juma",
     "card3Tag": "Adventure on the water",
     "altWaterSport1": "Kitesurfing over turquoise water, illustrative photo not taken in Watamu",
     "altWaterSport2": "People paddleboarding in turquoise water, illustrative photo not taken in Watamu",
@@ -92,6 +93,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "jumaVideoAria": "Video dell'esperienza in mare con Juma",
     "card3Tag": "Sport e divertimento",
     "altWaterSport1": "Kitesurf in acque turchesi, fotografia illustrativa non scattata a Watamu",
     "altWaterSport2": "Persone che praticano stand up paddle, fotografia illustrativa non scattata a Watamu",
@@ -183,6 +185,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "jumaVideoAria": "Video vom Meereserlebnis mit Juma",
     "altWaterSport1": "Kitesurfen auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
     "altWaterSport2": "Menschen beim Stand-up-Paddling auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
     "altWaterSport3": "Kajakfahrer auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
@@ -332,6 +335,7 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "jumaVideoAria": "Vidéo de l'expérience en mer avec Juma",
     "altWaterSport1": "Kitesurf sur des eaux turquoise, photo illustrative non prise à Watamu",
     "altWaterSport2": "Personnes pratiquant le stand-up paddle, photo illustrative non prise à Watamu",
     "altWaterSport3": "Kayakistes sur des eaux turquoise, photo illustrative non prise à Watamu",
