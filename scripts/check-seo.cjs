@@ -43,21 +43,24 @@ for(const lang of langs){
  assert(src.includes('value="Deep-Sea Fishing"'),p+' missing fishing option in enquiry form');
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
  assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
- assert((src.match(/src="\/assets\/images\/IMG_0053\.jpeg"/g)||[]).length>=2,p+' newest photo missing from Blue Safari');
+ assert(src.includes('src="/assets/images/IMG_0065.jpeg"')&&src.includes('src="/assets/images/IMG_0066.jpeg"'),p+' missing snorkeling photos in Blue Safari');
  for(const name of ['blue-safari-newest.mp4','blue-safari-second-newest.mp4']){
   assert(src.includes('src="/assets/videos/'+name+'"'),p+' missing Blue Safari MP4 '+name);
  }
  const blueCard=[...src.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Blue Safari"'));
  assert(blueCard,p+' Blue Safari card not found');
- assert((blueCard.match(/<img class="photo-slide(?: |")/g)||[]).length===4,p+' expected four Blue Safari photos');
+ assert((blueCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' expected three Blue Safari photos');
  assert((blueCard.match(/<video class="photo-slide /g)||[]).length===2,p+' expected two Blue Safari videos');
+ assert((blueCard.match(/data-photo-index=/g)||[]).length===5,p+' expected five Blue Safari navigation dots');
+ assert(!blueCard.includes('IMG_0053.jpeg')&&!blueCard.includes('fishing-portrait.mp4'),p+' fishing media must not appear in Blue Safari');
+ assert(!blueCard.includes('glass-boat-watamu-subira-sandbar-tour.jpg')&&!blueCard.includes('glass-boat-subira-snorkeling-watamu-passengers.jpg'),p+' extra Subira photos must not appear in Blue Safari');
  assert(!src.includes('photo-1771056511594') && !src.includes('photo-1636612287192'),p+' illustrative fishing photos must be removed');
  assert(src.includes('src="/assets/videos/fishing-portrait.mp4"'),p+' fishing gallery MP4 missing');
  const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
  assert((src.match(/<video class="photo-slide /g)||[]).length===3,p+' expected one fishing and two Blue Safari video slides');
- assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===9,p+' expected four Blue Safari, two fishing and three Watersports photos');
+ assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===8,p+' expected three Blue Safari, two fishing and three Watersports photos');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
  const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
