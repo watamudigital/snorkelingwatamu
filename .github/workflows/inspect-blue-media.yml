@@ -34,7 +34,14 @@ jobs:
             file="${inputs[$i]}"
             duration="$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")"
             echo "VIDINFO ${i}: ${file}; duration ${duration}"
-            for sec in 1 4; do
+            case "$i" in
+              0) seconds='4 20 40 60 80' ;;
+              1) seconds='4 10 17' ;;
+              2) seconds='4 15 26' ;;
+              3) seconds='4 9 12' ;;
+              4) seconds='4 15 22' ;;
+            esac
+            for sec in $seconds; do
               ffmpeg -hide_banner -loglevel error -nostdin -y -ss "$sec" -i "$file" -frames:v 1 -vf 'scale=260:260:force_original_aspect_ratio=decrease' -q:v 20 "/tmp/preview-${i}-${sec}.jpg"
               echo "BEGIN_THUMB_${i}_${sec}"
               base64 -w0 "/tmp/preview-${i}-${sec}.jpg"
