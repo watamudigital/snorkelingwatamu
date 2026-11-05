@@ -44,24 +44,26 @@ for(const lang of langs){
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
  assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
  assert(src.includes('src="/assets/images/IMG_0065.jpeg"')&&src.includes('src="/assets/images/IMG_0066.jpeg"'),p+' missing snorkeling photos in Blue Safari');
- for(const name of ['blue-safari-newest.mp4','blue-safari-second-newest.mp4']){
+ for(const name of ['blue-safari-newest.mp4','blue-safari-second-newest.mp4','blue-safari-dolphins.mp4']){
   assert(src.includes('src="/assets/videos/'+name+'"'),p+' missing Blue Safari MP4 '+name);
  }
  const blueCard=[...src.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Blue Safari"'));
  assert(blueCard,p+' Blue Safari card not found');
  assert((blueCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' expected three Blue Safari photos');
- assert((blueCard.match(/<video class="photo-slide /g)||[]).length===2,p+' expected two Blue Safari videos');
- assert((blueCard.match(/data-photo-index=/g)||[]).length===5,p+' expected five Blue Safari navigation dots');
+ assert((blueCard.match(/<video class="photo-slide /g)||[]).length===3,p+' expected three Blue Safari videos');
+ assert((blueCard.match(/data-photo-index=/g)||[]).length===6,p+' expected six Blue Safari navigation dots');
  const orderedBlueMedia=[...blueCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
  assert(orderedBlueMedia.join('|')===[
   '/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
   '/assets/images/IMG_0066.jpeg',
   '/assets/images/IMG_0065.jpeg',
   '/assets/videos/blue-safari-newest.mp4',
-  '/assets/videos/blue-safari-second-newest.mp4'
- ].join('|'),p+' Blue Safari slide order should be Subira, group, snorkeling, food and boats videos');
+  '/assets/videos/blue-safari-second-newest.mp4',
+  '/assets/videos/blue-safari-dolphins.mp4'
+ ].join('|'),p+' Blue Safari slide order should be Subira, group, snorkeling, food, boats and dolphins videos');
  assert(blueCard.includes('poster="/assets/images/blue-safari-food-video-poster.jpg"'),p+' food video should have its own video-frame preview');
  assert(blueCard.includes('poster="/assets/images/blue-safari-snorkeling-video-poster.jpg"'),p+' snorkeling video should have its own video-frame preview');
+ assert(blueCard.includes('poster="/assets/images/blue-safari-dolphins-video-poster.jpg"'),p+' dolphin video should have its own video-frame preview');
  assert(!blueCard.includes('IMG_0053.jpeg')&&!blueCard.includes('fishing-portrait.mp4'),p+' fishing media must not appear in Blue Safari');
  assert(!blueCard.includes('glass-boat-watamu-subira-sandbar-tour.jpg')&&!blueCard.includes('glass-boat-subira-snorkeling-watamu-passengers.jpg'),p+' extra Subira photos must not appear in Blue Safari');
  assert(!src.includes('photo-1771056511594') && !src.includes('photo-1636612287192'),p+' illustrative fishing photos must be removed');
@@ -69,7 +71,7 @@ for(const lang of langs){
  const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
- assert((src.match(/<video class="photo-slide /g)||[]).length===3,p+' expected one fishing and two Blue Safari video slides');
+ assert((src.match(/<video class="photo-slide /g)||[]).length===4,p+' expected one fishing and three Blue Safari video slides');
  assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===8,p+' expected three Blue Safari, two fishing and three Watersports photos');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
