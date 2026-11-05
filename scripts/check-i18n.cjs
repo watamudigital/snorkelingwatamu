@@ -29,7 +29,7 @@ assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before lau
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
 assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===8,'Expected three Blue Safari photos, two fishing photos and three Watersports photos');
-assert((html.match(/<video class="photo-slide /g)||[]).length===4,'Expected three Blue Safari videos and one fishing video');
+assert((html.match(/<video class="photo-slide /g)||[]).length===5,'Expected three Blue Safari, one fishing and one Watersports video');
 assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
 assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
@@ -73,12 +73,20 @@ assert(experienceOrder.join('|')==='Blue Safari|Deep-Sea Fishing|Watersports','E
 assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
 assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
 assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
+const watersportsCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
+assert(watersportsCard,'Watersports card missing');
+assert((watersportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Watersports gallery needs three photos');
+assert((watersportsCard.match(/<video class="photo-slide /g)||[]).length===1,'Watersports gallery needs one video');
+assert((watersportsCard.match(/data-photo-index=/g)||[]).length===4,'Watersports gallery needs four navigation dots');
+assert(watersportsCard.includes('src="/assets/videos/watersports-latest.mp4"'),'Newest Watersports video not in gallery');
+assert(watersportsCard.includes('poster="/assets/images/watersports-video-poster.jpg"'),'Watersports video preview missing');
+assert(watersportsCard.includes('data-i18n-aria-label="waterSportsVideoAria"'),'Watersports video accessible name missing');
 for(const key of ['altWaterSport1','altWaterSport2','altWaterSport3']){
  assert(html.includes('data-i18n-alt="'+key+'"'),'Missing Watersports gallery photo '+key);
 }
 for(const code of languages){
  const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['card3Tag','card3Title','card3Text','altWaterSport1','altWaterSport2','altWaterSport3','chooseWatersports']){
+ for(const key of ['card3Tag','card3Title','card3Text','altWaterSport1','altWaterSport2','altWaterSport3','waterSportsVideoAria','chooseWatersports']){
   assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing Watersports translation '+key);
  }
 }
@@ -106,7 +114,7 @@ for(const code of languages){
  }
 }
 for(const code of languages){
- for(const key of ['experiencesCarouselLabel','experiencePrev','experienceNext','photoPrev','photoNext','photo1','photo2','photo3','carouselHint']){
+ for(const key of ['experiencesCarouselLabel','experiencePrev','experienceNext','photoPrev','photoNext','photo1','photo2','photo3','photo4','carouselHint']){
   assert(typeof extras[code][key]==='string' && extras[code][key].trim(),code+': missing carousel translation '+key);
  }
 }
