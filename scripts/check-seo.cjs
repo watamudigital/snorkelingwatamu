@@ -44,7 +44,9 @@ for(const lang of langs){
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
  assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
  assert(src.includes('src="/assets/videos/fishing-latest.mp4"'),p+' fishing gallery MP4 missing');
- assert(src.includes('data-i18n-aria-label="fishingVideoAria"'),p+' fishing video accessibility label missing');
+ const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
+ const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
+ assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
  assert((src.match(/<video class="photo-slide /g)||[]).length===1,p+' expected exactly one fishing video slide');
  assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===10,p+' missing four fishing and three other gallery images');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
