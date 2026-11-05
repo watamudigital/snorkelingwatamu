@@ -47,7 +47,8 @@ jobs:
             echo 'Poster images already up to date'
             exit 0
           fi
-          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-            commit -m 'Publish authentic Blue Safari video poster frames'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish authentic Blue Safari video poster frames'
           git pull --rebase origin main
           git push origin HEAD:main
