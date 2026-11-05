@@ -10,11 +10,15 @@
   let active=0;
   const show=index=>{
    active=(index+slides.length)%slides.length;
-   slides.forEach((image,i)=>{
+   slides.forEach((media,i)=>{
     const selected=i===active;
-    image.classList.toggle('is-active',selected);
-    if(selected)image.removeAttribute('aria-hidden');
-    else image.setAttribute('aria-hidden','true');
+    media.classList.toggle('is-active',selected);
+    if(selected)media.removeAttribute('aria-hidden');
+    else {
+     media.setAttribute('aria-hidden','true');
+     // A gallery video must not keep playing after leaving its slide.
+     if(media.tagName==='VIDEO')media.pause();
+    }
    });
    dots.forEach((dot,i)=>{
     const selected=i===active;
