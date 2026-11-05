@@ -28,7 +28,7 @@ assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scr
 assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
-assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected three photos per experience');
+assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===10,'Expected four fishing photos and three each in other experiences');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
 assert(html.includes('data-juma-video'),'Juma story video player missing');
 assert(html.includes('data-video-src="/assets/videos/juma-ocean-latest.mp4"'),'Juma video target missing');
@@ -49,15 +49,19 @@ for(const code of languages){
  }
 }
 assert(!html.includes('Coral Garden Explorer'),'Removed snorkeling-only offer must not appear');
+assert(html.includes('src="./assets/images/IMG_0053.jpeg"'),'Latest fishing photo missing');
+for(const key of ['fishingPhoto1','fishingPhoto2','fishingPhoto3','fishingPhoto4']){
+ assert(html.includes('data-i18n-aria-label="'+key+'"'),'Missing fourth-photo gallery navigation '+key);
+}
 assert(html.includes('data-exp="Deep-Sea Fishing"'),'Fishing card not selectable');
 assert(html.includes('value="Deep-Sea Fishing"'),'Fishing form choice missing');
 assert(app.includes("tripField.value!=='Deep-Sea Fishing'"),'Fishing form should not request swimming ability');
-for(const key of ['altFishing1','altFishing2','altFishing3']){
+for(const key of ['altFishing1','altFishing2','altFishing3','altFishing4']){
  assert(html.includes('data-i18n-alt="'+key+'"'),'Missing fishing gallery image '+key);
 }
 for(const code of languages){
  const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['card1Tag','card1Title','card1Text','card2Tag','card2Text','altFishing1','altFishing2','altFishing3','chooseFishing']){
+ for(const key of ['card1Tag','card1Title','card1Text','card2Tag','card2Text','altFishing1','altFishing2','altFishing3','altFishing4','fishingPhoto1','fishingPhoto2','fishingPhoto3','fishingPhoto4','chooseFishing']){
   assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing fishing translation '+key);
  }
 }
