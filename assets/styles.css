@@ -263,3 +263,10 @@
     background:linear-gradient(90deg,rgba(2,24,36,.78) 0%,rgba(2,34,45,.35) 45%,rgba(2,41,55,.03) 100%);
   }
 }
+
+
+/* Swipe experience galleries with a finger without blocking vertical scrolling. */
+.experience-carousel .photo-gallery .photo-slides{
+  touch-action:pan-y;
+  overscroll-behavior-x:contain;
+}
