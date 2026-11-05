@@ -28,7 +28,7 @@ assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scr
 assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
-assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===10,'Expected four fishing photos and three each in other experiences');
+assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===8,'Expected two fishing photos and three each in other experiences');
 assert((html.match(/<video class="photo-slide /g)||[]).length===1,'Expected one video in fishing gallery');
 assert(html.includes('src="/assets/videos/fishing-latest.mp4"'),'Latest fishing video missing from gallery');
 assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
@@ -53,18 +53,24 @@ for(const code of languages){
 }
 assert(!html.includes('Coral Garden Explorer'),'Removed snorkeling-only offer must not appear');
 assert(html.includes('src="./assets/images/IMG_0053.jpeg"'),'Latest fishing photo missing');
-for(const key of ['fishingPhoto1','fishingPhoto2','fishingPhoto3','fishingPhoto4','fishingPhoto5']){
- assert(html.includes('data-i18n-aria-label="'+key+'"'),'Missing fourth-photo gallery navigation '+key);
+assert(!html.includes('data-i18n-alt="altFishing2"') && !html.includes('data-i18n-alt="altFishing3"'),'Illustrative fishing photos must be removed');
+const fishingCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Deep-Sea Fishing"'));
+assert(fishingCard,'Fishing gallery missing');
+assert((fishingCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,'Fishing must show exactly two photos');
+assert((fishingCard.match(/<video class="photo-slide /g)||[]).length===1,'Fishing must retain its video');
+assert((fishingCard.match(/data-photo-index=/g)||[]).length===3,'Fishing navigation must have exactly three dots');
+for(const key of ['fishingPhoto1','fishingPhoto2','fishingPhoto3']){
+ assert(html.includes('data-i18n-aria-label="'+key+'"'),'Missing fishing gallery navigation '+key);
 }
 assert(html.includes('data-exp="Deep-Sea Fishing"'),'Fishing card not selectable');
 assert(html.includes('value="Deep-Sea Fishing"'),'Fishing form choice missing');
 assert(app.includes("tripField.value!=='Deep-Sea Fishing'"),'Fishing form should not request swimming ability');
-for(const key of ['altFishing1','altFishing2','altFishing3','altFishing4']){
+for(const key of ['altFishing1','altFishing4']){
  assert(html.includes('data-i18n-alt="'+key+'"'),'Missing fishing gallery image '+key);
 }
 for(const code of languages){
  const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['card1Tag','card1Title','card1Text','card2Tag','card2Text','altFishing1','altFishing2','altFishing3','altFishing4','fishingPhoto1','fishingPhoto2','fishingPhoto3','fishingPhoto4','fishingPhoto5','fishingVideoAria','chooseFishing']){
+ for(const key of ['card1Tag','card1Title','card1Text','card2Tag','card2Text','altFishing1','altFishing4','fishingPhoto1','fishingPhoto2','fishingPhoto3','fishingVideoAria','chooseFishing']){
   assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing fishing translation '+key);
  }
 }
