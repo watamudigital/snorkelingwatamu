@@ -36,8 +36,8 @@ jobs:
           # Footage which is natively landscape receives side padding.
           ffmpeg -hide_banner -loglevel error -nostdin -y \
             -i "$SOURCE" -map 0:v:0 -map '0:a:0?' \
-            -vf "scale=720:1280:force_original_aspect_ratio=decrease,pad=720:1280:(ow-iw)/2:(oh-ih)/2:color=0x0b4b55,setsar=1" \
-            -c:v libx264 -preset ultrafast -crf 26 -pix_fmt yuv420p \
+            -vf "fps=25,scale=540:960:force_original_aspect_ratio=decrease,pad=540:960:(ow-iw)/2:(oh-ih)/2:color=0x0b4b55,setsar=1" \
+            -c:v libx264 -preset ultrafast -crf 28 -pix_fmt yuv420p \
             -metadata:s:v:0 rotate=0 \
             -c:a aac -b:a 96k -movflags +faststart "$TARGET"
           test -s "$TARGET"
@@ -46,7 +46,7 @@ jobs:
           import json
           with open('/tmp/fishing-video.json', encoding='utf-8') as f:
               v=json.load(f)['streams'][0]
-          assert v['width'] == 720 and v['height'] == 1280, f"Expected portrait video: {v}"
+          assert v['width'] == 540 and v['height'] == 960, f"Expected portrait video: {v}"
           rotations = [x['rotation'] for x in v.get('side_data_list', []) if 'rotation' in x]
           assert all(float(r)==0 for r in rotations), rotations
           print("Validated fishing MP4:", v['width'], "x", v['height'], "rotation", rotations or "none")
