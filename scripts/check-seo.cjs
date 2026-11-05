@@ -43,6 +43,9 @@ for(const lang of langs){
  assert(src.includes('value="Deep-Sea Fishing"'),p+' missing fishing option in enquiry form');
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
  assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
+ assert(src.includes('src="/assets/videos/fishing-latest.mp4"'),p+' fishing gallery MP4 missing');
+ assert(src.includes('data-i18n-aria-label="fishingVideoAria"'),p+' fishing video accessibility label missing');
+ assert((src.match(/<video class="photo-slide /g)||[]).length===1,p+' expected exactly one fishing video slide');
  assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===10,p+' missing four fishing and three other gallery images');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
