@@ -42,7 +42,8 @@ for(const lang of langs){
  assert(!src.includes('Coral Garden Explorer'),p+' old standalone snorkeling activity still visible');
  assert(src.includes('value="Deep-Sea Fishing"'),p+' missing fishing option in enquiry form');
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
- assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===9,p+' missing three images for every experience');
+ assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
+ assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===10,p+' missing four fishing and three other gallery images');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
  const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
