@@ -28,7 +28,7 @@ assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scr
 assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
-assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected four Blue Safari photos, two fishing photos and three Watersports photos');
+assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===8,'Expected three Blue Safari photos, two fishing photos and three Watersports photos');
 assert((html.match(/<video class="photo-slide /g)||[]).length===3,'Expected two Blue Safari videos and one fishing video');
 assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
 assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
@@ -36,16 +36,18 @@ assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
 
 const blueSafariCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Blue Safari"'));
 assert(blueSafariCard,'Blue Safari card missing');
-assert((blueSafariCard.match(/<img class="photo-slide(?: |")/g)||[]).length===4,'Blue Safari needs four photos');
+assert((blueSafariCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Blue Safari needs three photos');
 assert((blueSafariCard.match(/<video class="photo-slide /g)||[]).length===2,'Blue Safari needs two videos');
-assert((blueSafariCard.match(/data-photo-index=/g)||[]).length===6,'Blue Safari needs six navigation dots');
-assert(blueSafariCard.includes('src="./assets/images/IMG_0053.jpeg"'),'Latest uploaded photo not in Blue Safari');
+assert((blueSafariCard.match(/data-photo-index=/g)||[]).length===5,'Blue Safari needs five navigation dots');
+assert(blueSafariCard.includes('src="./assets/images/IMG_0065.jpeg"') && blueSafariCard.includes('src="./assets/images/IMG_0066.jpeg"'),'Snorkeling photos missing from Blue Safari');
+assert(!blueSafariCard.includes('IMG_0053.jpeg')&&!blueSafariCard.includes('fishing-portrait.mp4'),'Fishing imagery must not appear in Blue Safari');
+assert(!blueSafariCard.includes('glass-boat-watamu-subira-sandbar-tour.jpg')&&!blueSafariCard.includes('glass-boat-subira-snorkeling-watamu-passengers.jpg'),'Extra Subira photos must not appear in Blue Safari');
 for(const file of ['blue-safari-newest.mp4','blue-safari-second-newest.mp4']){
  assert(blueSafariCard.includes('src="/assets/videos/'+file+'"'),'Missing Blue Safari video '+file);
 }
 for(const code of languages){
  const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['altBlueLatestPhoto','blueSafariVideo1','blueSafariVideo2','blueSafariSlide1','blueSafariSlide2','blueSafariSlide3','blueSafariSlide4','blueSafariSlide5','blueSafariSlide6']){
+ for(const key of ['altSnorkelingPhoto65','altSnorkelingPhoto66','blueSafariVideo1','blueSafariVideo2','blueSafariSlide1','blueSafariSlide2','blueSafariSlide3','blueSafariSlide4','blueSafariSlide5']){
   assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing Blue Safari translation '+key);
  }
 }
