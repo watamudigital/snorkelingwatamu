@@ -1,0 +1,71 @@
+name: Publish latest Blue Safari videos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bd4bbdd6-f450-4885-82d1-3db0ae666aca (1).mov'
+      - 'assets/videos/75fe3e80-6a60-41e8-8eb9-4e7c992ea043.mov'
+      - '.github/workflows/convert-blue-safari-videos.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site and source videos
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Convert two newest uploads into browser-playable MP4
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          sources=('bd4bbdd6-f450-4885-82d1-3db0ae666aca (1).mov' 'assets/videos/75fe3e80-6a60-41e8-8eb9-4e7c992ea043.mov')
+          targets=('assets/videos/blue-safari-newest.mp4' 'assets/videos/blue-safari-second-newest.mp4')
+          for i in 0 1; do
+            source="${sources[$i]}"
+            target="${targets[$i]}"
+            test -s "$source"
+            echo "Converting: $source -> $target"
+            ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$source"
+            # Respect MOV display rotation, but encode it into the actual output
+            # pixels so all browsers show an upright video. Preserve the full
+            # frame with correct proportions, avoiding crop on mobile.
+            ffmpeg -hide_banner -loglevel error -nostdin -y \
+              -i "$source" -map 0:v:0 -map '0:a:0?' \
+              -vf "fps=24,scale=720:720:force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1" \
+              -c:v libx264 -preset ultrafast -crf 27 -pix_fmt yuv420p \
+              -metadata:s:v:0 rotate=0 \
+              -c:a aac -b:a 96k -movflags +faststart "$target"
+            test -s "$target"
+            ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$target" > "/tmp/blue-safari-$i.json"
+          done
+          python3 - <<'PY'
+          import json
+          for i in (0, 1):
+              with open(f'/tmp/blue-safari-{i}.json', encoding='utf-8') as handle:
+                  stream=json.load(handle)['streams'][0]
+              assert stream['width'] > 0 and stream['height'] > 0, stream
+              rotations = [x['rotation'] for x in stream.get('side_data_list', []) if 'rotation' in x]
+              assert not rotations or all(float(v) == 0 for v in rotations), rotations
+              print(f"Blue Safari MP4 {i}: {stream['width']}x{stream['height']}, rotation={rotations or 'none'}")
+          PY
+      - name: Publish both videos in main branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- assets/videos/blue-safari-newest.mp4 assets/videos/blue-safari-second-newest.mp4
+          if git diff --cached --quiet; then
+            echo "Blue Safari videos are already current"
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Publish latest Blue Safari videos'
+          git pull --rebase origin main
+          git push origin HEAD:main
