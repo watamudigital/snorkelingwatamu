@@ -1,6 +1,11 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "altFishing4": "Photo from a deep-sea fishing trip",
+    "fishingPhoto1": "Photo 1 of 4",
+    "fishingPhoto2": "Photo 2 of 4",
+    "fishingPhoto3": "Photo 3 of 4",
+    "fishingPhoto4": "Photo 4 of 4",
     "jumaVideoAria": "Video of the ocean experience with Juma",
     "card3Tag": "Adventure on the water",
     "altWaterSport1": "Guests enjoying a yellow banana boat on the water in Watamu",
@@ -93,6 +98,11 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "altFishing4": "Fotografia di un'uscita di pesca d'altura",
+    "fishingPhoto1": "Foto 1 di 4",
+    "fishingPhoto2": "Foto 2 di 4",
+    "fishingPhoto3": "Foto 3 di 4",
+    "fishingPhoto4": "Foto 4 di 4",
     "jumaVideoAria": "Video dell'esperienza in mare con Juma",
     "card3Tag": "Sport e divertimento",
     "altWaterSport1": "Ospiti su una banana boat gialla nelle acque di Watamu",
@@ -185,6 +195,11 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "altFishing4": "Foto von einem Hochseeangel-Ausflug",
+    "fishingPhoto1": "Foto 1 von 4",
+    "fishingPhoto2": "Foto 2 von 4",
+    "fishingPhoto3": "Foto 3 von 4",
+    "fishingPhoto4": "Foto 4 von 4",
     "jumaVideoAria": "Video vom Meereserlebnis mit Juma",
     "altWaterSport1": "Gäste auf einem gelben Bananenboot vor Watamu",
     "altWaterSport2": "Vier Personen auf dem gelben Rocket bei einer Fahrt auf dem Meer",
@@ -335,6 +350,11 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "altFishing4": "Photo d'une sortie de pêche au large",
+    "fishingPhoto1": "Photo 1 sur 4",
+    "fishingPhoto2": "Photo 2 sur 4",
+    "fishingPhoto3": "Photo 3 sur 4",
+    "fishingPhoto4": "Photo 4 sur 4",
     "jumaVideoAria": "Vidéo de l'expérience en mer avec Juma",
     "altWaterSport1": "Des passagers sur une bouée banane jaune dans les eaux de Watamu",
     "altWaterSport2": "Quatre personnes à bord du Rocket jaune pendant une sortie en mer",
