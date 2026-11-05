@@ -39,6 +39,17 @@ assert(blueSafariCard,'Blue Safari card missing');
 assert((blueSafariCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Blue Safari needs three photos');
 assert((blueSafariCard.match(/<video class="photo-slide /g)||[]).length===2,'Blue Safari needs two videos');
 assert((blueSafariCard.match(/data-photo-index=/g)||[]).length===5,'Blue Safari needs five navigation dots');
+const blueSlideSources=[...blueSafariCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
+assert(blueSlideSources.join('|')===[
+ './assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
+ './assets/images/IMG_0066.jpeg',
+ './assets/images/IMG_0065.jpeg',
+ '/assets/videos/blue-safari-newest.mp4',
+ '/assets/videos/blue-safari-second-newest.mp4'
+].join('|'),'Blue Safari slides must be Subira, group, snorkelers, then videos');
+for(const path of ['blue-safari-food-video-poster.jpg','blue-safari-snorkeling-video-poster.jpg']){
+ assert(blueSafariCard.includes('poster="/assets/images/'+path+'"'),'Missing authentic video thumbnail '+path);
+}
 assert(blueSafariCard.includes('src="./assets/images/IMG_0065.jpeg"') && blueSafariCard.includes('src="./assets/images/IMG_0066.jpeg"'),'Snorkeling photos missing from Blue Safari');
 assert(!blueSafariCard.includes('IMG_0053.jpeg')&&!blueSafariCard.includes('fishing-portrait.mp4'),'Fishing imagery must not appear in Blue Safari');
 assert(!blueSafariCard.includes('glass-boat-watamu-subira-sandbar-tour.jpg')&&!blueSafariCard.includes('glass-boat-subira-snorkeling-watamu-passengers.jpg'),'Extra Subira photos must not appear in Blue Safari');
