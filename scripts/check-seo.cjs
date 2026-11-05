@@ -43,12 +43,13 @@ for(const lang of langs){
  assert(src.includes('value="Deep-Sea Fishing"'),p+' missing fishing option in enquiry form');
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
  assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
+ assert(!src.includes('photo-1771056511594') && !src.includes('photo-1636612287192'),p+' illustrative fishing photos must be removed');
  assert(src.includes('src="/assets/videos/fishing-latest.mp4"'),p+' fishing gallery MP4 missing');
  const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
  assert((src.match(/<video class="photo-slide /g)||[]).length===1,p+' expected exactly one fishing video slide');
- assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===10,p+' missing four fishing and three other gallery images');
+ assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===8,p+' expected two fishing and three photos in other galleries');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
  const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
