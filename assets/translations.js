@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "photo4": "Watersports video, 4 of 4",
+    "waterSportsVideoAria": "Video of Watersports activities in Watamu",
     "blueSafariVideo3": "Dolphins swimming in the sea near Watamu",
     "blueSafariSlide6": "Dolphins video, 6 of 6",
     "altSnorkelingPhoto66": "Group of young people aboard a Blue Safari boat",
@@ -41,9 +43,9 @@ window.SW_TRANSLATIONS = {
     "experienceNext": "Next experience",
     "photoPrev": "Previous photo",
     "photoNext": "Next photo",
-    "photo1": "Photo 1 of 3",
-    "photo2": "Photo 2 of 3",
-    "photo3": "Photo 3 of 3",
+    "photo1": "Photo 1 of 4",
+    "photo2": "Photo 2 of 4",
+    "photo3": "Photo 3 of 4",
     "carouselHint": "Browse the photos in each experience to discover more.",
     "heroSub": "Watamu’s ocean has a thousand shades. Discover them with Juma—from coral gardens to turquoise waters, at a pace that feels like yours.",
     "card3Text": "Make a splash with watersports! Kitesurfing, stand-up paddleboarding or kayaking are ideas to discuss with Juma, depending on conditions and availability.",
@@ -107,6 +109,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "photo4": "Video Watersports, 4 di 4",
+    "waterSportsVideoAria": "Video delle attività Watersports a Watamu",
     "blueSafariVideo3": "Video dei delfini nel mare di Watamu",
     "blueSafariSlide6": "Video dei delfini, 6 di 6",
     "altSnorkelingPhoto66": "Gruppo di ragazzi a bordo durante il Blue Safari",
@@ -147,9 +151,9 @@ window.SW_TRANSLATIONS = {
     "experienceNext": "Esperienza successiva",
     "photoPrev": "Foto precedente",
     "photoNext": "Foto successiva",
-    "photo1": "Foto 1 di 3",
-    "photo2": "Foto 2 di 3",
-    "photo3": "Foto 3 di 3",
+    "photo1": "Foto 1 di 4",
+    "photo2": "Foto 2 di 4",
+    "photo3": "Foto 3 di 4",
     "carouselHint": "Sfoglia le foto all’interno di ogni esperienza per scoprire di più.",
     "heroSub": "Il mare di Watamu ha mille sfumature. Scoprile con Juma: tra coralli, acque turchesi e momenti da vivere al tuo ritmo.",
     "card3Text": "Dai energia alla tua vacanza con gli sport acquatici: kitesurf, SUP o kayak sono alcune possibilità da verificare con Juma, in base a condizioni e disponibilità.",
@@ -213,6 +217,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "photo4": "Watersports-Video, 4 von 4",
+    "waterSportsVideoAria": "Video mit Wassersportaktivitäten in Watamu",
     "blueSafariVideo3": "Video mit Delfinen im Meer bei Watamu",
     "blueSafariSlide6": "Delfinvideo, 6 von 6",
     "altSnorkelingPhoto66": "Gruppe von Jugendlichen an Bord beim Blue Safari",
@@ -250,9 +256,9 @@ window.SW_TRANSLATIONS = {
     "experienceNext": "Nächstes Erlebnis",
     "photoPrev": "Vorheriges Foto",
     "photoNext": "Nächstes Foto",
-    "photo1": "Foto 1 von 3",
-    "photo2": "Foto 2 von 3",
-    "photo3": "Foto 3 von 3",
+    "photo1": "Foto 1 von 4",
+    "photo2": "Foto 2 von 4",
+    "photo3": "Foto 3 von 4",
     "carouselHint": "Entdecke die Bilder zu jedem Erlebnis.",
     "jumaKicker": "Mehr als eine Bootsfahrt",
     "jumaHeading1": "Dein Meer,",
@@ -377,6 +383,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "photo4": "Vidéo Watersports, 4 sur 4",
+    "waterSportsVideoAria": "Vidéo des activités nautiques à Watamu",
     "blueSafariVideo3": "Vidéo des dauphins dans la mer près de Watamu",
     "blueSafariSlide6": "Vidéo des dauphins, 6 sur 6",
     "altSnorkelingPhoto66": "Groupe de jeunes à bord pendant le Blue Safari",
@@ -414,9 +422,9 @@ window.SW_TRANSLATIONS = {
     "experienceNext": "Expérience suivante",
     "photoPrev": "Photo précédente",
     "photoNext": "Photo suivante",
-    "photo1": "Photo 1 sur 3",
-    "photo2": "Photo 2 sur 3",
-    "photo3": "Photo 3 sur 3",
+    "photo1": "Photo 1 sur 4",
+    "photo2": "Photo 2 sur 4",
+    "photo3": "Photo 3 sur 4",
     "carouselHint": "Parcourez les photos de chaque expérience pour en découvrir davantage.",
     "jumaKicker": "Bien plus qu'une excursion",
     "jumaHeading1": "Votre océan,",
