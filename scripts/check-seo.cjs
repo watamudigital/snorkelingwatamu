@@ -52,6 +52,16 @@ for(const lang of langs){
  assert((blueCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' expected three Blue Safari photos');
  assert((blueCard.match(/<video class="photo-slide /g)||[]).length===2,p+' expected two Blue Safari videos');
  assert((blueCard.match(/data-photo-index=/g)||[]).length===5,p+' expected five Blue Safari navigation dots');
+ const orderedBlueMedia=[...blueCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
+ assert(orderedBlueMedia.join('|')===[
+  '/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
+  '/assets/images/IMG_0066.jpeg',
+  '/assets/images/IMG_0065.jpeg',
+  '/assets/videos/blue-safari-newest.mp4',
+  '/assets/videos/blue-safari-second-newest.mp4'
+ ].join('|'),p+' Blue Safari slide order should be Subira, group, snorkeling, food and boats videos');
+ assert(blueCard.includes('poster="/assets/images/blue-safari-food-video-poster.jpg"'),p+' food video should have its own video-frame preview');
+ assert(blueCard.includes('poster="/assets/images/blue-safari-snorkeling-video-poster.jpg"'),p+' snorkeling video should have its own video-frame preview');
  assert(!blueCard.includes('IMG_0053.jpeg')&&!blueCard.includes('fishing-portrait.mp4'),p+' fishing media must not appear in Blue Safari');
  assert(!blueCard.includes('glass-boat-watamu-subira-sandbar-tour.jpg')&&!blueCard.includes('glass-boat-subira-snorkeling-watamu-passengers.jpg'),p+' extra Subira photos must not appear in Blue Safari');
  assert(!src.includes('photo-1771056511594') && !src.includes('photo-1636612287192'),p+' illustrative fishing photos must be removed');
