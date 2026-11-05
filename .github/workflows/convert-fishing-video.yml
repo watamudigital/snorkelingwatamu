@@ -1,0 +1,68 @@
+name: Publish deep-sea fishing gallery video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/videos/beeca5d6-bf02-4817-8b0a-31e0e42f4b5a.mov'
+      - '.github/workflows/convert-fishing-video.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Convert uploaded fishing MOV to browser-friendly MP4
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE='assets/videos/beeca5d6-bf02-4817-8b0a-31e0e42f4b5a.mov'
+          TARGET='assets/videos/fishing-latest.mp4'
+          test -s "$SOURCE"
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          WIDTH=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$SOURCE")
+          HEIGHT=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$SOURCE")
+          echo "Fishing MOV source dimensions: ${WIDTH}x${HEIGHT}"
+          if (( WIDTH > HEIGHT )); then
+            FILTER='scale=1280:-2'
+          else
+            FILTER='scale=720:-2'
+          fi
+          # Encode the physical frame pixels and remove rotation metadata,
+          # avoiding unexpected sideways playback on mobile devices.
+          ffmpeg -hide_banner -loglevel error -nostdin -y \
+            -noautorotate -display_rotation:v:0 0 \
+            -i "$SOURCE" -map 0:v:0 -map '0:a:0?' \
+            -vf "$FILTER" -c:v libx264 -preset veryfast -crf 26 -pix_fmt yuv420p \
+            -c:a aac -b:a 96k -movflags +faststart "$TARGET"
+          test -s "$TARGET"
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$TARGET" >/tmp/fishing-video.json
+          python3 - <<'PY'
+          import json
+          with open('/tmp/fishing-video.json', encoding='utf-8') as f:
+              v=json.load(f)['streams'][0]
+          assert v['width'] > 0 and v['height'] > 0, v
+          rotations = [x['rotation'] for x in v.get('side_data_list', []) if 'rotation' in x]
+          assert all(float(r)==0 for r in rotations), rotations
+          print("Validated fishing MP4:", v['width'], "x", v['height'], "rotation", rotations or "none")
+          PY
+      - name: Commit browser-friendly fishing video
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- assets/videos/fishing-latest.mp4
+          if git diff --cached --quiet; then
+            echo "MP4 already up to date"
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Publish deep-sea fishing video'
+          git push origin HEAD:main
