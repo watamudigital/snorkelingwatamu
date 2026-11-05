@@ -1,0 +1,40 @@
+name: Verify uploaded Blue Safari media thumbnails
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-blue-media.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  thumbnails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout media
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Print small stills to verify clip contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          inputs=(
+            'bd4bbdd6-f450-4885-82d1-3db0ae666aca (1).mov'
+            'assets/videos/75fe3e80-6a60-41e8-8eb9-4e7c992ea043.mov'
+            'assets/videos/0433465e-b544-4e72-b7e4-0c6da80fb465.mov'
+            'assets/videos/IMG_9153.mov'
+            'assets/videos/beeca5d6-bf02-4817-8b0a-31e0e42f4b5a.mov'
+          )
+          for i in "${!inputs[@]}"; do
+            file="${inputs[$i]}"
+            duration="$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")"
+            echo "VIDINFO ${i}: ${file}; duration ${duration}"
+            for sec in 1 4; do
+              ffmpeg -hide_banner -loglevel error -nostdin -y -ss "$sec" -i "$file" -frames:v 1 -vf 'scale=260:260:force_original_aspect_ratio=decrease' -q:v 20 "/tmp/preview-${i}-${sec}.jpg"
+              echo "BEGIN_THUMB_${i}_${sec}"
+              base64 -w0 "/tmp/preview-${i}-${sec}.jpg"
+              echo
+              echo "END_THUMB_${i}_${sec}"
+            done
+          done
