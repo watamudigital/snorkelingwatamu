@@ -1,6 +1,7 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "footerNote": "Authentic photos from our excursions in Watamu.",
     "photo4": "Watersports video, 4 of 4",
     "waterSportsVideoAria": "Video of Watersports activities in Watamu",
     "blueSafariVideo3": "Dolphins swimming in the sea near Watamu",
@@ -109,6 +110,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "footerNote": "Fotografie autentiche delle nostre escursioni a Watamu.",
     "photo4": "Video Watersports, 4 di 4",
     "waterSportsVideoAria": "Video delle attività Watersports a Watamu",
     "blueSafariVideo3": "Video dei delfini nel mare di Watamu",
@@ -336,7 +338,7 @@ window.SW_TRANSLATIONS = {
     "footerH": "Das Meer ruft.",
     "footerH2": "Watamu wartet.",
     "footerCta": "Ausflug planen",
-    "footerNote": "Unabhängiges Demoprojekt · Nicht mit dem Kenya Wildlife Service verbunden.\nIllustrative Fotos von Unsplash wurden nicht unbedingt in Watamu aufgenommen.",
+    "footerNote": "Authentische Fotos von unseren Ausflügen in Watamu.",
     "sticky": "Ausflug anfragen",
     "pageTitle": "Schnorcheln in Watamu | Glasbodenboot & Meerestouren",
     "metaDescription": "Schnorcheln in Watamu, Kenia: Korallenriffe, Glasbodenboot und Meerespark entdecken. Demo-Website – Informationen und Verfügbarkeit auf Anfrage.",
@@ -502,7 +504,7 @@ window.SW_TRANSLATIONS = {
     "footerH": "L'océan vous appelle.",
     "footerH2": "Watamu vous attend.",
     "footerCta": "Préparer votre sortie",
-    "footerNote": "Concept de démonstration indépendant · Sans affiliation avec le Kenya Wildlife Service.\nLes photos d'illustration Unsplash n'ont pas nécessairement été prises à Watamu.",
+    "footerNote": "Photos authentiques de nos excursions à Watamu.",
     "sticky": "Demander une excursion",
     "pageTitle": "Snorkeling à Watamu | Bateau à fond transparent et sorties en mer",
     "metaDescription": "Découvrez le snorkeling à Watamu, au Kenya : récifs coralliens, sorties en bateau à fond transparent et parc marin. Site de démonstration.",
