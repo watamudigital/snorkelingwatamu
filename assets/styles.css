@@ -182,3 +182,11 @@
   object-position: center;
   background-color: #0b4b55;
 }
+
+
+/* Show the complete newly uploaded fishing photo without cropping. */
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altFishing4"]{
+  object-fit:contain;
+  object-position:center;
+  background-color:#0b4b55;
+}
