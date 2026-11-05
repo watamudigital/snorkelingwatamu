@@ -10,6 +10,7 @@
   let active=0;
   const show=index=>{
    active=(index+slides.length)%slides.length;
+   gallery.classList.toggle('is-video-active',slides[active].tagName==='VIDEO');
    slides.forEach((media,i)=>{
     const selected=i===active;
     media.classList.toggle('is-active',selected);
