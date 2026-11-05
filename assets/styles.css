@@ -217,3 +217,12 @@
   bottom:auto;
   top:14px;
 }
+
+
+/* Preserve both personal Blue Safari photos without cropping anyone. */
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altSnorkelingPhoto65"],
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altSnorkelingPhoto66"] {
+  object-fit:contain;
+  object-position:center;
+  background-color:#0b4b55;
+}
