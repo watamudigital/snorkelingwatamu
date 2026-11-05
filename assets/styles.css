@@ -227,3 +227,13 @@
   object-position:center;
   background-color:#0b4b55;
 }
+
+
+/* Keep the newly uploaded Watersports video fully in frame, including on phones. */
+.experience-carousel .photo-gallery .watersports-gallery-video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:50% 50%;
+  background:#0b4b55;
+}
