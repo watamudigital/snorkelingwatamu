@@ -1,6 +1,15 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "altBlueLatestPhoto": "The most recently uploaded photo from the sea",
+    "blueSafariVideo1": "Newest Blue Safari video",
+    "blueSafariVideo2": "Second newest Blue Safari video",
+    "blueSafariSlide1": "Photo 1 of 6",
+    "blueSafariSlide2": "Photo 2 of 6",
+    "blueSafariSlide3": "Photo 3 of 6",
+    "blueSafariSlide4": "Photo 4 of 6",
+    "blueSafariSlide5": "Video 5 of 6",
+    "blueSafariSlide6": "Video 6 of 6",
     "fishingVideoAria": "Deep-sea fishing excursion video",
     "altFishing4": "Photo from a deep-sea fishing trip",
     "fishingPhoto1": "Photo 1 of 3",
@@ -96,6 +105,15 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "altBlueLatestPhoto": "Ultima fotografia caricata del mare",
+    "blueSafariVideo1": "Video più recente del Blue Safari",
+    "blueSafariVideo2": "Secondo video più recente del Blue Safari",
+    "blueSafariSlide1": "Foto 1 di 6",
+    "blueSafariSlide2": "Foto 2 di 6",
+    "blueSafariSlide3": "Foto 3 di 6",
+    "blueSafariSlide4": "Foto 4 di 6",
+    "blueSafariSlide5": "Video 5 di 6",
+    "blueSafariSlide6": "Video 6 di 6",
     "fishingVideoAria": "Video dell'escursione di pesca d'altura",
     "altFishing4": "Fotografia di un'uscita di pesca d'altura",
     "fishingPhoto1": "Foto 1 di 3",
@@ -191,6 +209,15 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "altBlueLatestPhoto": "Zuletzt hochgeladenes Foto vom Meer",
+    "blueSafariVideo1": "Neuester Blue-Safari-Film",
+    "blueSafariVideo2": "Zweitneuester Blue-Safari-Film",
+    "blueSafariSlide1": "Foto 1 von 6",
+    "blueSafariSlide2": "Foto 2 von 6",
+    "blueSafariSlide3": "Foto 3 von 6",
+    "blueSafariSlide4": "Foto 4 von 6",
+    "blueSafariSlide5": "Video 5 von 6",
+    "blueSafariSlide6": "Video 6 von 6",
     "fishingVideoAria": "Video vom Hochseeangel-Ausflug",
     "altFishing4": "Foto von einem Hochseeangel-Ausflug",
     "fishingPhoto1": "Foto 1 von 3",
@@ -344,6 +371,15 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "altBlueLatestPhoto": "Dernière photo de la mer ajoutée",
+    "blueSafariVideo1": "Vidéo la plus récente du Blue Safari",
+    "blueSafariVideo2": "Deuxième vidéo la plus récente du Blue Safari",
+    "blueSafariSlide1": "Photo 1 sur 6",
+    "blueSafariSlide2": "Photo 2 sur 6",
+    "blueSafariSlide3": "Photo 3 sur 6",
+    "blueSafariSlide4": "Photo 4 sur 6",
+    "blueSafariSlide5": "Vidéo 5 sur 6",
+    "blueSafariSlide6": "Vidéo 6 sur 6",
     "fishingVideoAria": "Vidéo de la sortie de pêche au large",
     "altFishing4": "Photo d'une sortie de pêche au large",
     "fishingPhoto1": "Photo 1 sur 3",
