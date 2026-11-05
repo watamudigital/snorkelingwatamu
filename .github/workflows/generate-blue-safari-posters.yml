@@ -1,0 +1,53 @@
+name: Generate Blue Safari video poster images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/generate-blue-safari-posters.yml'
+      - 'assets/videos/blue-safari-newest.mp4'
+      - 'assets/videos/blue-safari-second-newest.mp4'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  posters:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Extract scene-specific video thumbnails
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          # These exact timestamps were checked against the source videos:
+          # at 4s the guides present food; at 10s the boats are at sea.
+          ffmpeg -hide_banner -loglevel error -nostdin -y -ss 4 \
+            -i 'assets/videos/blue-safari-newest.mp4' -frames:v 1 \
+            -vf 'scale=960:960:force_original_aspect_ratio=decrease' \
+            -q:v 3 'assets/images/blue-safari-food-video-poster.jpg'
+          ffmpeg -hide_banner -loglevel error -nostdin -y -ss 10 \
+            -i 'assets/videos/blue-safari-second-newest.mp4' -frames:v 1 \
+            -vf 'scale=960:960:force_original_aspect_ratio=decrease' \
+            -q:v 3 'assets/images/blue-safari-snorkeling-video-poster.jpg'
+          test -s 'assets/images/blue-safari-food-video-poster.jpg'
+          test -s 'assets/images/blue-safari-snorkeling-video-poster.jpg'
+      - name: Commit authentic video thumbnails
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- assets/images/blue-safari-food-video-poster.jpg assets/images/blue-safari-snorkeling-video-poster.jpg
+          if git diff --cached --quiet; then
+            echo 'Poster images already up to date'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Publish authentic Blue Safari video poster frames'
+          git pull --rebase origin main
+          git push origin HEAD:main
