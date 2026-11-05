@@ -19,6 +19,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
           inputs=(
             'bd4bbdd6-f450-4885-82d1-3db0ae666aca (1).mov'
             'assets/videos/75fe3e80-6a60-41e8-8eb9-4e7c992ea043.mov'
