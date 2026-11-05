@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'assets/videos/IMG_9153.mov'
+      - 'assets/videos/0433465e-b544-4e72-b7e4-0c6da80fb465.mov'
       - '.github/workflows/convert-juma-video.yml'
   workflow_dispatch:
 
@@ -17,25 +17,24 @@ jobs:
     steps:
       - name: Check out the website
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Convert Juma's uploaded MOV to a browser-compatible MP4
+      - name: Convert newest uploaded Juma MOV to browser-compatible MP4
         shell: bash
         run: |
           set -euo pipefail
-          test -s "assets/videos/IMG_9153.mov"
+          test -s "assets/videos/0433465e-b544-4e72-b7e4-0c6da80fb465.mov"
           if ! command -v ffmpeg >/dev/null 2>&1; then
             sudo apt-get update -qq
             sudo apt-get install -y -qq ffmpeg
           fi
-          # The GitHub-uploaded MOV has a different pixel orientation from the
-          # original chat attachment. Inspect its actual frame dimensions first:
-          # portrait pixels must NOT be transposed, even if display metadata rotates them.
-          SOURCE="assets/videos/IMG_9153.mov"
+          # Encode the newest user-uploaded MOV with physical pixels in their source
+          # orientation, stripping conflicting rotation metadata for browsers.
+          SOURCE="assets/videos/0433465e-b544-4e72-b7e4-0c6da80fb465.mov"
           ffprobe -v error -select_streams v:0 \
             -show_entries stream=width,height:stream_side_data=rotation -of json "$SOURCE"
           WIDTH=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$SOURCE")
           HEIGHT=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$SOURCE")
           if (( WIDTH > HEIGHT )); then
-            FILTER="transpose=clock,scale=720:-2"
+            FILTER="scale=1280:-2"
           else
             FILTER="scale=720:-2"
           fi
@@ -48,28 +47,28 @@ jobs:
             -vf "$FILTER" \
             -c:v libx264 -preset veryfast -crf 26 -pix_fmt yuv420p \
             -c:a aac -b:a 96k -movflags +faststart \
-            "assets/videos/juma-ocean-upright.mp4"
-          test -s "assets/videos/juma-ocean-upright.mp4"
+            "assets/videos/juma-ocean-latest.mp4"
+          test -s "assets/videos/juma-ocean-latest.mp4"
           ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json \
-            "assets/videos/juma-ocean-upright.mp4" > /tmp/juma-orientation.json
+            "assets/videos/juma-ocean-latest.mp4" > /tmp/juma-orientation.json
           python3 - <<'PY'
           import json
           with open('/tmp/juma-orientation.json', encoding='utf-8') as f:
               s = json.load(f)['streams'][0]
-          assert s['height'] > s['width'], f"Video must be portrait, got {s}"
+          assert s['height'] > 0 and s['width'] > 0, f"Invalid video geometry: {s}"
           rotations = [v['rotation'] for v in s.get('side_data_list', []) if 'rotation' in v]
           assert not rotations or all(float(v) == 0 for v in rotations), f"Unexpected rotation metadata: {rotations}"
-          print(f"Verified upright video: {s['width']}x{s['height']}, rotation={rotations or 'none'}")
+          print(f"Verified rotation-free video: {s['width']}x{s['height']}, rotation={rotations or 'none'}")
           PY
       - name: Publish the MP4 in the website repository
         shell: bash
         run: |
           set -euo pipefail
-          git add -- "assets/videos/juma-ocean-upright.mp4"
+          git add -- "assets/videos/juma-ocean-latest.mp4"
           if git diff --cached --quiet; then
             echo "The MP4 is already up to date."
             exit 0
           fi
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-            commit -m "Publish optimized Juma ocean video"
+            commit -m "Publish latest Juma video in browser-ready MP4"
           git push origin HEAD:main
