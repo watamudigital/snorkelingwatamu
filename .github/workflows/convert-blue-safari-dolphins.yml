@@ -1,0 +1,68 @@
+name: Publish Blue Safari dolphin video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/videos/7dd6ed26-e0fb-4fc7-b406-411e4bbb8086 (1).mov'
+      - '.github/workflows/convert-blue-safari-dolphins.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website files
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Convert dolphin video and make its own poster frame
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE='assets/videos/7dd6ed26-e0fb-4fc7-b406-411e4bbb8086 (1).mov'
+          TARGET='assets/videos/blue-safari-dolphins.mp4'
+          POSTER='assets/images/blue-safari-dolphins-video-poster.jpg'
+          test -s "$SOURCE"
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$SOURCE"
+          # Preserve the entire frame with correct automatic MOV rotation.
+          # Encode the correct pixels to avoid sideways playback on phones.
+          ffmpeg -hide_banner -loglevel error -nostdin -y -i "$SOURCE" \
+            -map 0:v:0 -map '0:a:0?' \
+            -vf 'fps=24,scale=720:720:force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1' \
+            -c:v libx264 -preset ultrafast -crf 27 -pix_fmt yuv420p \
+            -metadata:s:v:0 rotate=0 \
+            -c:a aac -b:a 96k -movflags +faststart "$TARGET"
+          test -s "$TARGET"
+          ffmpeg -hide_banner -loglevel error -nostdin -y -ss 3 -i "$TARGET" \
+            -frames:v 1 -vf 'scale=960:960:force_original_aspect_ratio=decrease' -q:v 3 "$POSTER"
+          test -s "$POSTER"
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$TARGET" > /tmp/dolphin-video-metadata.json
+          python3 - <<'PY'
+          import json
+          with open('/tmp/dolphin-video-metadata.json', encoding='utf-8') as fp:
+              video=json.load(fp)['streams'][0]
+          assert video['width']>0 and video['height']>0, video
+          rotations=[x['rotation'] for x in video.get('side_data_list',[]) if 'rotation' in x]
+          assert not rotations or all(float(r)==0 for r in rotations), rotations
+          print("Validated dolphin video:", video['width'], "x", video['height'], "rotation:", rotations or 'none')
+          PY
+      - name: Commit dolphin video and real thumbnail
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- assets/videos/blue-safari-dolphins.mp4 assets/images/blue-safari-dolphins-video-poster.jpg
+          if git diff --cached --quiet; then
+            echo 'Dolphin video is already current'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish dolphin video for Blue Safari'
+          git pull --rebase origin main
+          git push origin HEAD:main
