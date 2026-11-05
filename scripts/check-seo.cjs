@@ -32,6 +32,13 @@ for(const lang of langs){
  assert(src.includes('value="Watersports"'),p+' Watersports enquiry option missing');
  assert(src.includes('src="/assets/images/IMG_0034.jpeg"'),p+' first Watersports photo missing');
  assert(src.includes('src="/assets/Vier Fahrer auf dem gelben Rocket.png"'),p+' second Watersports Rocket photo missing');
+ const sportsCard=[...src.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
+ assert(sportsCard,p+' Watersports gallery missing');
+ assert((sportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' Watersports should retain all three photos');
+ assert((sportsCard.match(/<video class="photo-slide /g)||[]).length===1,p+' Watersports MP4 missing');
+ assert((sportsCard.match(/data-photo-index=/g)||[]).length===4,p+' Watersports should have four navigation dots');
+ assert(sportsCard.includes('src="/assets/videos/watersports-latest.mp4"'),p+' latest Watersports video source missing');
+ assert(sportsCard.includes('poster="/assets/images/watersports-video-poster.jpg"'),p+' latest Watersports video preview missing');
  assert(!src.includes('Your Blue Safari'),p+' old private safari offer remains');
  const sportTitles={it:'Watersports',en:'Watersports',de:'Watersports',fr:'Watersports'};
  assert(src.includes(sportTitles[lang]),p+' missing translated Watersports title');
@@ -71,7 +78,7 @@ for(const lang of langs){
  const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
- assert((src.match(/<video class="photo-slide /g)||[]).length===4,p+' expected one fishing and three Blue Safari video slides');
+ assert((src.match(/<video class="photo-slide /g)||[]).length===5,p+' expected one fishing, three Blue Safari and one Watersports video slides');
  assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===8,p+' expected three Blue Safari, two fishing and three Watersports photos');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
