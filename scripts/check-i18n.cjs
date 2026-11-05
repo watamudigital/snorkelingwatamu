@@ -30,7 +30,7 @@ assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo 
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
 assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===8,'Expected two fishing photos and three each in other experiences');
 assert((html.match(/<video class="photo-slide /g)||[]).length===1,'Expected one video in fishing gallery');
-assert(html.includes('src="/assets/videos/fishing-latest.mp4?v=1a1ba108"'),'Latest fishing video missing from gallery');
+assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
 assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
 assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
 assert(html.includes('data-juma-video'),'Juma story video player missing');
