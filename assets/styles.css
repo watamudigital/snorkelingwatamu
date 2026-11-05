@@ -201,3 +201,19 @@
   object-position:center;
   background:#0b4b55;
 }
+
+
+/* Blue Safari gallery: keep the new photo and videos fully visible. */
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altBlueLatestPhoto"],
+.experience-carousel .photo-gallery .blue-safari-video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  background:#0b4b55;
+}
+/* Keep navigation clear of native video playback controls. */
+.photo-gallery.is-video-active .photo-dots{
+  bottom:auto;
+  top:14px;
+}
