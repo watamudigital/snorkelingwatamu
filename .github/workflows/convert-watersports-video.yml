@@ -1,0 +1,67 @@
+name: Publish Watersports video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/videos/Video watersports.mov'
+      - '.github/workflows/convert-watersports-video.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Convert uploaded Watersports video and generate its own preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE='assets/videos/Video watersports.mov'
+          TARGET='assets/videos/watersports-latest.mp4'
+          POSTER='assets/images/watersports-video-poster.jpg'
+          test -s "$SOURCE"
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$SOURCE"
+          # Honor MOV rotation automatically; preserve the complete scene.
+          ffmpeg -hide_banner -loglevel error -nostdin -y -i "$SOURCE" \
+            -map 0:v:0 -map '0:a:0?' \
+            -vf 'fps=24,scale=720:720:force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1' \
+            -c:v libx264 -preset ultrafast -crf 27 -pix_fmt yuv420p \
+            -metadata:s:v:0 rotate=0 \
+            -c:a aac -b:a 96k -movflags +faststart "$TARGET"
+          test -s "$TARGET"
+          ffmpeg -hide_banner -loglevel error -nostdin -y -ss 2 -i "$TARGET" \
+            -frames:v 1 -vf 'scale=960:960:force_original_aspect_ratio=decrease' -q:v 3 "$POSTER"
+          test -s "$POSTER"
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height:stream_side_data=rotation -of json "$TARGET" > /tmp/watersports-metadata.json
+          python3 - <<'PY'
+          import json
+          with open('/tmp/watersports-metadata.json', encoding='utf-8') as fp:
+              v=json.load(fp)['streams'][0]
+          assert v['width'] > 0 and v['height'] > 0, v
+          rotations=[item['rotation'] for item in v.get('side_data_list',[]) if 'rotation' in item]
+          assert all(float(value)==0 for value in rotations), rotations
+          print("Watersports output:",v['width'],"x",v['height'],"rotation",rotations or "none")
+          PY
+      - name: Publish Watersports video and preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- assets/videos/watersports-latest.mp4 assets/images/watersports-video-poster.jpg
+          if git diff --cached --quiet; then
+            echo 'Watersports media already published'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish Watersports video and authentic preview'
+          git pull --rebase origin main
+          git push origin HEAD:main
