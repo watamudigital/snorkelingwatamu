@@ -44,7 +44,7 @@ for(const lang of langs){
  assert(src.includes('src="/assets/images/Juma mit Fischen auf sonniger See.png"'),p+' missing authentic Juma fishing photo');
  assert(src.includes('src="/assets/images/IMG_0053.jpeg"'),p+' latest uploaded fishing photo missing');
  assert(!src.includes('photo-1771056511594') && !src.includes('photo-1636612287192'),p+' illustrative fishing photos must be removed');
- assert(src.includes('src="/assets/videos/fishing-latest.mp4?v=1a1ba108"'),p+' fishing gallery MP4 missing');
+ assert(src.includes('src="/assets/videos/fishing-portrait.mp4"'),p+' fishing gallery MP4 missing');
  const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
