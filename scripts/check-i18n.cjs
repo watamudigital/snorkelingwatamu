@@ -28,6 +28,10 @@ assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scr
 assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
 assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
 assert((html.match(/data-photo-gallery/g)||[]).length===3,'Expected three experience photo galleries');
+assert((html.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===3,'All three photo galleries should open by clicking their covers');
+assert(html.includes('data-i18n-aria-label="creekOpenAria"'),'Mida Creek must have a click-to-enlarge trigger');
+assert(!html.includes('class="photo-arrow')&&!html.includes('class="photo-dot'),'Remove photo navigation arrows and dots from cards');
+assert(!html.includes('data-photo-dir=')&&!html.includes('data-photo-index='),'Old on-card carousel navigation must be absent');
 assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===8,'Expected three Blue Safari photos, two fishing photos and three Watersports photos');
 assert((html.match(/<video class="photo-slide /g)||[]).length===5,'Expected three Blue Safari, one fishing and one Watersports video');
 assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
@@ -50,7 +54,7 @@ for(const code of languages){
 
 assert((blueSafariCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Blue Safari needs three photos');
 assert((blueSafariCard.match(/<video class="photo-slide /g)||[]).length===3,'Blue Safari needs three videos');
-assert((blueSafariCard.match(/data-photo-index=/g)||[]).length===6,'Blue Safari needs six navigation dots');
+assert(!blueSafariCard.includes('data-photo-index=')&&!blueSafariCard.includes('data-photo-dir='),'Blue Safari must open on click without on-card cursors');
 const blueSlideSources=[...blueSafariCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
 assert(blueSlideSources.join('|')===[
  './assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
@@ -102,7 +106,7 @@ const watersportsCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/a
 assert(watersportsCard,'Watersports card missing');
 assert((watersportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Watersports gallery needs three photos');
 assert((watersportsCard.match(/<video class="photo-slide /g)||[]).length===1,'Watersports gallery needs one video');
-assert((watersportsCard.match(/data-photo-index=/g)||[]).length===4,'Watersports gallery needs four navigation dots');
+assert(!watersportsCard.includes('data-photo-index=')&&!watersportsCard.includes('data-photo-dir='),'Watersports must open on click without on-card cursors');
 assert(watersportsCard.includes('src="/assets/videos/watersports-latest.mp4"'),'Newest Watersports video not in gallery');
 assert(watersportsCard.includes('poster="/assets/images/watersports-video-poster.jpg"'),'Watersports video preview missing');
 assert(watersportsCard.includes('data-i18n-aria-label="waterSportsVideoAria"'),'Watersports video accessible name missing');
@@ -122,10 +126,8 @@ const fishingCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/artic
 assert(fishingCard,'Fishing gallery missing');
 assert((fishingCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,'Fishing must show exactly two photos');
 assert((fishingCard.match(/<video class="photo-slide /g)||[]).length===1,'Fishing must retain its video');
-assert((fishingCard.match(/data-photo-index=/g)||[]).length===3,'Fishing navigation must have exactly three dots');
-for(const key of ['fishingPhoto1','fishingPhoto2','fishingPhoto3']){
- assert(html.includes('data-i18n-aria-label="'+key+'"'),'Missing fishing gallery navigation '+key);
-}
+assert(!fishingCard.includes('data-photo-index=')&&!fishingCard.includes('data-photo-dir='),'Fishing must open on click without on-card cursors');
+assert(fishingCard.includes('data-i18n-aria-label="galleryOpenAria"'),'Fishing click-to-open gallery trigger missing');
 assert(html.includes('data-exp="Deep-Sea Fishing"'),'Fishing card not selectable');
 assert(html.includes('value="Deep-Sea Fishing"'),'Fishing form choice missing');
 assert(app.includes("tripField.value!=='Deep-Sea Fishing'"),'Fishing form should not request swimming ability');
@@ -139,7 +141,7 @@ for(const code of languages){
  }
 }
 for(const code of languages){
- for(const key of ['experiencesCarouselLabel','experiencePrev','experienceNext','photoPrev','photoNext','photo1','photo2','photo3','photo4','carouselHint']){
+ for(const key of ['galleryOpenAria','creekOpenAria','carouselHint']){
   assert(typeof extras[code][key]==='string' && extras[code][key].trim(),code+': missing carousel translation '+key);
  }
 }
