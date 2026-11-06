@@ -57,8 +57,8 @@ for(const lang of langs){
  assert((sportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' Watersports should retain all three photos');
  assert((sportsCard.match(/<video class="photo-slide /g)||[]).length===1,p+' Watersports MP4 missing');
  assert(!sportsCard.includes('data-photo-index='),p+' Watersports on-card dots should be removed');
- assert(sportsCard.includes('src="/assets/videos/watersports-latest.mp4"'),p+' latest Watersports video source missing');
- assert(sportsCard.includes('poster="/assets/images/watersports-video-poster.jpg"'),p+' latest Watersports video preview missing');
+ assert(sportsCard.includes('src="/assets/videos/VIDEO-2026-11-05-18-00-01.mp4"'),p+' latest Watersports video source missing');
+ assert(!sportsCard.includes('watersports-latest.mp4')&&!sportsCard.includes('watersports-video-poster.jpg'),p+' old Watersports video and preview must be removed');
  assert(!src.includes('Your Blue Safari'),p+' old private safari offer remains');
  const sportTitles={it:'Watersports',en:'Watersports',de:'Watersports',fr:'Watersports'};
  assert(src.includes(sportTitles[lang]),p+' missing translated Watersports title');
