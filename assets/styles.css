@@ -102,12 +102,12 @@
 @media(prefers-reduced-motion:reduce){.photo-gallery .photo-slide,.photo-arrow,.photo-dot{transition:none}}
 
 
-/* Four experiences, arranged in a clear two-column grid on desktop.
-   On phones each card appears full width without being cut off. */
+/* Compact layout: all four activities in one row on large screens,
+   two columns on tablets, and comfortable full-width cards on phones. */
 .experience-carousel{
  display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:clamp(12px,1.8vw,23px);
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:clamp(11px,1.25vw,18px);
  overflow:visible;
  scroll-snap-type:none;
  scroll-padding-inline:0;
@@ -120,20 +120,24 @@
  flex:none;
  scroll-snap-align:none;
 }
-.experience-carousel .experience-photo{height:clamp(185px,21vw,285px)}
-.experience-carousel .experience-body{padding:clamp(17px,1.9vw,25px)}
-.experience-carousel .experience h3{font-size:clamp(20px,2vw,25px);overflow-wrap:anywhere}
-.experience-carousel .experience p{min-height:0}
+.experience-carousel .experience-photo{height:clamp(155px,15vw,205px)}
+.experience-carousel .experience-body{padding:clamp(13px,1.25vw,18px)}
+.experience-carousel .experience h3{font-size:clamp(18px,1.55vw,21px);overflow-wrap:anywhere}
+.experience-carousel .experience p{min-height:0;font-size:12.5px;line-height:1.5}
+.experience-carousel .card-foot{padding-top:13px;margin-top:12px}
+.experience-carousel .round-arrow{height:35px;width:35px}
 .experience-carousel-hint{margin-top:16px}
-@media(max-width:850px){
+@media(max-width:1100px){
  .experience-carousel{grid-template-columns:repeat(2,minmax(0,1fr))}
- .experience-carousel .experience-photo{height:clamp(200px,31vw,310px)}
+ .experience-carousel .experience-photo{height:clamp(165px,24vw,220px)}
+ .experience-carousel .experience h3{font-size:20px}
 }
-@media(max-width:590px){
- .experience-carousel{grid-template-columns:1fr;gap:18px}
- .experience-carousel .experience-photo{height:clamp(225px,61vw,340px)}
- .experience-carousel .experience h3{font-size:24px}
- .experience-carousel .experience p{font-size:14px}
+@media(max-width:650px){
+ .experience-carousel{grid-template-columns:1fr;gap:14px}
+ .experience-carousel .experience-photo{height:clamp(180px,50vw,225px)}
+ .experience-carousel .experience-body{padding:16px 18px}
+ .experience-carousel .experience h3{font-size:20px}
+ .experience-carousel .experience p{font-size:13px;line-height:1.55}
 }
 
 
@@ -362,3 +366,12 @@
  text-shadow:0 1px 4px rgba(0,35,40,.75);
 }
 .experience-creek .experience-body{min-height:0}
+
+
+/* Show Juma's entire head and both fish in the first fishing image.
+   Contain rather than crop when gallery aspect ratios change. */
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altFishing1"]{
+ object-fit:contain;
+ object-position:center center;
+ background:#0b4b55;
+}
