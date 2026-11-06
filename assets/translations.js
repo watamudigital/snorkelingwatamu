@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "creekOpenAria": "Enlarge the Mida Creek sunset illustration",
+    "galleryOpenAria": "Open the photos and videos in a large gallery",
     "creekChooseAria": "Ask Juma about a sunset boat trip at Mida Creek",
     "creekSunsetVisualAria": "Illustration of a boat at sunset among the mangroves of Mida Creek",
     "creekVisualCaption": "The magic of sunset",
@@ -57,7 +59,7 @@ window.SW_TRANSLATIONS = {
     "photo1": "Photo 1 of 4",
     "photo2": "Photo 2 of 4",
     "photo3": "Photo 3 of 4",
-    "carouselHint": "Browse the photos in each experience to discover more.",
+    "carouselHint": "Tap an activity photo to open its larger photo and video gallery.",
     "heroSub": "Watamu’s ocean has a thousand shades. Discover them with Juma—from coral gardens to turquoise waters, at a pace that feels like yours.",
     "card3Text": "Make a splash with watersports! Kitesurfing, stand-up paddleboarding or kayaking are ideas to discuss with Juma, depending on conditions and availability.",
     "galleryIntro": "The Subira, ocean colours and smiles on board: discover real moments from boat trips in Watamu. Ask Juma what experience can be arranged for you.",
@@ -120,6 +122,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "creekOpenAria": "Ingrandisci l'illustrazione del tramonto a Mida Creek",
+    "galleryOpenAria": "Apri foto e video ingranditi",
     "creekChooseAria": "Richiedi a Juma il giro in barca al tramonto a Mida Creek",
     "creekSunsetVisualAria": "Illustrazione di una barca al tramonto a Mida Creek, tra le mangrovie",
     "creekVisualCaption": "La magia del tramonto",
@@ -176,7 +180,7 @@ window.SW_TRANSLATIONS = {
     "photo1": "Foto 1 di 4",
     "photo2": "Foto 2 di 4",
     "photo3": "Foto 3 di 4",
-    "carouselHint": "Sfoglia le foto all’interno di ogni esperienza per scoprire di più.",
+    "carouselHint": "Tocca una foto per aprire la galleria ingrandita e sfogliare immagini e video.",
     "heroSub": "Il mare di Watamu ha mille sfumature. Scoprile con Juma: tra coralli, acque turchesi e momenti da vivere al tuo ritmo.",
     "card3Text": "Dai energia alla tua vacanza con gli sport acquatici: kitesurf, SUP o kayak sono alcune possibilità da verificare con Juma, in base a condizioni e disponibilità.",
     "galleryIntro": "La Subira, i colori del mare e i sorrisi a bordo: scopri alcuni momenti reali delle escursioni a Watamu. Chiedi a Juma quale esperienza è possibile organizzare per te.",
@@ -239,6 +243,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "creekOpenAria": "Sonnenuntergangsillustration am Mida Creek vergrößern",
+    "galleryOpenAria": "Fotos und Videos in großer Ansicht öffnen",
     "creekChooseAria": "Juma zur Bootsfahrt bei Sonnenuntergang am Mida Creek anfragen",
     "creekSunsetVisualAria": "Illustration einer Bootsfahrt bei Sonnenuntergang zwischen den Mangroven des Mida Creek",
     "creekVisualCaption": "Magische Abendstimmung",
@@ -291,7 +297,7 @@ window.SW_TRANSLATIONS = {
     "photo1": "Foto 1 von 4",
     "photo2": "Foto 2 von 4",
     "photo3": "Foto 3 von 4",
-    "carouselHint": "Entdecke die Bilder zu jedem Erlebnis.",
+    "carouselHint": "Tippe auf ein Foto, um die Bilder und Videos groß anzusehen.",
     "jumaKicker": "Mehr als eine Bootsfahrt",
     "jumaHeading1": "Dein Meer,",
     "jumaHeading2": "mit Juma.",
@@ -415,6 +421,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "creekOpenAria": "Agrandir l'illustration du coucher de soleil à Mida Creek",
+    "galleryOpenAria": "Ouvrir les photos et vidéos en grand format",
     "creekChooseAria": "Demander à Juma une balade en bateau au coucher du soleil à Mida Creek",
     "creekSunsetVisualAria": "Illustration d'une balade en bateau au coucher du soleil parmi les mangroves de Mida Creek",
     "creekVisualCaption": "La magie du coucher de soleil",
@@ -467,7 +475,7 @@ window.SW_TRANSLATIONS = {
     "photo1": "Photo 1 sur 4",
     "photo2": "Photo 2 sur 4",
     "photo3": "Photo 3 sur 4",
-    "carouselHint": "Parcourez les photos de chaque expérience pour en découvrir davantage.",
+    "carouselHint": "Touchez une photo pour ouvrir la galerie de photos et vidéos en grand.",
     "jumaKicker": "Bien plus qu'une excursion",
     "jumaHeading1": "Votre océan,",
     "jumaHeading2": "avec Juma.",
