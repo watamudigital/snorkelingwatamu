@@ -102,11 +102,13 @@
 @media(prefers-reduced-motion:reduce){.photo-gallery .photo-slide,.photo-arrow,.photo-dot{transition:none}}
 
 
-/* Larger photos and naturally sized cards without empty vertical space. */
+/* Four matching activity cards: same photo size and full card dimensions.
+   Responsive two-column layout retains readable, generously sized images. */
 .experience-carousel{
  display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));
- align-items:start;
+ grid-auto-rows:1fr;
+ align-items:stretch;
  gap:clamp(16px,2vw,26px);
  overflow:visible;
  scroll-snap-type:none;
@@ -117,24 +119,38 @@
 .experience-carousel .experience{
  width:100%;
  min-width:0;
+ height:100%;
  flex:none;
- align-self:start;
+ align-self:stretch;
  scroll-snap-align:none;
+ display:flex;
+ flex-direction:column;
 }
-.experience-carousel .experience-photo{height:clamp(235px,27vw,315px)}
-.experience-carousel .experience-body{flex:none;padding:18px 21px 20px}
+.experience-carousel .experience-photo{
+ flex:0 0 auto;
+ width:100%;
+ height:clamp(235px,27vw,315px);
+}
+.experience-carousel .experience-body{
+ flex:1 1 auto;
+ display:flex;
+ flex-direction:column;
+ padding:18px 21px 20px;
+}
 .experience-carousel .experience h3{font-size:clamp(21px,2vw,25px);overflow-wrap:anywhere}
 .experience-carousel .experience p{min-height:0;font-size:13.5px;line-height:1.62}
-.experience-carousel .card-foot{padding-top:14px;margin-top:16px}
+.experience-carousel .card-foot{padding-top:14px;margin-top:auto}
 .experience-carousel .round-arrow{height:38px;width:38px}
 .experience-carousel-hint{margin-top:16px}
 @media(max-width:760px){
- .experience-carousel{grid-template-columns:1fr;gap:18px}
+ .experience-carousel{grid-template-columns:1fr;grid-auto-rows:auto;gap:18px}
+ .experience-carousel .experience{height:auto}
  .experience-carousel .experience-photo{height:clamp(225px,58vw,315px)}
  .experience-carousel .experience-body{padding:18px 20px}
  .experience-carousel .experience h3{font-size:22px}
  .experience-carousel .experience p{font-size:13.5px;line-height:1.6}
 }
+
 
 /* Juma ocean video: preserve the full portrait frame and respect the fallback. */
 .juma-story-visual .juma-story-video{
@@ -517,4 +533,44 @@
   background-position:right center;
   background-size:cover;
  }
+}
+
+/* Audio control for Juma's hero: visible above overlays, clear of his face. */
+.hero .hero-audio-toggle{
+ position:absolute;
+ z-index:5;
+ right:clamp(16px,4vw,52px);
+ bottom:clamp(105px,10vh,140px);
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:9px;
+ padding:12px 18px;
+ border-radius:999px;
+ border:1px solid rgba(255,255,255,.68);
+ background:rgba(2,31,41,.84);
+ box-shadow:0 8px 24px rgba(0,0,0,.25);
+ color:#fff;
+ font-size:13px;
+ font-weight:800;
+ cursor:pointer;
+ backdrop-filter:blur(8px);
+}
+.hero .hero-audio-toggle:hover{background:rgba(7,69,75,.95)}
+.hero .hero-audio-toggle:focus-visible{
+ outline:3px solid #c9f37b;
+ outline-offset:4px;
+}
+.hero .hero-audio-toggle [hidden]{display:none!important}
+.hero .hero-audio-icon{font-size:17px}
+@media(max-width:700px){
+ .hero .hero-audio-toggle{
+  right:6%;
+  bottom:104px;
+  padding:11px 14px;
+  font-size:12px;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .hero .hero-audio-toggle{display:none}
 }
