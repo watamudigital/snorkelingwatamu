@@ -453,3 +453,62 @@
  overflow:hidden;
  cursor:default;
 }
+
+
+/* Latest Juma hero video: keep the guide on the right and typography on the left. */
+.hero .hero-bg{
+ background-image:url('/assets/images/juma-hero-latest-poster.jpg');
+ background-size:cover;
+ background-position:45% center;
+ transform:scaleX(-1);
+}
+.hero .hero-background-video{
+ display:block;
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:35% center;
+ pointer-events:none;
+}
+.hero::before{
+ background:linear-gradient(90deg,rgba(2,23,33,.94) 0%,rgba(2,30,42,.84) 25%,rgba(2,39,54,.57) 47%,rgba(2,41,55,.02) 75%);
+}
+.hero .hero-inner{
+ width:100%;
+ max-width:min(850px,65vw);
+ margin-left:0;
+ margin-right:auto;
+ padding-left:5.5%;
+ padding-right:0;
+}
+.hero .hero-inner h1{
+ font-size:clamp(50px,7vw,105px);
+ max-width:100%;
+}
+@media(max-width:700px){
+ .hero .hero-bg{
+  background-position:42% center;
+  transform:scaleX(-1);
+ }
+ .hero .hero-background-video{
+  object-position:33% center;
+ }
+ .hero::before{
+  background:linear-gradient(90deg,rgba(2,24,36,.88) 0%,rgba(2,30,42,.78) 37%,rgba(2,42,52,.15) 100%);
+ }
+ .hero .hero-inner{
+  max-width:82%;
+  padding-left:6%;
+  padding-right:0;
+ }
+ .hero .hero-inner h1{
+  font-size:clamp(41px,9.2vw,66px);
+  line-height:1;
+ }
+ .hero .hero-sub{max-width:85%;font-size:13.5px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero .hero-background-video{display:none}
+}
