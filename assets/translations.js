@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "heroAudioOff": "Mute video",
+    "heroAudioOn": "Turn sound on",
     "creekOpenAria": "Enlarge the Mida Creek sunset illustration",
     "galleryOpenAria": "Open the photos and videos in a large gallery",
     "creekChooseAria": "Ask Juma about a sunset boat trip at Mida Creek",
@@ -122,6 +124,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "heroAudioOff": "Disattiva audio",
+    "heroAudioOn": "Attiva audio",
     "creekOpenAria": "Ingrandisci l'illustrazione del tramonto a Mida Creek",
     "galleryOpenAria": "Apri foto e video ingranditi",
     "creekChooseAria": "Richiedi a Juma il giro in barca al tramonto a Mida Creek",
@@ -243,6 +247,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "heroAudioOff": "Ton ausschalten",
+    "heroAudioOn": "Ton einschalten",
     "creekOpenAria": "Sonnenuntergangsillustration am Mida Creek vergrößern",
     "galleryOpenAria": "Fotos und Videos in großer Ansicht öffnen",
     "creekChooseAria": "Juma zur Bootsfahrt bei Sonnenuntergang am Mida Creek anfragen",
@@ -421,6 +427,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "heroAudioOff": "Couper le son",
+    "heroAudioOn": "Activer le son",
     "creekOpenAria": "Agrandir l'illustration du coucher de soleil à Mida Creek",
     "galleryOpenAria": "Ouvrir les photos et vidéos en grand format",
     "creekChooseAria": "Demander à Juma une balade en bateau au coucher du soleil à Mida Creek",
