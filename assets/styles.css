@@ -327,54 +327,10 @@
 .experience-carousel .private-safari-cta:focus-visible{outline:3px solid #0c9382;outline-offset:3px}
 
 
-/* Mida Creek sunset: a clearly illustrative visual, not a stock photograph. */
-.experience-carousel .creek-sunset-visual{
- position:relative;
- isolation:isolate;
- overflow:hidden;
- background:
-  radial-gradient(ellipse at 58% 56%,rgba(255,201,132,.8) 0%,transparent 38%),
-  linear-gradient(180deg,#1f6c7d 0%,#d28d77 48%,#f1b26e 63%,#376d72 64%,#064b53 100%);
-}
-.creek-sunset-sun{
- position:absolute;
- z-index:0;
- width:90px;
- height:90px;
- left:53%;
- top:32%;
- transform:translate(-50%,-35%);
- border-radius:50%;
- background:#ffdf9e;
- box-shadow:0 0 44px 13px rgba(255,199,122,.46);
-}
-.creek-sunset-water{
- position:absolute;
- z-index:1;
- inset:62% 0 0;
- background:
-  repeating-linear-gradient(0deg,transparent 0 11px,rgba(255,225,167,.2) 12px 13px,transparent 14px 21px),
-  linear-gradient(180deg,rgba(235,162,112,.18),rgba(0,55,66,.65));
-}
-.creek-sunset-boat{
- position:absolute;
- z-index:2;
- left:53%;
- top:64%;
- transform:translate(-50%,-50%);
- font-size:60px;
- line-height:1;
- filter:drop-shadow(0 6px 7px rgba(0,36,43,.35));
-}
-.creek-sunset-caption{
- position:absolute;
- z-index:2;
- right:16px;
- bottom:15px;
- color:white;
- font-size:12px;
- font-weight:780;
- text-shadow:0 1px 4px rgba(0,35,40,.75);
+/* Mida Creek now uses two uploaded photographs in the same-size photo gallery. */
+.experience-carousel .creek-photo-gallery .photo-slide{
+ object-fit:cover;
+ object-position:center;
 }
 .experience-creek .experience-body{min-height:0}
 
@@ -573,4 +529,17 @@
 }
 @media(prefers-reduced-motion:reduce){
  .hero .hero-audio-toggle{display:none}
+}
+
+/* Real video in the private Blue Safari subcard, with native playback controls. */
+.experience-carousel .private-safari-option .private-safari-video{
+ display:block;
+ width:100%;
+ aspect-ratio:16 / 9;
+ height:auto;
+ max-height:260px;
+ margin:0 0 14px;
+ background:#073840;
+ object-fit:contain;
+ border-radius:10px;
 }
