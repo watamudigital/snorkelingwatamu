@@ -81,7 +81,7 @@ assert(html.includes('data-video-src="/assets/videos/juma-ocean-latest.mp4"'),'J
 assert(html.includes('class="juma-story-fallback"'),'Missing image fallback while video is unavailable');
 assert(html.includes('data-i18n-aria-label="jumaVideoAria"'),'Missing translated video accessibility label');
 const experienceOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
-assert(experienceOrder.join('|')==='Blue Safari|Blue Safari Private|Deep-Sea Fishing|Watersports','Private Blue Safari must be nested inside the Blue Safari card before fishing and Watersports');
+assert(experienceOrder.join('|')==='Blue Safari Private|Blue Safari|Deep-Sea Fishing|Watersports','Private Blue Safari must be nested inside the Blue Safari card before fishing and Watersports');
 assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
 assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
 assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
