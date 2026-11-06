@@ -1,6 +1,10 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "privateSafariChooseAria": "Ask Juma about a private Blue Safari",
+    "privateSafariCta": "Ask Juma",
+    "privateSafariDesc": "Explore Watamu with Juma at your own pace: a private trip to plan together, with turquoise waters, personalised stops and snorkeling when the sea allows.",
+    "privateSafariTitle": "Private Blue Safari",
     "footerNote": "Authentic photos from our excursions in Watamu.",
     "photo4": "Watersports video, 4 of 4",
     "waterSportsVideoAria": "Video of Watersports activities in Watamu",
@@ -110,6 +114,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "privateSafariChooseAria": "Richiedi il Blue Safari privato a Juma",
+    "privateSafariCta": "Chiedi a Juma",
+    "privateSafariDesc": "Vivi Watamu con Juma, lontano dalla fretta: un'uscita privata da organizzare insieme, tra acqua turchese, soste personalizzate e snorkeling quando il mare lo permette.",
+    "privateSafariTitle": "Blue Safari privato",
     "footerNote": "Fotografie autentiche delle nostre escursioni a Watamu.",
     "photo4": "Video Watersports, 4 di 4",
     "waterSportsVideoAria": "Video delle attività Watersports a Watamu",
@@ -219,6 +227,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "privateSafariChooseAria": "Juma nach einem privaten Blue Safari fragen",
+    "privateSafariCta": "Juma anfragen",
+    "privateSafariDesc": "Entdeckt Watamu mit Juma in eurem eigenen Tempo: ein privater Ausflug, den ihr gemeinsam plant, mit türkisblauem Meer, individuellen Stopps und Schnorcheln, wenn die Bedingungen es erlauben.",
+    "privateSafariTitle": "Privater Blue Safari",
     "photo4": "Watersports-Video, 4 von 4",
     "waterSportsVideoAria": "Video mit Wassersportaktivitäten in Watamu",
     "blueSafariVideo3": "Video mit Delfinen im Meer bei Watamu",
@@ -385,6 +397,10 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "privateSafariChooseAria": "Demander à Juma un Blue Safari privé",
+    "privateSafariCta": "Demander à Juma",
+    "privateSafariDesc": "Découvrez Watamu avec Juma à votre rythme : une sortie privée à organiser ensemble, entre eaux turquoise, arrêts personnalisés et snorkeling lorsque la mer le permet.",
+    "privateSafariTitle": "Blue Safari privé",
     "photo4": "Vidéo Watersports, 4 sur 4",
     "waterSportsVideoAria": "Vidéo des activités nautiques à Watamu",
     "blueSafariVideo3": "Vidéo des dauphins dans la mer près de Watamu",
