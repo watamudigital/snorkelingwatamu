@@ -36,6 +36,18 @@ assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
 
 const blueSafariCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Blue Safari"'));
 assert(blueSafariCard,'Blue Safari card missing');
+
+assert((blueSafariCard.match(/class="private-safari-option"/g)||[]).length===1,'Blue Safari must contain one nested private option');
+assert(blueSafariCard.includes('data-i18n="privateSafariDesc"'),'Juma private safari description missing');
+assert(blueSafariCard.includes('data-exp="Blue Safari Private"'),'Private safari shortcut missing');
+assert(html.includes('<option value="Blue Safari Private" data-i18n="privateSafariTitle">'),'Private safari choice missing from booking form');
+for(const code of languages){
+ const dict={...(base[code]||{}),...(extras[code]||{})};
+ for(const key of ['privateSafariTitle','privateSafariDesc','privateSafariCta','privateSafariChooseAria']){
+  assert(typeof dict[key]==='string'&&dict[key].trim(),code+': private safari translation missing '+key);
+ }
+}
+
 assert((blueSafariCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Blue Safari needs three photos');
 assert((blueSafariCard.match(/<video class="photo-slide /g)||[]).length===3,'Blue Safari needs three videos');
 assert((blueSafariCard.match(/data-photo-index=/g)||[]).length===6,'Blue Safari needs six navigation dots');
@@ -69,7 +81,7 @@ assert(html.includes('data-video-src="/assets/videos/juma-ocean-latest.mp4"'),'J
 assert(html.includes('class="juma-story-fallback"'),'Missing image fallback while video is unavailable');
 assert(html.includes('data-i18n-aria-label="jumaVideoAria"'),'Missing translated video accessibility label');
 const experienceOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
-assert(experienceOrder.join('|')==='Blue Safari|Deep-Sea Fishing|Watersports','Experience cards must be Blue Safari, fishing, Watersports');
+assert(experienceOrder.join('|')==='Blue Safari|Blue Safari Private|Deep-Sea Fishing|Watersports','Private Blue Safari must be nested inside the Blue Safari card before fishing and Watersports');
 assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
 assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
 assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
