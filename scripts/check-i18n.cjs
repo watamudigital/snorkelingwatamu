@@ -81,8 +81,21 @@ assert(html.includes('data-video-src="/assets/videos/juma-ocean-latest.mp4"'),'J
 assert(html.includes('class="juma-story-fallback"'),'Missing image fallback while video is unavailable');
 assert(html.includes('data-i18n-aria-label="jumaVideoAria"'),'Missing translated video accessibility label');
 const experienceOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
-assert(experienceOrder.join('|')==='Blue Safari Private|Blue Safari|Deep-Sea Fishing|Watersports','Private Blue Safari must be nested inside the Blue Safari card before fishing and Watersports');
+assert(experienceOrder.join('|')==='Blue Safari Private|Blue Safari|Deep-Sea Fishing|Watersports|Mida Creek Sunset Cruise','Experience order must include the Mida Creek sunset activity after Watersports');
 assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
+const sunsetCard=html.match(/<article class="experience experience-creek"[\s\S]*?<\/article>/)?.[0];
+assert(sunsetCard,'Fourth Mida Creek sunset activity card missing');
+assert(sunsetCard.includes('data-i18n="creekDesc"')&&sunsetCard.includes('data-i18n="creekTitle"'),'Mida Creek sunset title or description missing');
+assert(sunsetCard.includes('data-exp="Mida Creek Sunset Cruise"'),'Sunset option does not select request form');
+assert(html.includes('<option value="Mida Creek Sunset Cruise" data-i18n="creekTitle">'),'Mida Creek sunset request option missing');
+for(const code of languages){
+ const dict={...(base[code]||{}),...(extras[code]||{})};
+ for(const key of ['creekTitle','creekDesc','creekTag','creekVisualCaption','creekSunsetVisualAria','creekChooseAria']){
+  assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing Mida Creek translation '+key);
+ }
+}
+assert(!sunsetCard.includes('photo-slide'),'Sunset card must not claim to contain an authentic photograph');
+
 assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
 assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
 const watersportsCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
