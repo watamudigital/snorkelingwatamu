@@ -102,12 +102,12 @@
 @media(prefers-reduced-motion:reduce){.photo-gallery .photo-slide,.photo-arrow,.photo-dot{transition:none}}
 
 
-/* Compact layout: all four activities in one row on large screens,
-   two columns on tablets, and comfortable full-width cards on phones. */
+/* Larger photos and naturally sized cards without empty vertical space. */
 .experience-carousel{
  display:grid;
- grid-template-columns:repeat(4,minmax(0,1fr));
- gap:clamp(11px,1.25vw,18px);
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ align-items:start;
+ gap:clamp(16px,2vw,26px);
  overflow:visible;
  scroll-snap-type:none;
  scroll-padding-inline:0;
@@ -118,28 +118,23 @@
  width:100%;
  min-width:0;
  flex:none;
+ align-self:start;
  scroll-snap-align:none;
 }
-.experience-carousel .experience-photo{height:clamp(155px,15vw,205px)}
-.experience-carousel .experience-body{padding:clamp(13px,1.25vw,18px)}
-.experience-carousel .experience h3{font-size:clamp(18px,1.55vw,21px);overflow-wrap:anywhere}
-.experience-carousel .experience p{min-height:0;font-size:12.5px;line-height:1.5}
-.experience-carousel .card-foot{padding-top:13px;margin-top:12px}
-.experience-carousel .round-arrow{height:35px;width:35px}
+.experience-carousel .experience-photo{height:clamp(235px,27vw,315px)}
+.experience-carousel .experience-body{flex:none;padding:18px 21px 20px}
+.experience-carousel .experience h3{font-size:clamp(21px,2vw,25px);overflow-wrap:anywhere}
+.experience-carousel .experience p{min-height:0;font-size:13.5px;line-height:1.62}
+.experience-carousel .card-foot{padding-top:14px;margin-top:16px}
+.experience-carousel .round-arrow{height:38px;width:38px}
 .experience-carousel-hint{margin-top:16px}
-@media(max-width:1100px){
- .experience-carousel{grid-template-columns:repeat(2,minmax(0,1fr))}
- .experience-carousel .experience-photo{height:clamp(165px,24vw,220px)}
- .experience-carousel .experience h3{font-size:20px}
+@media(max-width:760px){
+ .experience-carousel{grid-template-columns:1fr;gap:18px}
+ .experience-carousel .experience-photo{height:clamp(225px,58vw,315px)}
+ .experience-carousel .experience-body{padding:18px 20px}
+ .experience-carousel .experience h3{font-size:22px}
+ .experience-carousel .experience p{font-size:13.5px;line-height:1.6}
 }
-@media(max-width:650px){
- .experience-carousel{grid-template-columns:1fr;gap:14px}
- .experience-carousel .experience-photo{height:clamp(180px,50vw,225px)}
- .experience-carousel .experience-body{padding:16px 18px}
- .experience-carousel .experience h3{font-size:20px}
- .experience-carousel .experience p{font-size:13px;line-height:1.55}
-}
-
 
 /* Juma ocean video: preserve the full portrait frame and respect the fallback. */
 .juma-story-visual .juma-story-video{
@@ -374,4 +369,87 @@
  object-fit:contain;
  object-position:center center;
  background:#0b4b55;
+}
+
+/* Click or tap the photo to open its own gallery; no on-card cursors. */
+.experience-carousel .photo-gallery .photo-slides,
+.experience-carousel .creek-sunset-visual{cursor:zoom-in;touch-action:pan-y}
+.experience-carousel .photo-gallery .photo-slides:focus-visible,
+.experience-carousel .creek-sunset-visual:focus-visible{outline:4px solid var(--mint);outline-offset:-5px}
+.experience-carousel .photo-gallery .pill{pointer-events:none}
+.experience-carousel .fishing-experience-tag{display:block;margin:0 0 9px;font-size:11px;font-weight:800;color:#168277}
+.experience-carousel .photo-gallery .photo-slide[data-i18n-alt="altFishing1"]{object-fit:contain;object-position:50% 50%}
+
+/* Native full-screen modal gallery: image fills the available space, never cropped. */
+.experience-lightbox{
+ position:fixed;
+ inset:0;
+ width:100vw;
+ max-width:none;
+ height:100dvh;
+ max-height:none;
+ margin:0;
+ padding:0;
+ border:0;
+ background:rgba(2,24,34,.97);
+ color:#fff;
+ overflow:hidden;
+}
+.experience-lightbox::backdrop{background:rgba(2,20,30,.92)}
+.experience-lightbox-shell{
+ display:flex;
+ flex-direction:column;
+ width:100%;
+ height:100%;
+ padding:clamp(12px,2vw,24px);
+}
+.experience-lightbox-close{
+ position:absolute;
+ z-index:4;
+ right:clamp(15px,2vw,30px);
+ top:clamp(12px,2vw,25px);
+ width:46px;
+ height:46px;
+ border-radius:50%;
+ border:1px solid rgba(255,255,255,.6);
+ background:rgba(4,35,46,.8);
+ color:#fff;
+ font-size:34px;
+ line-height:1;
+ cursor:pointer;
+}
+.experience-lightbox-stage{
+ flex:1;
+ min-height:0;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ touch-action:pan-y;
+}
+.experience-lightbox-stage img,
+.experience-lightbox-stage video{
+ max-width:100%;
+ max-height:100%;
+ width:auto;
+ height:auto;
+ object-fit:contain;
+ border-radius:6px;
+}
+.experience-lightbox-stage img{cursor:pointer}
+.experience-lightbox-footer{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ gap:4px;
+ min-height:43px;
+ font-size:12px;
+ color:#d9efee;
+}
+.experience-lightbox-stage .experience-lightbox-creek{
+ width:min(100%,950px);
+ height:min(72vh,550px);
+ border-radius:14px;
+ overflow:hidden;
+ cursor:default;
 }
