@@ -33,9 +33,9 @@ jobs:
           # Let FFmpeg apply camera rotation, keep the frame intact and use a
           # fast-start, muted-loop friendly H.264 without unnecessary audio.
           ffmpeg -hide_banner -loglevel error -nostdin -y -i "$SOURCE" \
-            -map 0:v:0 -an \
+            -map 0:v:0 -an -t 16 \
             -vf 'fps=24,scale=960:960:force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1' \
-            -c:v libx264 -preset veryfast -crf 25 -pix_fmt yuv420p \
+            -c:v libx264 -preset ultrafast -crf 25 -pix_fmt yuv420p \
             -metadata:s:v:0 rotate=0 -movflags +faststart "$TARGET"
           test -s "$TARGET"
           ffmpeg -hide_banner -loglevel error -nostdin -y -ss 2 -i "$TARGET" \
