@@ -1,0 +1,54 @@
+name: Prepare newest Private Blue Safari video
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/prepare-blue-safari-private-video.yml'
+      - 'assets/videos/IMG_9152.mov'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  convert-private-safari:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Convert uploaded Juma video to browser-ready MP4 with sound
+        shell: bash
+        run: |
+          set -euo pipefail
+          SOURCE='assets/videos/IMG_9152.mov'
+          VIDEO='assets/videos/blue-safari-private-latest.mp4'
+          POSTER='assets/images/blue-safari-private-poster.jpg'
+          test -s "$SOURCE"
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffprobe -v error -show_entries stream=codec_name,codec_type,width,height -of json "$SOURCE"
+          ffmpeg -hide_banner -loglevel error -nostdin -y -i "$SOURCE" \
+            -map 0:v:0 -map '0:a:0?' \
+            -vf 'fps=25,scale=960:960:force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1' \
+            -c:v libx264 -preset ultrafast -crf 25 -pix_fmt yuv420p \
+            -c:a aac -b:a 128k -movflags +faststart "$VIDEO"
+          test -s "$VIDEO"
+          ffmpeg -hide_banner -loglevel error -nostdin -y -ss 1 -i "$VIDEO" \
+            -frames:v 1 -vf 'scale=900:900:force_original_aspect_ratio=decrease' -q:v 3 "$POSTER"
+          test -s "$POSTER"
+          ffprobe -v error -show_entries stream=codec_name,codec_type,width,height -of json "$VIDEO"
+          ls -lh "$VIDEO" "$POSTER"
+      - name: Commit prepared video and thumbnail
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- assets/videos/blue-safari-private-latest.mp4 assets/images/blue-safari-private-poster.jpg
+          if git diff --cached --quiet; then
+            echo 'Private Blue Safari video unchanged'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Publish newest private Blue Safari video and real poster'
+          git pull --rebase origin main
+          git push origin HEAD:main
