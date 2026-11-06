@@ -26,6 +26,10 @@ for(const lang of langs){
  assert(src.includes('src="/assets/juma-video.js"'),p+' Juma video bootstrap missing');
  assert(src.includes('class="juma-story-fallback"'),p+' Juma video image fallback missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
+ assert((src.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===3,p+' every photo gallery must open by clicking the photo');
+ assert(src.includes('data-i18n-aria-label="creekOpenAria"'),p+' Mida Creek illustration must be clickable');
+ assert(!src.includes('class="photo-arrow')&&!src.includes('class="photo-dot'),p+' navigation cursors and dots must be absent');
+ assert(!src.includes('data-photo-index=')&&!src.includes('data-photo-dir='),p+' old gallery navigators must be removed');
  const cardKeys=['data-exp="Blue Safari"','data-exp="Deep-Sea Fishing"','data-exp="Watersports"','data-exp="Mida Creek Sunset Cruise"'];
  const cardPositions=cardKeys.map(key=>src.indexOf(key));
  assert(cardPositions.every((pos,i)=>pos>=0&&(i===0||pos>cardPositions[i-1])),p+' wrong experience order');
@@ -49,7 +53,7 @@ for(const lang of langs){
  assert(sportsCard,p+' Watersports gallery missing');
  assert((sportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' Watersports should retain all three photos');
  assert((sportsCard.match(/<video class="photo-slide /g)||[]).length===1,p+' Watersports MP4 missing');
- assert((sportsCard.match(/data-photo-index=/g)||[]).length===4,p+' Watersports should have four navigation dots');
+ assert(!sportsCard.includes('data-photo-index='),p+' Watersports on-card dots should be removed');
  assert(sportsCard.includes('src="/assets/videos/watersports-latest.mp4"'),p+' latest Watersports video source missing');
  assert(sportsCard.includes('poster="/assets/images/watersports-video-poster.jpg"'),p+' latest Watersports video preview missing');
  assert(!src.includes('Your Blue Safari'),p+' old private safari offer remains');
@@ -71,7 +75,7 @@ for(const lang of langs){
  assert(blueCard,p+' Blue Safari card not found');
  assert((blueCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' expected three Blue Safari photos');
  assert((blueCard.match(/<video class="photo-slide /g)||[]).length===3,p+' expected three Blue Safari videos');
- assert((blueCard.match(/data-photo-index=/g)||[]).length===6,p+' expected six Blue Safari navigation dots');
+ assert(!blueCard.includes('data-photo-index='),p+' Blue Safari on-card dots should be removed');
  const orderedBlueMedia=[...blueCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
  assert(orderedBlueMedia.join('|')===[
   '/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
