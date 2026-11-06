@@ -1,6 +1,9 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "privateSafariVideoAria": "Watch a video of Juma's private Blue Safari",
+    "creekPhotoTwoAlt": "Golden sunset reflecting across Mida Creek",
+    "creekPhotoOneAlt": "Boat at golden sunset on the waters of Mida Creek",
     "heroAudioOff": "Mute video",
     "heroAudioOn": "Turn sound on",
     "creekOpenAria": "Enlarge the Mida Creek sunset illustration",
@@ -124,6 +127,9 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "privateSafariVideoAria": "Guarda un video del Blue Safari privato con Juma",
+    "creekPhotoTwoAlt": "Tramonto dorato che si riflette sulle acque di Mida Creek",
+    "creekPhotoOneAlt": "Barca al tramonto dorato sulle acque di Mida Creek",
     "heroAudioOff": "Disattiva audio",
     "heroAudioOn": "Attiva audio",
     "creekOpenAria": "Ingrandisci l'illustrazione del tramonto a Mida Creek",
@@ -247,6 +253,9 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "privateSafariVideoAria": "Video von Jumas privatem Blue Safari ansehen",
+    "creekPhotoTwoAlt": "Goldener Sonnenuntergang über dem Mida Creek",
+    "creekPhotoOneAlt": "Boot bei goldenem Sonnenuntergang auf dem Mida Creek",
     "heroAudioOff": "Ton ausschalten",
     "heroAudioOn": "Ton einschalten",
     "creekOpenAria": "Sonnenuntergangsillustration am Mida Creek vergrößern",
@@ -427,6 +436,9 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "privateSafariVideoAria": "Regarder une vidéo du Blue Safari privé avec Juma",
+    "creekPhotoTwoAlt": "Coucher de soleil doré se reflétant sur Mida Creek",
+    "creekPhotoOneAlt": "Bateau au coucher du soleil doré sur Mida Creek",
     "heroAudioOff": "Couper le son",
     "heroAudioOn": "Activer le son",
     "creekOpenAria": "Agrandir l'illustration du coucher de soleil à Mida Creek",
