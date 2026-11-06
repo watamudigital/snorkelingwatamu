@@ -51,10 +51,11 @@ for(const lang of langs){
  assert(src.includes(sunsetNames[lang]),p+' translated Mida Creek heading missing');
 
  assert(src.includes('src="/assets/images/IMG_0034.jpeg"'),p+' first Watersports photo missing');
- assert(src.includes('src="/assets/Vier Fahrer auf dem gelben Rocket.png"'),p+' second Watersports Rocket photo missing');
+ assert(src.includes('src="/assets/images/Avventura sul banana boat in mare.png"'),p+' new Watersports banana boat photo missing');
  const sportsCard=[...src.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
  assert(sportsCard,p+' Watersports gallery missing');
- assert((sportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' Watersports should retain all three photos');
+ assert(!sportsCard.includes('altWaterSport3'),p+' removed third Watersports photo must stay removed');
+ assert((sportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,p+' Watersports should retain its two photos');
  assert((sportsCard.match(/<video class="photo-slide /g)||[]).length===1,p+' Watersports MP4 missing');
  assert(!sportsCard.includes('data-photo-index='),p+' Watersports on-card dots should be removed');
  assert(sportsCard.includes('src="/assets/videos/VIDEO-2026-11-05-18-00-01.mp4"'),p+' latest Watersports video source missing');
@@ -99,7 +100,7 @@ for(const lang of langs){
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
  assert((src.match(/<video class="photo-slide /g)||[]).length===5,p+' expected one fishing, three Blue Safari and one Watersports video slides');
- assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===8,p+' expected three Blue Safari, two fishing and three Watersports photos');
+ assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===7,p+' expected three Blue Safari, two fishing and two Watersports photos');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
  const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
