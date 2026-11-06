@@ -270,3 +270,43 @@
   touch-action:pan-y;
   overscroll-behavior-x:contain;
 }
+
+
+/* Private Blue Safari lives inside the original Blue Safari experience card. */
+.experience-carousel .private-safari-option{
+  margin:15px 0 18px;
+  padding:16px;
+  border:1px solid #c7ded5;
+  border-radius:13px;
+  background:#f0f8f3;
+}
+.experience-carousel .private-safari-option h4{
+  margin:0 0 7px;
+  color:#073a43;
+  font-size:16px;
+  font-weight:850;
+  letter-spacing:-.025em;
+}
+.experience-carousel .private-safari-option p{
+  margin:0 0 13px;
+  min-height:0;
+  color:#496b6d;
+  font-size:12.5px;
+  line-height:1.55;
+}
+.experience-carousel .private-safari-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 14px;
+  border:0;
+  border-radius:30px;
+  background:#0b665f;
+  color:#fff;
+  font-weight:750;
+  font-size:12px;
+  cursor:pointer;
+}
+.experience-carousel .private-safari-cta:hover{background:#084d49}
+.experience-carousel .private-safari-cta:focus-visible{outline:3px solid #0c9382;outline-offset:3px}
