@@ -32,7 +32,7 @@ assert((html.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===3,'A
 assert(html.includes('data-i18n-aria-label="creekOpenAria"'),'Mida Creek must have a click-to-enlarge trigger');
 assert(!html.includes('class="photo-arrow')&&!html.includes('class="photo-dot'),'Remove photo navigation arrows and dots from cards');
 assert(!html.includes('data-photo-dir=')&&!html.includes('data-photo-index='),'Old on-card carousel navigation must be absent');
-assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===8,'Expected three Blue Safari photos, two fishing photos and three Watersports photos');
+assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===7,'Expected three Blue Safari photos, two fishing photos and two Watersports photos');
 assert((html.match(/<video class="photo-slide /g)||[]).length===5,'Expected three Blue Safari, one fishing and one Watersports video');
 assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
 assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
@@ -104,18 +104,20 @@ assert(!html.includes('Your Blue Safari'),'Old private safari offer must not rem
 assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
 const watersportsCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
 assert(watersportsCard,'Watersports card missing');
-assert((watersportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Watersports gallery needs three photos');
+assert(watersportsCard.includes('src="./assets/images/Avventura sul banana boat in mare.png"'),'Latest uploaded Watersports image missing');
+assert(!watersportsCard.includes('altWaterSport3'),'Removed Watersports photo 3 must not remain');
+assert((watersportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,'Watersports gallery needs two photos');
 assert((watersportsCard.match(/<video class="photo-slide /g)||[]).length===1,'Watersports gallery needs one video');
 assert(!watersportsCard.includes('data-photo-index=')&&!watersportsCard.includes('data-photo-dir='),'Watersports must open on click without on-card cursors');
 assert(watersportsCard.includes('src="/assets/videos/VIDEO-2026-11-05-18-00-01.mp4"'),'Newest Watersports video not in gallery');
 assert(!watersportsCard.includes('watersports-latest.mp4')&&!watersportsCard.includes('watersports-video-poster.jpg'),'Old Watersports video and preview should not remain');
 assert(watersportsCard.includes('data-i18n-aria-label="waterSportsVideoAria"'),'Watersports video accessible name missing');
-for(const key of ['altWaterSport1','altWaterSport2','altWaterSport3']){
+for(const key of ['altWaterSport1','altWaterSport2']){
  assert(html.includes('data-i18n-alt="'+key+'"'),'Missing Watersports gallery photo '+key);
 }
 for(const code of languages){
  const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['card3Tag','card3Title','card3Text','altWaterSport1','altWaterSport2','altWaterSport3','waterSportsVideoAria','chooseWatersports']){
+ for(const key of ['card3Tag','card3Title','card3Text','altWaterSport1','altWaterSport2','waterSportsVideoAria','chooseWatersports']){
   assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing Watersports translation '+key);
  }
 }
