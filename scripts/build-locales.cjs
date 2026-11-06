@@ -65,7 +65,9 @@ function localize(templateHtml,code,dictionary){
     const translated=escapeHtml(dictionary[key]);
     const attr=attributes.includes('data-i18n-placeholder=')?'placeholder':
       attributes.includes('data-i18n-alt=')?'alt':'aria-label';
-    // Anchor the translated attribute at a space. A word boundary also matches\n    // the *suffix* in data-i18n-aria-label, corrupting translation keys.\n    const old=new RegExp('(\\s'+attr+'=")[^"]*(")');
+    // Anchor the translated attribute at a space. A word boundary also matches
+    // the *suffix* in data-i18n-aria-label, corrupting translation keys.
+    const old=new RegExp('(\\s'+attr+'=")[^"]*(")');
     if(!old.test(attributes))throw new Error('Missing attribute '+attr+' on '+tag);
     return '<'+tag+attributes.replace(old,(_all,before,after)=>before+translated+after)+'>';
  });
