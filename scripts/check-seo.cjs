@@ -26,7 +26,7 @@ for(const lang of langs){
  assert(src.includes('src="/assets/juma-video.js"'),p+' Juma video bootstrap missing');
  assert(src.includes('class="juma-story-fallback"'),p+' Juma video image fallback missing');
  assert(src.includes('class="hero-background-video"'),p+' latest Juma hero video missing');
- assert(src.includes('src="/assets/videos/juma-hero-latest.mp4"'),p+' Juma hero video should use the latest converted upload');
+ assert(src.includes('src="/assets/videos/juma-hero-latest.mp4?v=audio-20261106"'),p+' Juma hero video should use the latest audio-enabled upload');
  assert(src.includes('poster="/assets/images/juma-hero-latest-poster.jpg"'),p+' Juma hero video poster missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
  assert((src.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===3,p+' every photo gallery must open by clicking the photo');
