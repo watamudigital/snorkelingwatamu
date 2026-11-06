@@ -107,8 +107,8 @@ assert(watersportsCard,'Watersports card missing');
 assert((watersportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Watersports gallery needs three photos');
 assert((watersportsCard.match(/<video class="photo-slide /g)||[]).length===1,'Watersports gallery needs one video');
 assert(!watersportsCard.includes('data-photo-index=')&&!watersportsCard.includes('data-photo-dir='),'Watersports must open on click without on-card cursors');
-assert(watersportsCard.includes('src="/assets/videos/watersports-latest.mp4"'),'Newest Watersports video not in gallery');
-assert(watersportsCard.includes('poster="/assets/images/watersports-video-poster.jpg"'),'Watersports video preview missing');
+assert(watersportsCard.includes('src="/assets/videos/VIDEO-2026-11-05-18-00-01.mp4"'),'Newest Watersports video not in gallery');
+assert(!watersportsCard.includes('watersports-latest.mp4')&&!watersportsCard.includes('watersports-video-poster.jpg'),'Old Watersports video and preview should not remain');
 assert(watersportsCard.includes('data-i18n-aria-label="waterSportsVideoAria"'),'Watersports video accessible name missing');
 for(const key of ['altWaterSport1','altWaterSport2','altWaterSport3']){
  assert(html.includes('data-i18n-alt="'+key+'"'),'Missing Watersports gallery photo '+key);
