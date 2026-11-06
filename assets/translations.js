@@ -1,6 +1,12 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "creekChooseAria": "Ask Juma about a sunset boat trip at Mida Creek",
+    "creekSunsetVisualAria": "Illustration of a boat at sunset among the mangroves of Mida Creek",
+    "creekVisualCaption": "The magic of sunset",
+    "creekTag": "Mida Creek",
+    "creekDesc": "Discover Mida Creek with Juma at sunset: a peaceful boat ride among the mangroves, golden reflections on the water and evening light. Route and departure time depend on tides and weather.",
+    "creekTitle": "Sunset boat trip at Mida Creek",
     "privateSafariChooseAria": "Ask Juma about a private Blue Safari",
     "privateSafariCta": "Ask Juma",
     "privateSafariDesc": "Explore Watamu with Juma at your own pace: a private trip to plan together, with turquoise waters, personalised stops and snorkeling when the sea allows.",
@@ -32,7 +38,7 @@ window.SW_TRANSLATIONS = {
     "chooseWatersports": "Choose Watersports",
     "card3Title": "Watersports",
     "card2Title": "Blue Safari",
-    "exIntro": "Three ways to enjoy Watamu with Juma: Blue Safari with snorkeling included, deep-sea fishing, and watersports tailored to the sea conditions and your interests.",
+    "exIntro": "Four experiences with Juma in Watamu: Blue Safari with snorkeling, deep-sea fishing, watersports and a beautiful sunset boat ride at Mida Creek.",
     "card1Tag": "An offshore adventure",
     "card1Title": "Deep-Sea Fishing",
     "card1Text": "Head beyond the coast and experience the excitement of deep-sea fishing with Juma. Route, equipment and duration are arranged before departure.",
@@ -114,6 +120,12 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "creekChooseAria": "Richiedi a Juma il giro in barca al tramonto a Mida Creek",
+    "creekSunsetVisualAria": "Illustrazione di una barca al tramonto a Mida Creek, tra le mangrovie",
+    "creekVisualCaption": "La magia del tramonto",
+    "creekTag": "Mida Creek",
+    "creekDesc": "Scopri con Juma la bellezza di Mida Creek al tramonto: una tranquilla uscita in barca tra le mangrovie, i riflessi dorati sull'acqua e la luce della sera. Percorso e orario dipendono dalla marea e dalle condizioni del tempo.",
+    "creekTitle": "Tramonto in barca a Mida Creek",
     "privateSafariChooseAria": "Richiedi il Blue Safari privato a Juma",
     "privateSafariCta": "Chiedi a Juma",
     "privateSafariDesc": "Vivi Watamu con Juma, lontano dalla fretta: un'uscita privata da organizzare insieme, tra acqua turchese, soste personalizzate e snorkeling quando il mare lo permette.",
@@ -145,7 +157,7 @@ window.SW_TRANSLATIONS = {
     "chooseWatersports": "Scegli Watersports",
     "card3Title": "Watersports",
     "card2Title": "Blue Safari",
-    "exIntro": "Tre esperienze per vivere Watamu con Juma: Blue Safari con snorkeling incluso, pesca d'altura e sport acquatici da scegliere secondo il mare e le tue preferenze.",
+    "exIntro": "Quattro esperienze da vivere con Juma a Watamu: Blue Safari con snorkeling, pesca d'altura, sport acquatici e una suggestiva uscita in barca al tramonto a Mida Creek.",
     "card1Tag": "Un'avventura in mare aperto",
     "card1Title": "Pesca d'altura",
     "card1Text": "Spingiti oltre la costa e scopri il fascino della pesca d'altura con Juma. Itinerario, attrezzatura e durata sono da concordare prima dell'uscita.",
@@ -227,6 +239,12 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "creekChooseAria": "Juma zur Bootsfahrt bei Sonnenuntergang am Mida Creek anfragen",
+    "creekSunsetVisualAria": "Illustration einer Bootsfahrt bei Sonnenuntergang zwischen den Mangroven des Mida Creek",
+    "creekVisualCaption": "Magische Abendstimmung",
+    "creekTag": "Mida Creek",
+    "creekDesc": "Entdecke mit Juma den Mida Creek im Abendlicht: eine entspannte Bootsfahrt zwischen Mangroven und goldenen Spiegelungen auf dem Wasser. Route und Abfahrtszeit richten sich nach den Gezeiten und dem Wetter.",
+    "creekTitle": "Bootsfahrt bei Sonnenuntergang am Mida Creek",
     "privateSafariChooseAria": "Juma nach einem privaten Blue Safari fragen",
     "privateSafariCta": "Juma anfragen",
     "privateSafariDesc": "Entdeckt Watamu mit Juma in eurem eigenen Tempo: ein privater Ausflug, den ihr gemeinsam plant, mit türkisblauem Meer, individuellen Stopps und Schnorcheln, wenn die Bedingungen es erlauben.",
@@ -254,7 +272,7 @@ window.SW_TRANSLATIONS = {
     "altWaterSport2": "Vier Personen auf dem gelben Rocket bei einer Fahrt auf dem Meer",
     "altWaterSport3": "Kajakfahrer auf türkisblauem Wasser, Symbolfoto nicht in Watamu aufgenommen",
     "chooseWatersports": "Watersports auswählen",
-    "exIntro": "Drei Erlebnisse mit Juma in Watamu: Blue Safari mit Schnorcheln inklusive, Hochseefischen und Wassersport nach deinen Wünschen und den Bedingungen auf dem Meer.",
+    "exIntro": "Vier Erlebnisse mit Juma in Watamu: Blue Safari mit Schnorcheln, Hochseefischen, Wassersport und eine Bootsfahrt zum Sonnenuntergang am Mida Creek.",
     "card1Tag": "Abenteuer auf hoher See",
     "card1Title": "Hochseefischen",
     "card1Text": "Entdecke mit Juma die Faszination des Hochseefischens vor Watamus Küste. Route, Ausrüstung und Dauer werden vor dem Ausflug gemeinsam abgestimmt.",
@@ -397,6 +415,12 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "creekChooseAria": "Demander à Juma une balade en bateau au coucher du soleil à Mida Creek",
+    "creekSunsetVisualAria": "Illustration d'une balade en bateau au coucher du soleil parmi les mangroves de Mida Creek",
+    "creekVisualCaption": "La magie du coucher de soleil",
+    "creekTag": "Mida Creek",
+    "creekDesc": "Découvrez Mida Creek avec Juma à la tombée du jour : une paisible balade en bateau parmi les mangroves, les reflets dorés sur l'eau et la lumière du soir. Le parcours et l'heure de départ dépendent des marées et de la météo.",
+    "creekTitle": "Balade en bateau au coucher du soleil à Mida Creek",
     "privateSafariChooseAria": "Demander à Juma un Blue Safari privé",
     "privateSafariCta": "Demander à Juma",
     "privateSafariDesc": "Découvrez Watamu avec Juma à votre rythme : une sortie privée à organiser ensemble, entre eaux turquoise, arrêts personnalisés et snorkeling lorsque la mer le permet.",
@@ -424,7 +448,7 @@ window.SW_TRANSLATIONS = {
     "altWaterSport2": "Quatre personnes à bord du Rocket jaune pendant une sortie en mer",
     "altWaterSport3": "Kayakistes sur des eaux turquoise, photo illustrative non prise à Watamu",
     "chooseWatersports": "Choisir Watersports",
-    "exIntro": "Trois façons de vivre Watamu avec Juma : Blue Safari avec snorkeling inclus, pêche au large et sports nautiques selon vos envies et l'état de la mer.",
+    "exIntro": "Quatre expériences avec Juma à Watamu : Blue Safari avec snorkeling, pêche au large, sports nautiques et balade en bateau au coucher du soleil à Mida Creek.",
     "card1Tag": "L'aventure au large",
     "card1Title": "Pêche au large",
     "card1Text": "Prenez le large avec Juma pour découvrir les sensations de la pêche en haute mer. Itinéraire, équipement et durée sont à convenir avant le départ.",
