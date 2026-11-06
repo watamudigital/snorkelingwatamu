@@ -32,7 +32,7 @@ assert((html.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===4,'A
 assert(html.includes('class="photo-slides" role="button"')&&html.includes('src="./assets/images/Tramonto dorato in barca.png"'),'Mida Creek should open its uploaded sunset gallery');
 assert(!html.includes('class="photo-arrow')&&!html.includes('class="photo-dot'),'Remove photo navigation arrows and dots from cards');
 assert(!html.includes('data-photo-dir=')&&!html.includes('data-photo-index='),'Old on-card carousel navigation must be absent');
-assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===9,'Expected three Blue Safari, two fishing, two Watersports and two Mida Creek photos');
+assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===10,'Expected three Blue Safari, two fishing, two Watersports and three Mida Creek photos');
 assert((html.match(/<video class="photo-slide /g)||[]).length===5,'Expected three Blue Safari, one fishing and one Watersports video');
 assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
 assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
@@ -100,8 +100,8 @@ for(const code of languages){
   assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing Mida Creek translation '+key);
  }
 }
-assert((sunsetCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,'Mida Creek must show two genuine sunset photos');
-assert(sunsetCard.includes('Tramonto dorato in barca.png')&&sunsetCard.includes('IMG_0137.jpeg'),'Sunset photos must appear in upload order');
+assert((sunsetCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Mida Creek must show three genuine sunset photos');
+assert(sunsetCard.includes('Tramonto dorato in barca.png')&&sunsetCard.includes('IMG_0137.jpeg')&&sunsetCard.includes('IMG_0141.jpeg'),'Sunset photos must appear in upload order');
 
 assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
 assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
@@ -146,7 +146,7 @@ for(const code of languages){
  }
 }
 for(const code of languages){
- for(const key of ['galleryOpenAria','creekPhotoOneAlt','creekPhotoTwoAlt','carouselHint']){
+ for(const key of ['galleryOpenAria','creekPhotoOneAlt','creekPhotoTwoAlt','creekPhotoThreeAlt','carouselHint']){
   assert(typeof extras[code][key]==='string' && extras[code][key].trim(),code+': missing carousel translation '+key);
  }
 }
