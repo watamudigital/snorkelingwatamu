@@ -26,10 +26,23 @@ for(const lang of langs){
  assert(src.includes('src="/assets/juma-video.js"'),p+' Juma video bootstrap missing');
  assert(src.includes('class="juma-story-fallback"'),p+' Juma video image fallback missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
- const cardKeys=['data-exp="Blue Safari"','data-exp="Deep-Sea Fishing"','data-exp="Watersports"'];
+ const cardKeys=['data-exp="Blue Safari"','data-exp="Deep-Sea Fishing"','data-exp="Watersports"','data-exp="Mida Creek Sunset Cruise"'];
  const cardPositions=cardKeys.map(key=>src.indexOf(key));
  assert(cardPositions.every((pos,i)=>pos>=0&&(i===0||pos>cardPositions[i-1])),p+' wrong experience order');
  assert(src.includes('value="Watersports"'),p+' Watersports enquiry option missing');
+ assert(src.includes('<option value="Mida Creek Sunset Cruise" data-i18n="creekTitle">'),p+' Mida Creek sunset enquiry choice missing');
+ const creekCard=src.match(/<article class="experience experience-creek"[\s\S]*?<\/article>/)?.[0];
+ assert(creekCard,p+' Mida Creek sunset card missing');
+ assert(creekCard.includes('data-i18n="creekDesc"')&&creekCard.includes('data-i18n="creekTitle"'),p+' sunset card text missing');
+ assert(creekCard.includes('data-exp="Mida Creek Sunset Cruise"'),p+' sunset card selection missing');
+ const sunsetNames={
+  it:'Tramonto in barca a Mida Creek',
+  en:'Sunset boat trip at Mida Creek',
+  de:'Bootsfahrt bei Sonnenuntergang am Mida Creek',
+  fr:'Balade en bateau au coucher du soleil à Mida Creek'
+ };
+ assert(src.includes(sunsetNames[lang]),p+' translated Mida Creek heading missing');
+
  assert(src.includes('src="/assets/images/IMG_0034.jpeg"'),p+' first Watersports photo missing');
  assert(src.includes('src="/assets/Vier Fahrer auf dem gelben Rocket.png"'),p+' second Watersports Rocket photo missing');
  const sportsCard=[...src.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
