@@ -535,7 +535,7 @@ window.SW_TRANSLATIONS = {
     "navCta": "Demander une excursion",
     "heroEyebrow": "WATAMU, KENYA · SOUS LA SURFACE",
     "heroOne": "Un océan",
-    "heroTwo": "à découvrir.",
+    "heroTwo": "à découvrir,",
     "heroThree": "sur et sous l'eau.",
     "heroSub": "L’océan de Watamu se dévoile autrement avec Juma : eaux turquoise, récifs coralliens et instants à savourer à votre rythme.",
     "heroPrimary": "Découvrir les expériences",
