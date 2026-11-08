@@ -84,6 +84,8 @@ function localize(templateHtml,code,dictionary){
 }
 function copyAssets(){
  fs.cpSync(path.join(ROOT,'assets'),path.join(DIST,'assets'),{recursive:true});
+ // The newest Mida Creek sunset image was uploaded at the repository root.
+ fs.copyFileSync(path.join(ROOT,'IMG_0256.jpeg'),path.join(DIST,'assets','images','IMG_0256.jpeg'));
  fs.copyFileSync(path.join(ROOT,'robots.txt'),path.join(DIST,'robots.txt'));
 }
 function sitemap(){
