@@ -134,6 +134,59 @@
    else item.setAttribute('aria-hidden','true');
    if(item.tagName==='VIDEO')item.pause();
   });
+  // Watersports: no arrows; tap/click the image or swipe/drag horizontally.
+  // Keep every photo and both videos in a separate, playable slide.
+  if(gallery.closest('[aria-labelledby="experience-title-3"]')){
+   let current=0;
+   let gesture=null;
+   let suppressClick=false;
+   track.classList.add('watersports-tap-gallery');
+   const counter=document.createElement('span');
+   counter.className='watersports-slide-count';
+   counter.setAttribute('aria-live','polite');
+   gallery.appendChild(counter);
+   const showSlide=n=>{
+    current=(n+media.length)%media.length;
+    media.forEach((item,i)=>{
+     const visible=i===current;
+     item.classList.toggle('is-active',visible);
+     item.setAttribute('aria-hidden',visible?'false':'true');
+     if(item.tagName==='VIDEO'&&!visible)item.pause();
+    });
+    counter.textContent=(current+1)+' / '+media.length;
+   };
+   showSlide(0);
+   track.addEventListener('pointerdown',event=>{
+    if(event.target.closest('video'))return;
+    gesture={x:event.clientX,y:event.clientY};
+   });
+   track.addEventListener('pointerup',event=>{
+    if(!gesture)return;
+    const dx=event.clientX-gesture.x;
+    const dy=event.clientY-gesture.y;
+    gesture=null;
+    if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){
+     suppressClick=true;
+     showSlide(current+(dx<0?1:-1));
+    }
+   });
+   track.addEventListener('pointercancel',()=>{gesture=null;});
+   track.addEventListener('click',event=>{
+    if(suppressClick){suppressClick=false;return;}
+    if(event.target.closest('video'))return;
+    showSlide(current+1);
+   });
+   track.addEventListener('keydown',event=>{
+    if(event.key==='ArrowRight'||event.key==='ArrowLeft'){
+     event.preventDefault();
+     showSlide(current+(event.key==='ArrowRight'?1:-1));
+    }else if(event.key==='Enter'||event.key===' '){
+     event.preventDefault();
+     showSlide(current+1);
+    }
+   });
+   return;
+  }
   // Allow Watersports and Mida Creek images to be browsed on the card itself.
   // The card image remains clickable for the full-screen gallery.
   if(gallery.closest('.experience-creek') || gallery.closest('[aria-labelledby="experience-title-3"]')){
