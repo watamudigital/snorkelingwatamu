@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "altWatersportsLatest1": "Watersports experience in Watamu, new photo",
+    "altWatersportsLatest2": "Another photo from the Watersports experience in Watamu",
     "privateSafariVideoAria": "Watch a video of Juma's private Blue Safari",
     "creekPhotoTwoAlt": "Sunset over Mida Creek from Juma's boat",
     "creekPhotoOneAlt": "Boat at golden sunset on the waters of Mida Creek",
@@ -127,6 +129,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "altWatersportsLatest1": "Nuova fotografia dell'esperienza Watersports a Watamu",
+    "altWatersportsLatest2": "Seconda nuova fotografia dell'esperienza Watersports a Watamu",
     "privateSafariVideoAria": "Guarda un video del Blue Safari privato con Juma",
     "creekPhotoTwoAlt": "Tramonto a Mida Creek visto dalla barca di Juma",
     "creekPhotoOneAlt": "Barca al tramonto dorato sulle acque di Mida Creek",
@@ -253,6 +257,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "altWatersportsLatest1": "Neues Foto vom Wassersport-Erlebnis in Watamu",
+    "altWatersportsLatest2": "Weiteres Foto vom Wassersport-Erlebnis in Watamu",
     "privateSafariVideoAria": "Video von Jumas privatem Blue Safari ansehen",
     "creekPhotoTwoAlt": "Sonnenuntergang am Mida Creek von Jumas Boot aus",
     "creekPhotoOneAlt": "Boot bei goldenem Sonnenuntergang auf dem Mida Creek",
@@ -436,6 +442,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "altWatersportsLatest1": "Nouvelle photo de l'expérience Watersports à Watamu",
+    "altWatersportsLatest2": "Autre photo de l'expérience Watersports à Watamu",
     "privateSafariVideoAria": "Regarder une vidéo du Blue Safari privé avec Juma",
     "creekPhotoTwoAlt": "Coucher de soleil sur Mida Creek vu du bateau de Juma",
     "creekPhotoOneAlt": "Bateau au coucher du soleil doré sur Mida Creek",
