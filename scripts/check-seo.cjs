@@ -30,7 +30,7 @@ for(const lang of langs){
  assert(src.includes('poster="/assets/images/juma-hero-latest-poster.jpg"'),p+' Juma hero video poster missing');
  assert(src.includes('id="experienceCarousel"'),p+' experience carousel missing');
  assert((src.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===4,p+' every photo gallery must open by clicking the photo');
- assert(src.includes('src="/assets/images/Tramonto dorato in barca.png"')&&src.includes('src="/assets/images/IMG_0137.jpeg"')&&src.includes('src="/assets/images/IMG_0141.jpeg"'),p+' all three Mida Creek sunset photos missing');
+ assert(src.includes('src="/assets/images/Tramonto dorato in barca.png"')&&src.includes('src="/assets/images/IMG_0141.jpeg"'),p+' Mida Creek sunset photos missing');
  assert(!src.includes('class="photo-arrow')&&!src.includes('class="photo-dot'),p+' navigation cursors and dots must be absent');
  assert(!src.includes('data-photo-index=')&&!src.includes('data-photo-dir='),p+' old gallery navigators must be removed');
  const cardKeys=['data-exp="Blue Safari"','data-exp="Deep-Sea Fishing"','data-exp="Watersports"','data-exp="Mida Creek Sunset Cruise"'];
@@ -41,7 +41,7 @@ for(const lang of langs){
  const creekCard=src.match(/<article class="experience experience-creek"[\s\S]*?<\/article>/)?.[0];
  assert(creekCard,p+' Mida Creek sunset card missing');
  assert(creekCard.includes('data-i18n="creekDesc"')&&creekCard.includes('data-i18n="creekTitle"'),p+' sunset card text missing');
- assert((creekCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' sunset gallery must contain three photos');
+ assert((creekCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,p+' sunset gallery must contain two photos');
  assert(creekCard.includes('src="/assets/images/IMG_0141.jpeg"'),p+' most recent Mida Creek photo missing');
  assert(creekCard.includes('data-exp="Mida Creek Sunset Cruise"'),p+' sunset card selection missing');
  const sunsetNames={
@@ -81,7 +81,9 @@ for(const lang of langs){
  assert(blueCard,p+' Blue Safari card not found');
  assert((blueCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,p+' expected three Blue Safari photos');
  assert((blueCard.match(/<video class="photo-slide /g)||[]).length===3,p+' expected three Blue Safari videos');
- assert(blueCard.includes('class="private-safari-video"')&&blueCard.includes('src="/assets/videos/blue-safari-private-latest.mp4"'),p+' Juma private Blue Safari video missing');
+ assert(!blueCard.includes('private-safari-option'),p+' private Blue Safari should not be nested');
+ const separatePrivate=src.match(/<div class="private-safari-independent">[\s\S]*?<\/article>/)?.[0];
+ assert(separatePrivate&&separatePrivate.includes('src="/assets/videos/blue-safari-private-latest.mp4"')&&separatePrivate.includes('data-exp="Blue Safari Private"'),p+' standalone private Blue Safari missing');
  assert(!blueCard.includes('data-photo-index='),p+' Blue Safari on-card dots should be removed');
  const orderedBlueMedia=[...blueCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
  assert(orderedBlueMedia.join('|')===[
@@ -103,7 +105,7 @@ for(const lang of langs){
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
  assert((src.match(/<video class="photo-slide /g)||[]).length===5,p+' expected one fishing, three Blue Safari and one Watersports video slides');
- assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===10,p+' expected three Blue Safari, two fishing, two Watersports and three sunset photos');
+ assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===9,p+' expected three Blue Safari, two fishing, two Watersports and two sunset photos');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
  const jumaHead={it:'con Juma.',en:'with Juma.',de:'mit Juma.',fr:'avec Juma.'};
