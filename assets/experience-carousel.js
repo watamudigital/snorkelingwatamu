@@ -127,6 +127,46 @@
    else item.setAttribute('aria-hidden','true');
    if(item.tagName==='VIDEO')item.pause();
   });
+  // Allow Watersports and Mida Creek images to be browsed on the card itself.
+  // The card image remains clickable for the full-screen gallery.
+  if(gallery.closest('.experience-creek') || gallery.closest('[aria-labelledby="experience-title-3"]')){
+   let cardIndex=0;
+   const controls=document.createElement('div');
+   controls.className='oncard-gallery-controls';
+   const previous=document.createElement('button');
+   const next=document.createElement('button');
+   previous.type=next.type='button';
+   previous.className='oncard-gallery-arrow';
+   next.className='oncard-gallery-arrow';
+   previous.textContent='‹';
+   next.textContent='›';
+   const updateLabels=()=>{
+    const lang=document.documentElement.lang;
+    previous.setAttribute('aria-label',({it:'Foto o video precedente',en:'Previous photo or video',de:'Vorheriges Foto oder Video',fr:'Photo ou vidéo précédente'})[lang]||'Precedente');
+    next.setAttribute('aria-label',({it:'Foto o video successivo',en:'Next photo or video',de:'Nächstes Foto oder Video',fr:'Photo ou vidéo suivante'})[lang]||'Successivo');
+   };
+   updateLabels();
+   const count=document.createElement('span');
+   count.className='oncard-gallery-count';
+   count.setAttribute('aria-live','polite');
+   const showCard=(n)=>{
+    cardIndex=(n+media.length)%media.length;
+    media.forEach((item,i)=>{
+     const active=i===cardIndex;
+     item.classList.toggle('is-active',active);
+     item.setAttribute('aria-hidden',active?'false':'true');
+     if(item.tagName==='VIDEO'&&!active)item.pause();
+    });
+    count.textContent=(cardIndex+1)+' / '+media.length;
+   };
+   for(const [button,dir] of [[previous,-1],[next,1]]){
+    button.addEventListener('click',event=>{event.stopPropagation();showCard(cardIndex+dir);});
+    controls.appendChild(button);
+   }
+   controls.appendChild(count);
+   gallery.appendChild(controls);
+   showCard(0);
+  }
   const activate=()=>open(media,title?.textContent||'Galleria');
   track.addEventListener('click',activate);
   track.addEventListener('keydown',event=>{
