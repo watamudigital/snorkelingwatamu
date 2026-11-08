@@ -134,9 +134,9 @@
    else item.setAttribute('aria-hidden','true');
    if(item.tagName==='VIDEO')item.pause();
   });
-  // Watersports: no arrows; tap/click the image or swipe/drag horizontally.
-  // Keep every photo and both videos in a separate, playable slide.
-  if(gallery.closest('[aria-labelledby="experience-title-3"]')){
+  // Watersports and Mida Creek: no arrows; tap/click or swipe horizontally.
+  // Preserve all existing photos and videos as individual slides.
+  if(gallery.closest('[aria-labelledby="experience-title-3"]') || gallery.closest('.experience-creek')){
    let current=0;
    let gesture=null;
    let suppressClick=false;
