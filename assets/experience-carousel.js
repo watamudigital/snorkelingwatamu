@@ -145,6 +145,22 @@
    counter.className='watersports-slide-count';
    counter.setAttribute('aria-live','polite');
    gallery.appendChild(counter);
+   // A dedicated play button avoids browsers swallowing clicks on videos inside a swipeable gallery.
+   const playVideo=document.createElement('button');
+   playVideo.type='button';
+   playVideo.className='gallery-video-play';
+   playVideo.textContent='▶';
+   playVideo.setAttribute('aria-label',({it:'Riproduci video',en:'Play video',de:'Video abspielen',fr:'Lire la vidéo'})[document.documentElement.lang]||'Play video');
+   gallery.appendChild(playVideo);
+   playVideo.addEventListener('click',event=>{
+    event.preventDefault();event.stopPropagation();
+    const video=media[current];
+    if(video&&video.tagName==='VIDEO'){
+     video.setAttribute('controls','');
+     const attempt=video.play();
+     if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{video.controls=true;});
+    }
+   });
    const showSlide=n=>{
     current=(n+media.length)%media.length;
     media.forEach((item,i)=>{
@@ -154,6 +170,15 @@
      if(item.tagName==='VIDEO'&&!visible)item.pause();
     });
     counter.textContent=(current+1)+' / '+media.length;
+    const activeVideo=media[current]?.tagName==='VIDEO';
+    playVideo.hidden=!activeVideo;
+    if(activeVideo){
+     const currentVideo=media[current];
+     playVideo.hidden=!currentVideo.paused;
+     currentVideo.onplay=()=>{playVideo.hidden=true;};
+     currentVideo.onpause=()=>{if(media[current]===currentVideo)playVideo.hidden=false;};
+     currentVideo.onended=()=>{if(media[current]===currentVideo)playVideo.hidden=false;};
+    }
    };
    showSlide(0);
    track.addEventListener('pointerdown',event=>{
