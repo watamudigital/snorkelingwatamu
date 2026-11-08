@@ -566,3 +566,10 @@
 .private-safari-independent .private-safari-media{height:245px}
 .private-safari-independent .experience-body{padding:20px}
 }
+
+/* Show Juma's actual boat as the private safari cover, with a separately playable video. */
+.experience-carousel .experience-private-safari .private-safari-media{background:#0b4b55;overflow:hidden}
+.experience-carousel .experience-private-safari .private-safari-cover-image{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none}
+.experience-carousel .experience-private-safari:hover .private-safari-cover-image{transform:none}
+.experience-carousel .experience-private-safari .private-safari-video-wrap{width:100%;margin:10px 0 12px}
+.experience-carousel .experience-private-safari .private-safari-video{display:block;width:100%;height:auto;max-height:170px;aspect-ratio:16/9;object-fit:contain;object-position:center bottom;background:#0b4b55;border-radius:10px}
