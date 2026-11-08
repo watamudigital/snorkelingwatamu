@@ -5,7 +5,7 @@ const assert=require('node:assert/strict');
 const langs=['it','en','de','fr'];
 const root='https://www.snorkelingwatamu.com';
 const expected={
- it:'Un mondo',en:'A world',de:'Eine Welt',fr:'Un monde'
+ it:'Un mondo',en:'Discover',de:'Meer',fr:'Un monde'
 };
 for(const lang of langs){
  const p='dist/'+lang+'/index.html';
