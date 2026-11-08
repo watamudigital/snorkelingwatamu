@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "fishingWhiteBadge": "Open-sea adventure",
+    "privateSafariBadge": "Exclusive experience",
     "creekSunsetVideoAria": "Sunset boat trip video at Mida Creek",
     "waterSportsVideoPreviousAria": "Second Watersports excursion video in Watamu",
     "altWatersportsLatest1": "Watersports experience in Watamu, new photo",
@@ -131,6 +133,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "fishingWhiteBadge": "Avventura in mare aperto",
+    "privateSafariBadge": "Esperienza esclusiva",
     "creekSunsetVideoAria": "Video del tramonto in barca a Mida Creek",
     "waterSportsVideoPreviousAria": "Secondo video dell'esperienza Watersports a Watamu",
     "altWatersportsLatest1": "Nuova fotografia dell'esperienza Watersports a Watamu",
@@ -261,6 +265,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "fishingWhiteBadge": "Abenteuer auf hoher See",
+    "privateSafariBadge": "Exklusives Erlebnis",
     "creekSunsetVideoAria": "Video der Bootsfahrt bei Sonnenuntergang am Mida Creek",
     "waterSportsVideoPreviousAria": "Zweites Video vom Wassersport-Erlebnis in Watamu",
     "altWatersportsLatest1": "Neues Foto vom Wassersport-Erlebnis in Watamu",
@@ -448,6 +454,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "fishingWhiteBadge": "Aventure en haute mer",
+    "privateSafariBadge": "Expérience exclusive",
     "creekSunsetVideoAria": "Vidéo de la balade en bateau au coucher du soleil à Mida Creek",
     "waterSportsVideoPreviousAria": "Deuxième vidéo de l'expérience Watersports à Watamu",
     "altWatersportsLatest1": "Nouvelle photo de l'expérience Watersports à Watamu",
