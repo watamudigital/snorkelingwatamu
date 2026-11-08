@@ -68,12 +68,12 @@
   close.setAttribute('aria-label',language().close);
  }
 
- function open(items,title){
+ function open(items,title,startIndex=0){
   if(!items.length)return;
   previousFocus=document.activeElement;
   selection=items;
   dialog.setAttribute('aria-label',title);
-  show(0);
+  show(startIndex);
   if(typeof dialog.showModal==='function')dialog.showModal();
   else dialog.setAttribute('open','');
   close.focus();
@@ -153,12 +153,10 @@
    playVideo.setAttribute('aria-label',({it:'Riproduci video',en:'Play video',de:'Video abspielen',fr:'Lire la vidéo'})[document.documentElement.lang]||'Play video');
    gallery.appendChild(playVideo);
    playVideo.addEventListener('click',event=>{
-    event.preventDefault();event.stopPropagation();
-    const video=media[current];
-    if(video&&video.tagName==='VIDEO'){
-     video.setAttribute('controls','');
-     const attempt=video.play();
-     if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{video.controls=true;});
+    event.preventDefault();
+    event.stopPropagation();
+    if(media[current]?.tagName==='VIDEO'){
+     open(media,title?.textContent||'Galleria',current);
     }
    });
    const showSlide=n=>{
@@ -181,6 +179,12 @@
     }
    };
    showSlide(0);
+   // Videos launch enlarged with next/previous arrows; the small card stays arrow-free.
+   media.filter(item=>item.tagName==='VIDEO').forEach(video=>{
+    video.controls=false;
+    video.setAttribute('tabindex','-1');
+    video.style.pointerEvents='none';
+   });
    track.addEventListener('pointerdown',event=>{
     if(event.target.closest('video'))return;
     gesture={x:event.clientX,y:event.clientY};
@@ -198,7 +202,10 @@
    track.addEventListener('pointercancel',()=>{gesture=null;});
    track.addEventListener('click',event=>{
     if(suppressClick){suppressClick=false;return;}
-    if(event.target.closest('video'))return;
+    if(media[current]?.tagName==='VIDEO'){
+     open(media,title?.textContent||'Galleria',current);
+     return;
+    }
     showSlide(current+1);
    });
    track.addEventListener('keydown',event=>{
@@ -207,7 +214,8 @@
      showSlide(current+(event.key==='ArrowRight'?1:-1));
     }else if(event.key==='Enter'||event.key===' '){
      event.preventDefault();
-     showSlide(current+1);
+     if(media[current]?.tagName==='VIDEO')open(media,title?.textContent||'Galleria',current);
+     else showSlide(current+1);
     }
    });
    return;
