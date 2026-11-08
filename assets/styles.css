@@ -573,3 +573,11 @@
 .experience-carousel .experience-private-safari:hover .private-safari-cover-image{transform:none}
 .experience-carousel .experience-private-safari .private-safari-video-wrap{width:100%;margin:10px 0 12px}
 .experience-carousel .experience-private-safari .private-safari-video{display:block;width:100%;height:auto;max-height:170px;aspect-ratio:16/9;object-fit:contain;object-position:center bottom;background:#0b4b55;border-radius:10px}
+
+/* On-card gallery navigation for Watersports and Mida Creek. */
+.experience-carousel .oncard-gallery-controls{position:absolute;inset:auto 10px 10px;z-index:5;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+.experience-carousel .oncard-gallery-arrow{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.85);background:rgba(4,34,44,.78);color:#fff;font-size:28px;line-height:1;cursor:pointer;pointer-events:auto}
+.experience-carousel .oncard-gallery-count{color:#fff;font-weight:800;font-size:12px;background:rgba(4,34,44,.78);padding:7px 10px;border-radius:999px}
+.experience-carousel .oncard-gallery-arrow:focus-visible{outline:3px solid #c9f37b;outline-offset:3px}
+.experience-carousel .experience-private-safari .private-safari-media{background:#0b4b55}
+.experience-carousel .experience-private-safari .private-safari-media .private-safari-video{display:block;width:100%;height:100%;max-height:none;object-fit:contain;object-position:center;background:#0b4b55;border-radius:0}
