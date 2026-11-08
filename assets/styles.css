@@ -653,3 +653,21 @@ html[lang="fr"] .hero .hero-inner h1{
   line-height:1.06;
  }
 }
+
+/* Preserve the above/below-the-water line in Italian and French only. */
+html[lang="it"] .hero .hero-inner h1 br:nth-of-type(2),
+html[lang="fr"] .hero .hero-inner h1 br:nth-of-type(2){display:block}
+html[lang="it"] .hero .hero-inner h1 [data-i18n="heroThree"],
+html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
+ display:inline-block;
+ font-size:clamp(31px,4.5vw,64px);
+ line-height:1.13;
+ letter-spacing:-.05em;
+}
+@media(max-width:700px){
+ html[lang="it"] .hero .hero-inner h1 [data-i18n="heroThree"],
+ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
+  font-size:clamp(23px,5.3vw,35px);
+  line-height:1.15;
+ }
+}
