@@ -1,6 +1,7 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "waterSportsVideoPreviousAria": "Second Watersports excursion video in Watamu",
     "altWatersportsLatest1": "Watersports experience in Watamu, new photo",
     "altWatersportsLatest2": "Another photo from the Watersports experience in Watamu",
     "privateSafariVideoAria": "Watch a video of Juma's private Blue Safari",
@@ -129,6 +130,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "waterSportsVideoPreviousAria": "Secondo video dell'esperienza Watersports a Watamu",
     "altWatersportsLatest1": "Nuova fotografia dell'esperienza Watersports a Watamu",
     "altWatersportsLatest2": "Seconda nuova fotografia dell'esperienza Watersports a Watamu",
     "privateSafariVideoAria": "Guarda un video del Blue Safari privato con Juma",
@@ -257,6 +259,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "waterSportsVideoPreviousAria": "Zweites Video vom Wassersport-Erlebnis in Watamu",
     "altWatersportsLatest1": "Neues Foto vom Wassersport-Erlebnis in Watamu",
     "altWatersportsLatest2": "Weiteres Foto vom Wassersport-Erlebnis in Watamu",
     "privateSafariVideoAria": "Video von Jumas privatem Blue Safari ansehen",
@@ -442,6 +445,7 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "waterSportsVideoPreviousAria": "Deuxième vidéo de l'expérience Watersports à Watamu",
     "altWatersportsLatest1": "Nouvelle photo de l'expérience Watersports à Watamu",
     "altWatersportsLatest2": "Autre photo de l'expérience Watersports à Watamu",
     "privateSafariVideoAria": "Regarder une vidéo du Blue Safari privé avec Juma",
