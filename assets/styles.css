@@ -614,3 +614,15 @@ html[lang="it"] .hero h1 [data-i18n="heroThree"]{font-size:clamp(33px,5.7vw,84px
  pointer-events:none;
 }
 .experience-carousel [aria-labelledby="experience-title-3"] .oncard-gallery-controls{display:none!important}
+
+/* Mida Creek: tap/swipe between both photos and sunset video, no arrows. */
+.experience-carousel .experience-creek .photo-slides{touch-action:pan-y;cursor:pointer}
+.experience-carousel .experience-creek .photo-slide.is-active{z-index:1}
+.experience-carousel .experience-creek .photo-slides video.is-active{pointer-events:auto;cursor:auto}
+.experience-carousel .experience-creek .watersports-slide-count{
+ position:absolute;z-index:4;bottom:12px;right:12px;
+ display:block;padding:6px 10px;border-radius:999px;
+ background:rgba(4,34,44,.79);color:#fff;font-size:12px;font-weight:800;
+ pointer-events:none;
+}
+.experience-carousel .experience-creek .oncard-gallery-controls{display:none!important}
