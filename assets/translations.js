@@ -1,6 +1,7 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "creekPhotoThreeAlt": "Smiling guests aboard Juma's boat at Mida Creek",
     "fishingWhiteBadge": "Open-sea adventure",
     "privateSafariBadge": "Exclusive experience",
     "creekSunsetVideoAria": "Sunset boat trip video at Mida Creek",
@@ -133,6 +134,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "creekPhotoThreeAlt": "Ospiti sorridenti a bordo della barca di Juma a Mida Creek",
     "fishingWhiteBadge": "Avventura in mare aperto",
     "privateSafariBadge": "Esperienza esclusiva",
     "creekSunsetVideoAria": "Video del tramonto in barca a Mida Creek",
@@ -265,6 +267,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "creekPhotoThreeAlt": "Lächelnde Gäste auf Jumas Boot am Mida Creek",
     "fishingWhiteBadge": "Abenteuer auf hoher See",
     "privateSafariBadge": "Exklusives Erlebnis",
     "creekSunsetVideoAria": "Video der Bootsfahrt bei Sonnenuntergang am Mida Creek",
@@ -454,6 +457,7 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "creekPhotoThreeAlt": "Des passagers souriants à bord du bateau de Juma à Mida Creek",
     "fishingWhiteBadge": "Aventure en haute mer",
     "privateSafariBadge": "Expérience exclusive",
     "creekSunsetVideoAria": "Vidéo de la balade en bateau au coucher du soleil à Mida Creek",
