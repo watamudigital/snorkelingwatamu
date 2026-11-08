@@ -13,12 +13,14 @@
  const language=()=>words[document.documentElement.lang]||words.it;
  const dialog=document.createElement('dialog');
  dialog.className='experience-lightbox';
- dialog.innerHTML='<div class="experience-lightbox-shell"><button class="experience-lightbox-close" type="button" aria-label="Chiudi la galleria">×</button><div class="experience-lightbox-stage"></div><div class="experience-lightbox-footer"><span class="experience-lightbox-count" aria-live="polite"></span><span class="experience-lightbox-hint"></span></div></div>';
+ dialog.innerHTML='<div class="experience-lightbox-shell"><button class="experience-lightbox-close" type="button" aria-label="Chiudi la galleria">×</button><div class="experience-lightbox-stage"></div><button type="button" class="experience-lightbox-nav experience-lightbox-prev" aria-label="Foto precedente">‹</button><button type="button" class="experience-lightbox-nav experience-lightbox-next" aria-label="Foto successiva">›</button><div class="experience-lightbox-footer"><span class="experience-lightbox-count" aria-live="polite"></span><span class="experience-lightbox-hint"></span></div></div>';
  document.body.appendChild(dialog);
  const close=dialog.querySelector('.experience-lightbox-close');
  const stage=dialog.querySelector('.experience-lightbox-stage');
  const counter=dialog.querySelector('.experience-lightbox-count');
  const hint=dialog.querySelector('.experience-lightbox-hint');
+ const lightboxPrev=dialog.querySelector('.experience-lightbox-prev');
+ const lightboxNext=dialog.querySelector('.experience-lightbox-next');
  let selection=null;
  let index=0;
  let previousFocus=null;
@@ -60,6 +62,9 @@
   stage.appendChild(content);
   counter.textContent=(index+1)+' / '+selection.length;
   hint.textContent=selection.length>1?language().hint:'';
+  lightboxPrev.hidden=lightboxNext.hidden=selection.length<2;
+  lightboxPrev.setAttribute('aria-label',({it:'Foto o video precedente',en:'Previous photo or video',de:'Vorheriges Foto oder Video',fr:'Photo ou vidéo précédente'})[document.documentElement.lang]||'Previous');
+  lightboxNext.setAttribute('aria-label',({it:'Foto o video successivo',en:'Next photo or video',de:'Nächstes Foto oder Video',fr:'Photo ou vidéo suivante'})[document.documentElement.lang]||'Next');
   close.setAttribute('aria-label',language().close);
  }
 
@@ -89,6 +94,8 @@
   previousFocus=null;
  }
  close.addEventListener('click',dismiss);
+ lightboxPrev.addEventListener('click',()=>show(index-1));
+ lightboxNext.addEventListener('click',()=>show(index+1));
  dialog.addEventListener('close',cleanup);
  dialog.addEventListener('click',event=>{if(event.target===dialog)dismiss();});
  document.addEventListener('keydown',event=>{
@@ -167,6 +174,7 @@
    gallery.appendChild(controls);
    showCard(0);
   }
+  // Clicking the gallery image opens the full-size image; the modal has click arrows.
   const activate=()=>open(media,title?.textContent||'Galleria');
   track.addEventListener('click',activate);
   track.addEventListener('keydown',event=>{
