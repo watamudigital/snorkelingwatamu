@@ -43,6 +43,7 @@ for(const lang of langs){
  assert(creekCard.includes('data-i18n="creekDesc"')&&creekCard.includes('data-i18n="creekTitle"'),p+' sunset card text missing');
  assert((creekCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,p+' sunset gallery must contain two photos');
  assert(creekCard.includes('src="/assets/images/IMG_0141.jpeg"'),p+' most recent Mida Creek photo missing');
+ assert(creekCard.includes('src="/assets/videos/mida-creek-sunset-latest.mp4"')&&creekCard.includes('poster="/assets/images/mida-creek-sunset-video-poster.jpg"'),p+' Mida Creek video or poster missing');
  assert(creekCard.includes('data-exp="Mida Creek Sunset Cruise"'),p+' sunset card selection missing');
  const sunsetNames={
   it:'Tramonto in barca a Mida Creek',
@@ -105,7 +106,7 @@ for(const lang of langs){
  const fishingVideoLabels={it:'Video dell&#39;escursione di pesca d&#39;altura',en:'Deep-sea fishing excursion video',de:'Video vom Hochseeangel-Ausflug',fr:'Vidéo de la sortie de pêche au large'};
  const fishingVideoTag=src.match(/<video class="photo-slide fishing-gallery-video"[^>]*>/)?.[0];
  assert(fishingVideoTag?.includes('aria-label="'+fishingVideoLabels[lang]+'"'),p+' fishing video accessibility label missing');
- assert((src.match(/<video class="photo-slide /g)||[]).length===6,p+' expected one fishing, three Blue Safari and two Watersports video slides');
+ assert((src.match(/<video class="photo-slide /g)||[]).length===7,p+' expected one fishing, three Blue Safari, two Watersports and one Mida Creek video slides');
  assert((src.match(/<img class="photo-slide(?: |")/g)||[]).length===11,p+' expected three Blue Safari, two fishing, four Watersports and two sunset photos');
  assert(src.includes('src="/assets/images/watamu-snorkeling-boat-trip-guests.jpg"'),p+' missing guest photo in carousel');
  assert(src.includes('src="/assets/experience-carousel.js"'),p+' missing carousel script');
