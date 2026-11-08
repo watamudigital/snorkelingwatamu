@@ -543,3 +543,26 @@
  object-fit:contain;
  border-radius:10px;
 }
+
+/* Four compact matching activity cards, with private safari in its own section. */
+.experience-carousel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto;gap:20px;align-items:stretch}
+.experience-carousel .experience{height:auto;min-height:0;align-self:stretch}
+.experience-carousel .experience-photo{height:clamp(210px,24vw,280px)}
+.experience-carousel .experience-body{padding:18px 21px 19px}
+.experience-carousel .experience h3{margin-bottom:8px}
+.experience-carousel .experience p{margin-top:0;margin-bottom:10px;min-height:0}
+.experience-carousel .card-foot{padding-top:12px;margin-top:auto}
+.private-safari-independent{margin-top:24px}
+.private-safari-independent .experience-private-safari{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));height:auto;min-height:0}
+.private-safari-independent .private-safari-media{height:260px}
+.private-safari-independent .private-safari-video{display:block;width:100%;height:100%;object-fit:contain;background:#073840}
+.private-safari-independent .experience-body{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.private-safari-independent .experience-body p{min-height:0;margin:0 0 14px}
+.private-safari-independent .card-foot{margin-top:auto;padding-top:12px}
+@media(max-width:760px){
+.experience-carousel{grid-template-columns:1fr;grid-auto-rows:auto;gap:16px}
+.experience-carousel .experience-photo{height:clamp(210px,58vw,275px)}
+.private-safari-independent .experience-private-safari{grid-template-columns:1fr}
+.private-safari-independent .private-safari-media{height:245px}
+.private-safari-independent .experience-body{padding:20px}
+}
