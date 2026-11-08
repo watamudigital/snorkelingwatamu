@@ -602,3 +602,15 @@ html[lang="it"] .hero h1 [data-i18n="heroThree"]{font-size:clamp(33px,5.7vw,84px
 .experience-lightbox-nav:hover{background:#126b73}
 .experience-lightbox-nav:focus-visible{outline:3px solid #c9f37b;outline-offset:3px}
 @media(max-width:700px){.experience-lightbox-nav{width:39px;height:39px;font-size:28px}.experience-lightbox-prev{left:8px}.experience-lightbox-next{right:8px}}
+
+/* Watersports: swipe/tap through separate photos and videos, no arrow controls. */
+.experience-carousel [aria-labelledby="experience-title-3"] .photo-slides{touch-action:pan-y;cursor:pointer}
+.experience-carousel [aria-labelledby="experience-title-3"] .photo-slide.is-active{z-index:1}
+.experience-carousel [aria-labelledby="experience-title-3"] .photo-slides video.is-active{pointer-events:auto;cursor:auto}
+.experience-carousel [aria-labelledby="experience-title-3"] .watersports-slide-count{
+ position:absolute;z-index:4;bottom:12px;right:12px;
+ display:block;padding:6px 10px;border-radius:999px;
+ background:rgba(4,34,44,.79);color:#fff;font-size:12px;font-weight:800;
+ pointer-events:none;
+}
+.experience-carousel [aria-labelledby="experience-title-3"] .oncard-gallery-controls{display:none!important}
