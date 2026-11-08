@@ -581,3 +581,14 @@
 .experience-carousel .oncard-gallery-arrow:focus-visible{outline:3px solid #c9f37b;outline-offset:3px}
 .experience-carousel .experience-private-safari .private-safari-media{background:#0b4b55}
 .experience-carousel .experience-private-safari .private-safari-media .private-safari-video{display:block;width:100%;height:100%;max-height:none;object-fit:contain;object-position:center;background:#0b4b55;border-radius:0}
+
+/* Slightly smaller Italian homepage headline, preserving the three-line layout. */
+html[lang="it"] .hero .hero-inner h1{font-size:clamp(46px,6vw,92px);line-height:.96}
+html[lang="it"] .hero h1 [data-i18n="heroThree"]{font-size:clamp(33px,5.7vw,84px)}
+@media(max-width:700px){
+ html[lang="it"] .hero .hero-inner h1{font-size:clamp(33px,7.7vw,50px);line-height:1.02}
+ html[lang="it"] .hero h1 [data-i18n="heroThree"]{font-size:clamp(26px,6.3vw,43px)}
+}
+@media(max-width:360px){
+ html[lang="it"] .hero h1 [data-i18n="heroThree"]{font-size:clamp(24px,6vw,31px)}
+}
