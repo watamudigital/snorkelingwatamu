@@ -1,6 +1,10 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "privateSafariVideoPickerAria": "Choose a private safari video",
+    "privateSafariVideoTab": "Private safari",
+    "privateSafariDolphinsTab": "Dolphins",
+    "privateSafariDolphinsVideoAria": "Video of dolphins off Watamu during a private safari",
     "contactFeatureKicker": "PLAN YOUR EXPERIENCE",
     "contactFeatureHead1": "Let's plan",
     "contactFeatureHead2": "together.",
@@ -195,6 +199,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "privateSafariVideoPickerAria": "Scegli un video del Safari privato",
+    "privateSafariVideoTab": "Safari privato",
+    "privateSafariDolphinsTab": "Delfini",
+    "privateSafariDolphinsVideoAria": "Video dei delfini a Watamu durante il Safari privato",
     "contactFeatureKicker": "ORGANIZZA LA TUA ESPERIENZA",
     "contactFeatureHead1": "Parliamone",
     "contactFeatureHead2": "insieme.",
@@ -389,6 +397,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "privateSafariVideoPickerAria": "Video für die private Safari auswählen",
+    "privateSafariVideoTab": "Private Safari",
+    "privateSafariDolphinsTab": "Delfine",
+    "privateSafariDolphinsVideoAria": "Video von Delfinen vor Watamu bei einer privaten Safari",
     "contactFeatureKicker": "DEIN ERLEBNIS PLANEN",
     "contactFeatureHead1": "Planen wir",
     "contactFeatureHead2": "gemeinsam.",
@@ -402,7 +414,7 @@ window.SW_TRANSLATIONS = {
     "customSubmitLuisa": "Angebot bei Luisa anfragen",
     "navDiscover": "Routen",
     "contactSwissTitle": "Luisa direkt kontaktieren",
-    "footerSwissContactLabel": "Direktkontakt Luisa:",
+    "footerSwissContactLabel": "Direkter Kontakt zu Luisa:",
     "jumaLanguagesAria": "Sprachen von Juma",
     "luisaLanguagesAria": "Sprachen von Luisa",
     "languageEnglish": "Englisch",
@@ -632,7 +644,7 @@ window.SW_TRANSLATIONS = {
     "contactSwissTitle": "Luisa direkt kontaktieren",
     "contactSwissCta": "WhatsApp-Nachricht senden",
     "contactSwissAria": "WhatsApp-Chat mit +41 77 512 92 41 öffnen",
-    "footerSwissContactLabel": "Direktkontakt Luisa:",
+    "footerSwissContactLabel": "Direkter Kontakt zu Luisa:",
     "contactCta": "WhatsApp-Nachricht senden",
     "contactAria": "WhatsApp öffnen und Juma schreiben",
     "contactTitle": "Juma direkt kontaktieren",
@@ -640,6 +652,10 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "privateSafariVideoPickerAria": "Choisir une vidéo du safari privé",
+    "privateSafariVideoTab": "Safari privé",
+    "privateSafariDolphinsTab": "Dauphins",
+    "privateSafariDolphinsVideoAria": "Vidéo des dauphins à Watamu lors d'un safari privé",
     "contactFeatureKicker": "ORGANISEZ VOTRE EXPÉRIENCE",
     "contactFeatureHead1": "Organisons-la",
     "contactFeatureHead2": "ensemble.",
