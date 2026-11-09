@@ -102,8 +102,11 @@
   const selected=select.options[select.selectedIndex]?.textContent.trim()||select.value;
   const extras=[...form.querySelectorAll('[data-custom-extra]:checked')].map(input=>input.parentElement.querySelector('span')?.textContent.trim()||input.value);
   const message=[strings.message,strings.trip+': '+selected,strings.group+': '+guests.value,strings.day+': '+(date.value||strings.date),strings.extras+': '+(extras.join(', ')||'-')].join('\n');
-  const recipient=event.submitter?.value==='luisa'?'41775129241':'254741457022';
-  window.open('https://wa.me/'+recipient+'?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
+  const waJuma=document.querySelector('#booking .booking-whatsapp[href*="254741457022"]');
+  const waLuisa=document.querySelector('#booking .booking-whatsapp[href*="41775129241"]');
+  if(waJuma)waJuma.href='https://wa.me/254741457022?text='+encodeURIComponent(message);
+  if(waLuisa)waLuisa.href='https://wa.me/41775129241?text='+encodeURIComponent(message);
+  document.getElementById('booking')?.scrollIntoView({behavior:'smooth',block:'center'});
  });
  choose('safari');
 })();
