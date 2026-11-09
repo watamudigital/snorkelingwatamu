@@ -1,6 +1,7 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "navDiscover": "Itineraries",
     "contactSwissTitle": "Talk directly to Luisa",
     "footerSwissContactLabel": "Contact Luisa:",
     "jumaLanguagesAria": "Languages spoken by Juma",
@@ -183,6 +184,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "navDiscover": "Itinerari",
     "contactSwissTitle": "Parla direttamente con Luisa",
     "footerSwissContactLabel": "Contatta Luisa:",
     "jumaLanguagesAria": "Lingue parlate da Juma",
@@ -365,6 +367,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "navDiscover": "Routen",
     "contactSwissTitle": "Luisa direkt kontaktieren",
     "footerSwissContactLabel": "Luisa kontaktieren:",
     "jumaLanguagesAria": "Sprachen von Juma",
@@ -604,6 +607,7 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "navDiscover": "Itinéraires",
     "contactSwissTitle": "Parlez directement avec Luisa",
     "footerSwissContactLabel": "Contacter Luisa :",
     "jumaLanguagesAria": "Langues parlées par Juma",
