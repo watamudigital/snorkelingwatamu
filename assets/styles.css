@@ -1469,3 +1469,34 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 @media(max-width:850px){
  .experience-personalization .custom-juma-video .juma-story-visual{min-height:300px}
 }
+
+/* Two original clips in the private safari card: safari and dolphins. */
+.experience-carousel .experience-private-safari .private-safari-dual-video{
+ position:relative;overflow:hidden;
+}
+.experience-carousel .experience-private-safari .private-safari-dual-video .private-safari-video{
+ width:100%;height:100%;max-height:none;object-fit:contain;
+}
+.experience-carousel .experience-private-safari .private-safari-dual-video .private-safari-video[hidden]{
+ display:none!important;
+}
+.private-safari-video-picker{
+ position:absolute;z-index:5;top:12px;left:12px;right:12px;
+ display:flex;gap:7px;justify-content:center;
+ pointer-events:none;
+}
+.private-safari-video-choice{
+ pointer-events:auto;cursor:pointer;border:1px solid rgba(255,255,255,.6);
+ border-radius:999px;background:rgba(5,44,48,.8);color:#fff;
+ font:inherit;font-size:12px;font-weight:750;
+ padding:8px 13px;line-height:1.1;
+ backdrop-filter:blur(6px);
+}
+.private-safari-video-choice.is-selected{
+ background:#c9f37b;color:#123c3b;border-color:#c9f37b;
+}
+.private-safari-video-choice:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:480px){
+ .private-safari-video-picker{top:9px;left:8px;right:8px;gap:6px}
+ .private-safari-video-choice{padding:7px 11px;font-size:11px}
+}
