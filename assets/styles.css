@@ -1195,3 +1195,37 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .experience-personalization .booking-contact{padding:14px}
  .experience-personalization .booking-whatsapp{align-self:stretch;justify-content:center}
 }
+
+/* Quote and contact composition: simple request CTA, phone contacts at right. */
+.experience-personalization .custom-trip-right{
+ min-width:0;display:flex;flex-direction:column;gap:16px;
+}
+.experience-personalization .custom-trip-right .custom-trip-form{
+ width:100%;height:auto;max-width:none;
+}
+.experience-personalization .custom-trip-right .booking-contact{
+ margin:0;max-width:none;width:100%;
+ padding:20px 22px;border-radius:15px;
+ background:#f3f9f5;border:1px solid #d6e7df;
+ display:flex;flex-direction:column;align-items:flex-start;gap:9px;
+}
+.experience-personalization .custom-trip-right .booking-contact-secondary{
+ width:100%;display:flex;flex-direction:column;align-items:flex-start;
+ gap:8px;border-top:1px solid #d4e7dc;padding-top:14px;margin-top:6px;
+}
+.experience-personalization .custom-trip-right .contact-languages{display:flex;flex-wrap:wrap;gap:5px;margin:0}
+.experience-personalization .custom-trip-right .booking-contact .booking-whatsapp{
+ width:auto;display:inline-flex;align-self:flex-start;min-height:40px;
+ padding:10px 17px;font-size:12px;
+}
+.experience-personalization .custom-trip-main-cta{
+ display:flex;align-items:center;justify-content:center;width:100%;
+ margin-top:14px;min-height:50px;
+}
+.experience-personalization .custom-trip-photo-gallery{
+ margin-bottom:0;
+}
+@media(max-width:480px){
+ .experience-personalization .custom-trip-right .booking-contact{padding:16px}
+ .experience-personalization .custom-trip-right .booking-contact .booking-whatsapp{width:100%;justify-content:center}
+}
