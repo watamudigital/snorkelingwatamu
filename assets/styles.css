@@ -808,3 +808,8 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  #experienceCarousel.experience-carousel{grid-template-columns:1fr;max-width:390px}
  #experienceCarousel.experience-carousel .experience-photo{height:230px}
 }
+
+/* Remove empty gap between experience cards and 'Il tuo mare, con Juma'. */
+#experiences.section{padding-bottom:0}
+#meet-juma.section{padding-top:0;margin-top:0}
+@media(max-width:700px){#meet-juma.section{padding-top:0}}
