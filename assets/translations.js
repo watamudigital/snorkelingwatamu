@@ -1,6 +1,16 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "contactSwissTitle": "Talk directly to Luisa",
+    "footerSwissContactLabel": "Contact Luisa:",
+    "jumaLanguagesAria": "Languages spoken by Juma",
+    "luisaLanguagesAria": "Languages spoken by Luisa",
+    "languageEnglish": "English",
+    "languageItalian": "Italian",
+    "languageSwahili": "Swahili",
+    "languageFrench": "French",
+    "languageSpanish": "Spanish",
+    "languageGerman": "German",
     "navHow": "Customise",
     "bookLede": "Talk to Juma about your ideal Watamu experience. Request a personalised quote based on your date, activities and group.",
     "exKicker": "YOUR NEXT ADVENTURE",
@@ -173,6 +183,16 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "contactSwissTitle": "Parla direttamente con Luisa",
+    "footerSwissContactLabel": "Contatta Luisa:",
+    "jumaLanguagesAria": "Lingue parlate da Juma",
+    "luisaLanguagesAria": "Lingue parlate da Luisa",
+    "languageEnglish": "Inglese",
+    "languageItalian": "Italiano",
+    "languageSwahili": "Swahili",
+    "languageFrench": "Francese",
+    "languageSpanish": "Spagnolo",
+    "languageGerman": "Tedesco",
     "navHow": "Personalizza",
     "bookLede": "Parla direttamente con Juma per scegliere la tua esperienza a Watamu. Puoi richiedere un preventivo personalizzato con data, attività e partecipanti.",
     "exKicker": "LA TUA PROSSIMA AVVENTURA",
@@ -345,6 +365,16 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "contactSwissTitle": "Luisa direkt kontaktieren",
+    "footerSwissContactLabel": "Luisa kontaktieren:",
+    "jumaLanguagesAria": "Sprachen von Juma",
+    "luisaLanguagesAria": "Sprachen von Luisa",
+    "languageEnglish": "Englisch",
+    "languageItalian": "Italienisch",
+    "languageSwahili": "Swahili",
+    "languageFrench": "Französisch",
+    "languageSpanish": "Spanisch",
+    "languageGerman": "Deutsch",
     "navHow": "Individuell planen",
     "bookLede": "Sprich direkt mit Juma über dein Erlebnis in Watamu. Frage nach einem individuellen Angebot für dein Datum, deine Aktivitäten und deine Gruppe.",
     "exKicker": "DEIN NÄCHSTES ABENTEUER",
@@ -574,6 +604,16 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "contactSwissTitle": "Parlez directement avec Luisa",
+    "footerSwissContactLabel": "Contacter Luisa :",
+    "jumaLanguagesAria": "Langues parlées par Juma",
+    "luisaLanguagesAria": "Langues parlées par Luisa",
+    "languageEnglish": "Anglais",
+    "languageItalian": "Italien",
+    "languageSwahili": "Swahili",
+    "languageFrench": "Français",
+    "languageSpanish": "Espagnol",
+    "languageGerman": "Allemand",
     "navHow": "Personnaliser",
     "bookLede": "Échangez directement avec Juma pour organiser votre expérience à Watamu. Demandez un devis personnalisé selon votre date, vos activités et votre groupe.",
     "exKicker": "VOTRE PROCHAINE AVENTURE",
