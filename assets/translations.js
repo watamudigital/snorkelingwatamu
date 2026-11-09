@@ -259,7 +259,7 @@ window.SW_TRANSLATIONS = {
     "chooseWatersports": "Scegli Watersports",
     "card3Title": "Watersports",
     "card2Title": "Blue Safari",
-    "exIntro": "Quattro esperienze da vivere con Juma a Watamu: Blue Safari con snorkeling, pesca d'altura, sport acquatici e una suggestiva uscita in barca al tramonto a Mida Creek.",
+    "exIntro": "Vivi Watamu con Juma: Blue Safari con snorkeling, pesca d'altura, sport acquatici e tramonto in barca a Mida Creek.",
     "card1Tag": "Un'avventura in mare aperto",
     "card1Title": "Pesca d'altura",
     "card1Text": "Spingiti oltre la costa e scopri il fascino della pesca d'altura con Juma. Itinerario, attrezzatura e durata sono da concordare prima dell'uscita.",
