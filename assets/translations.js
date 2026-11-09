@@ -1,7 +1,9 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
-    "customGalleryAria": "Original photos from Watamu experiences",
+    "customBananaAlt": "Banana boat adventure on the water in Watamu",
+    "customSubiraPeopleAlt": "Passengers aboard the Subira glass boat in Watamu",
+    "customGalleryAria": "Original Subira and banana boat photographs",
     "customSubiraExtraAlt": "Subira boat at Watamu sandbar",
     "customContactChoiceAria": "Choose Juma or Luisa for your quote",
     "customSubmitLuisa": "Request a quote from Luisa",
@@ -188,7 +190,9 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
-    "customGalleryAria": "Fotografie originali delle esperienze a Watamu",
+    "customBananaAlt": "Avventura sul bananone nelle acque di Watamu",
+    "customSubiraPeopleAlt": "Clienti a bordo della barca Subira a Watamu",
+    "customGalleryAria": "Fotografie originali della Subira e del bananone",
     "customSubiraExtraAlt": "La Subira vicino al banco di sabbia a Watamu",
     "customContactChoiceAria": "Scegli Juma o Luisa per il preventivo",
     "customSubmitLuisa": "Richiedi il preventivo a Luisa",
@@ -375,7 +379,9 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
-    "customGalleryAria": "Originalfotos von Ausflügen in Watamu",
+    "customBananaAlt": "Bananenboot-Erlebnis auf dem Wasser in Watamu",
+    "customSubiraPeopleAlt": "Gäste auf dem Glasbodenboot Subira in Watamu",
+    "customGalleryAria": "Originalfotos der Subira und des Bananenboots",
     "customSubiraExtraAlt": "Das Boot Subira an der Sandbank von Watamu",
     "customContactChoiceAria": "Juma oder Luisa für das Angebot auswählen",
     "customSubmitLuisa": "Angebot bei Luisa anfragen",
@@ -619,7 +625,9 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
-    "customGalleryAria": "Photos authentiques des expériences à Watamu",
+    "customBananaAlt": "Sortie en bateau banane sur les eaux de Watamu",
+    "customSubiraPeopleAlt": "Passagers à bord du bateau Subira à Watamu",
+    "customGalleryAria": "Photos authentiques du Subira et du bateau banane",
     "customSubiraExtraAlt": "Le bateau Subira près du banc de sable de Watamu",
     "customContactChoiceAria": "Choisir Juma ou Luisa pour le devis",
     "customSubmitLuisa": "Demander un devis à Luisa",
