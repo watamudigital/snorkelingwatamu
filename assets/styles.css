@@ -1266,3 +1266,69 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .experience-personalization .custom-trip-right .booking-phone{font-size:clamp(23px,6.8vw,29px)}
  .experience-personalization .custom-trip-right .contact-languages>span{font-size:23px}
 }
+
+/* Preview-inspired single card: left photos + direct contacts; right quotation form. */
+.experience-personalization .custom-side{
+ display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);
+ align-items:start;gap:clamp(18px,3vw,38px);
+}
+.experience-personalization .custom-trip-intro{
+ display:flex;flex-direction:column;align-items:stretch;min-width:0;
+}
+.experience-personalization .custom-trip-photo-gallery{
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:10px;margin:20px 0 15px;
+}
+.experience-personalization .custom-trip-intro>.booking-contact{
+ display:flex;flex-direction:column;align-items:flex-start;
+ margin:0;padding:18px 20px;gap:10px;max-width:none;width:100%;
+ border-radius:15px;background:#f3f9f5;border:1px solid #d6e7df;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .booking-phone{
+ display:block;align-self:flex-start;
+ font-size:clamp(21px,2.35vw,30px);
+ font-weight:850;letter-spacing:-.03em;color:#0b4750;line-height:1.15;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .contact-languages{
+ display:flex;flex-wrap:wrap;gap:5px;margin:0;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .contact-languages>span{
+ font-size:23px;padding:3px 5px;background:white;border-radius:6px;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .booking-whatsapp{
+ display:inline-flex;align-self:flex-start;min-height:40px;padding:10px 16px;font-size:12px;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .booking-contact-secondary{
+ width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:9px;
+ margin:8px 0 0;padding-top:17px;border-top:1px solid #d4e7dc;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .booking-contact-title,
+.experience-personalization .custom-trip-intro>.booking-contact .booking-contact-secondary-title{
+ font-size:15px;font-weight:850;margin:0;
+}
+.experience-personalization .custom-trip-intro>.booking-contact .booking-contact-note{
+ max-width:100%;margin:5px 0 0;font-size:11px;line-height:1.5;
+}
+.experience-personalization .custom-trip-right{
+ display:block;min-width:0;
+}
+.experience-personalization .custom-trip-right .custom-trip-form{
+ height:auto;width:100%;min-height:0;
+}
+.experience-personalization .custom-trip-right .custom-trip-main-cta{
+ margin:17px 0 0;width:100%;min-height:54px;
+ display:flex;justify-content:center;align-items:center;
+ font-weight:850;font-size:15px;
+}
+@media(max-width:850px){
+ .experience-personalization .custom-side{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+ .experience-personalization .custom-trip-intro>.booking-contact{padding:15px}
+ .experience-personalization .custom-trip-intro>.booking-contact .booking-phone{
+  font-size:clamp(21px,6.2vw,27px);
+ }
+ .experience-personalization .custom-trip-intro>.booking-contact .booking-whatsapp{
+  align-self:stretch;justify-content:center;width:100%;
+ }
+}
