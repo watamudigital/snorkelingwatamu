@@ -1,9 +1,11 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "customContactChoiceAria": "Choose Juma or Luisa for your quote",
+    "customSubmitLuisa": "Request a quote from Luisa",
     "navDiscover": "Itineraries",
     "contactSwissTitle": "Talk directly to Luisa",
-    "footerSwissContactLabel": "Contact Luisa:",
+    "footerSwissContactLabel": "Direct contact Luisa:",
     "jumaLanguagesAria": "Languages spoken by Juma",
     "luisaLanguagesAria": "Languages spoken by Luisa",
     "languageEnglish": "English",
@@ -171,7 +173,7 @@ window.SW_TRANSLATIONS = {
     "contactSwissTitle": "Talk directly to Luisa",
     "contactSwissCta": "Send a WhatsApp message (+41)",
     "contactSwissAria": "Open WhatsApp to message +41 77 512 92 41",
-    "footerSwissContactLabel": "WhatsApp contact (+41):",
+    "footerSwissContactLabel": "Direct contact Luisa:",
     "contactCta": "Send a WhatsApp message",
     "contactAria": "Open WhatsApp to message Juma",
     "contactTitle": "Talk directly to Juma",
@@ -184,9 +186,11 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "customContactChoiceAria": "Scegli Juma o Luisa per il preventivo",
+    "customSubmitLuisa": "Richiedi il preventivo a Luisa",
     "navDiscover": "Itinerari",
     "contactSwissTitle": "Parla direttamente con Luisa",
-    "footerSwissContactLabel": "Contatta Luisa:",
+    "footerSwissContactLabel": "Contatto diretto Luisa:",
     "jumaLanguagesAria": "Lingue parlate da Juma",
     "luisaLanguagesAria": "Lingue parlate da Luisa",
     "languageEnglish": "Inglese",
@@ -354,7 +358,7 @@ window.SW_TRANSLATIONS = {
     "contactSwissTitle": "Parla direttamente con Luisa",
     "contactSwissCta": "Invia messaggio WhatsApp (+41)",
     "contactSwissAria": "Apri WhatsApp per scrivere al numero +41 77 512 92 41",
-    "footerSwissContactLabel": "Contatto WhatsApp (+41):",
+    "footerSwissContactLabel": "Contatto diretto Luisa:",
     "contactCta": "Invia messaggio WhatsApp",
     "contactAria": "Apri WhatsApp per scrivere a Juma",
     "contactTitle": "Parla direttamente con Juma",
@@ -367,9 +371,11 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "customContactChoiceAria": "Juma oder Luisa für das Angebot auswählen",
+    "customSubmitLuisa": "Angebot bei Luisa anfragen",
     "navDiscover": "Routen",
     "contactSwissTitle": "Luisa direkt kontaktieren",
-    "footerSwissContactLabel": "Luisa kontaktieren:",
+    "footerSwissContactLabel": "Direktkontakt Luisa:",
     "jumaLanguagesAria": "Sprachen von Juma",
     "luisaLanguagesAria": "Sprachen von Luisa",
     "languageEnglish": "Englisch",
@@ -599,7 +605,7 @@ window.SW_TRANSLATIONS = {
     "contactSwissTitle": "Luisa direkt kontaktieren",
     "contactSwissCta": "WhatsApp-Nachricht senden (+41)",
     "contactSwissAria": "WhatsApp-Chat mit +41 77 512 92 41 öffnen",
-    "footerSwissContactLabel": "WhatsApp-Kontakt (+41):",
+    "footerSwissContactLabel": "Direktkontakt Luisa:",
     "contactCta": "WhatsApp-Nachricht senden",
     "contactAria": "WhatsApp öffnen und Juma schreiben",
     "contactTitle": "Juma direkt kontaktieren",
@@ -607,9 +613,11 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "customContactChoiceAria": "Choisir Juma ou Luisa pour le devis",
+    "customSubmitLuisa": "Demander un devis à Luisa",
     "navDiscover": "Itinéraires",
     "contactSwissTitle": "Parlez directement avec Luisa",
-    "footerSwissContactLabel": "Contacter Luisa :",
+    "footerSwissContactLabel": "Contact direct Luisa :",
     "jumaLanguagesAria": "Langues parlées par Juma",
     "luisaLanguagesAria": "Langues parlées par Luisa",
     "languageEnglish": "Anglais",
@@ -839,7 +847,7 @@ window.SW_TRANSLATIONS = {
     "contactSwissTitle": "Parlez directement avec Luisa",
     "contactSwissCta": "Envoyer un message WhatsApp (+41)",
     "contactSwissAria": "Ouvrir WhatsApp pour écrire au +41 77 512 92 41",
-    "footerSwissContactLabel": "Contact WhatsApp (+41) :",
+    "footerSwissContactLabel": "Contact direct Luisa :",
     "contactCta": "Envoyer un message WhatsApp",
     "contactAria": "Ouvrir WhatsApp pour écrire à Juma",
     "contactTitle": "Contactez Juma directement",
