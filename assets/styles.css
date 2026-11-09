@@ -919,3 +919,46 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .footer .footer-contact>span{display:block;margin-bottom:5px}
  .footer .footer-contact>a{font-size:clamp(21px,6vw,27px)}
 }
+
+/* Compact early booking strip: "Ci vediamo in acqua?" beside both contacts. */
+#booking.booking{padding:35px 0 43px}
+#booking .booking-grid{display:block}
+#booking .booking-grid>div:first-child{
+ display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+ grid-template-rows:auto auto 1fr;column-gap:clamp(24px,5vw,76px);
+ align-items:start;max-width:1100px;margin:0 auto;
+}
+#booking .booking-grid .kicker{grid-column:1;grid-row:1}
+#booking .booking-grid h2{
+ grid-column:1;grid-row:2;
+ font-size:clamp(31px,3.5vw,48px);line-height:1.08;
+ margin:12px 0 12px;
+}
+#booking .booking-grid .lede{
+ grid-column:1;grid-row:3;
+ font-size:13px;line-height:1.55;max-width:370px;margin:0;
+}
+#booking .booking-contact{
+ grid-column:2;grid-row:1/4;margin:0;
+ padding:17px 21px;max-width:none;
+ gap:8px;border-radius:15px;
+}
+#booking .booking-phone{font-size:clamp(18px,2vw,24px);line-height:1.2}
+#booking .booking-contact-title,
+#booking .booking-contact-secondary-title{font-size:13px}
+#booking .booking-contact .booking-whatsapp{
+ min-height:35px;padding:9px 15px;font-size:11px;
+}
+#booking .booking-contact-secondary{padding-top:12px;gap:7px}
+#booking .booking-contact-note{font-size:10.5px;line-height:1.4}
+#booking .contact-languages{gap:4px;margin:0}
+#booking .contact-languages>span{font-size:18px;padding:3px 5px}
+@media(max-width:700px){
+ #booking.booking{padding:26px 0 32px}
+ #booking .booking-grid>div:first-child{
+  display:block;
+ }
+ #booking .booking-grid h2{font-size:clamp(30px,8vw,42px);margin:10px 0}
+ #booking .booking-grid .lede{max-width:none;margin-bottom:15px}
+ #booking .booking-contact{width:100%;padding:16px}
+}
