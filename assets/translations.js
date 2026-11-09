@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "navHow": "Customise",
+    "bookLede": "Talk to Juma about your ideal Watamu experience. Request a personalised quote based on your date, activities and group.",
     "exKicker": "YOUR NEXT ADVENTURE",
     "exHeading1": "More than excursions.",
     "exHeading2": "Experiences to remember.",
@@ -171,6 +173,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "navHow": "Personalizza",
+    "bookLede": "Parla direttamente con Juma per scegliere la tua esperienza a Watamu. Puoi richiedere un preventivo personalizzato con data, attività e partecipanti.",
     "exKicker": "LA TUA PROSSIMA AVVENTURA",
     "exHeading1": "Non solo escursioni.",
     "exHeading2": "Esperienze da vivere.",
@@ -341,6 +345,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "navHow": "Individuell planen",
+    "bookLede": "Sprich direkt mit Juma über dein Erlebnis in Watamu. Frage nach einem individuellen Angebot für dein Datum, deine Aktivitäten und deine Gruppe.",
     "exKicker": "DEIN NÄCHSTES ABENTEUER",
     "exHeading1": "Mehr als Ausflüge.",
     "exHeading2": "Erlebnisse, die bleiben.",
@@ -568,6 +574,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "navHow": "Personnaliser",
+    "bookLede": "Échangez directement avec Juma pour organiser votre expérience à Watamu. Demandez un devis personnalisé selon votre date, vos activités et votre groupe.",
     "exKicker": "VOTRE PROCHAINE AVENTURE",
     "exHeading1": "Plus que des excursions.",
     "exHeading2": "Des expériences à vivre.",
