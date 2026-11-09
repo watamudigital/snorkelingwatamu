@@ -1367,3 +1367,29 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .experience-personalization .custom-trip-intro .custom-juma-video{margin-top:18px}
  .experience-personalization .custom-juma-video .juma-story-visual{aspect-ratio:4/3}
 }
+
+/* Larger Juma video; balance the full photo/video column with the quote/contact column. */
+@media(min-width:851px){
+ .experience-personalization .custom-side{align-items:stretch}
+ .experience-personalization .custom-trip-intro{
+  height:100%;display:flex;flex-direction:column;min-height:0;
+ }
+ .experience-personalization .custom-trip-right{
+  height:100%;display:flex;flex-direction:column;min-height:0;
+ }
+ .experience-personalization .custom-trip-intro .custom-juma-video{
+  flex:1 1 auto;min-height:315px;
+  display:flex;flex-direction:column;
+ }
+ .experience-personalization .custom-juma-video .juma-story-visual{
+  flex:1 1 auto;min-height:270px;aspect-ratio:auto;
+ }
+ .experience-personalization .custom-trip-right .booking-contact{
+  flex:1 0 auto;
+ }
+}
+@media(max-width:850px){
+ .experience-personalization .custom-juma-video .juma-story-visual{
+  aspect-ratio:4/3;min-height:260px;
+ }
+}
