@@ -153,7 +153,10 @@
     <div><label for="customTripDate" data-i18n="customDate">Data preferita</label><input id="customTripDate" type="date"></div>
    </div>
    <div class="custom-trip-summary" aria-live="polite"><strong data-i18n="customSummaryHeading">La tua richiesta</strong><p id="customTripSummary"></p><span data-i18n="customQuote">Preventivo personalizzato su richiesta</span></div>
-   <button class="custom-trip-submit" type="submit"><span data-i18n="customSubmit">Richiedi il preventivo a Juma</span> ↗</button>
+   <div class="custom-trip-contact-options" role="group" data-i18n-aria-label="customContactChoiceAria" aria-label="Scegli a chi inviare la richiesta">
+    <button class="custom-trip-submit" type="submit" name="recipient" value="juma"><span data-i18n="customSubmit">Richiedi il preventivo a Juma</span><small>+254 741 457 022</small></button>
+    <button class="custom-trip-submit custom-trip-submit-luisa" type="submit" name="recipient" value="luisa"><span data-i18n="customSubmitLuisa">Richiedi il preventivo a Luisa</span><small>+41 77 512 92 41</small></button>
+   </div>
    <p class="custom-trip-note" data-i18n="customNote">WhatsApp si aprirà con il testo già pronto: sarai tu a scegliere se inviarlo. Le attività sono da concordare con Juma.</p>
   </form>
   </div>
