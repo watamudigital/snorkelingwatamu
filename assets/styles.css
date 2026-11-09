@@ -1096,3 +1096,30 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .itinerary-feature .journey-panel{padding:19px}
  .experience-personalization.section{padding:36px 0}
 }
+
+/* Original preview photo trio: sea, activity and recovered Subira sandbar boat. */
+.experience-personalization .custom-trip-photo-gallery{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ grid-template-rows:160px 175px;
+ gap:11px;
+ margin-top:24px;
+ max-width:490px;
+}
+.experience-personalization .custom-trip-photo-gallery img{
+ display:block;width:100%;height:100%;object-fit:cover;
+ border-radius:13px;background:#d7e8e0;
+}
+.experience-personalization .custom-trip-photo-gallery img:nth-child(3){
+ grid-column:1/-1;object-position:center 56%;
+}
+@media(max-width:800px){
+ .experience-personalization .custom-trip-photo-gallery{
+  max-width:640px;grid-template-rows:180px 185px;
+ }
+}
+@media(max-width:480px){
+ .experience-personalization .custom-trip-photo-gallery{
+  grid-template-rows:125px 150px;gap:8px;margin-top:18px;
+ }
+}
