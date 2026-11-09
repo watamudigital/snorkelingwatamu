@@ -270,6 +270,26 @@
    }
   });
  });
+ // Switch between the original private safari clip and the dolphin footage.
+ const privateMedia=region.querySelector('.private-safari-dual-video');
+ if(privateMedia){
+  const buttons=[...privateMedia.querySelectorAll('[data-private-video]')];
+  const videos=[...privateMedia.querySelectorAll('[data-private-video-player]')];
+  const selectVideo=name=>{
+   videos.forEach(video=>{
+    const active=video.dataset.privateVideoPlayer===name;
+    if(!active)video.pause();
+    video.hidden=!active;
+   });
+   buttons.forEach(button=>{
+    const active=button.dataset.privateVideo===name;
+    button.classList.toggle('is-selected',active);
+    button.setAttribute('aria-pressed',String(active));
+   });
+  };
+  buttons.forEach(button=>button.addEventListener('click',()=>selectVideo(button.dataset.privateVideo)));
+  selectVideo('private');
+ }
  const creek=region.querySelector('.experience-creek .creek-sunset-visual');
  if(creek){
   const activate=()=>open([{kind:'creek',element:creek}],region.querySelector('#experience-title-4')?.textContent||'Mida Creek');
