@@ -2,7 +2,7 @@
 window.SW_TRANSLATIONS = {
   "en": {
     "customBananaAlt": "Banana boat adventure on the water in Watamu",
-    "customSubiraPeopleAlt": "Passengers aboard the Subira glass boat in Watamu",
+    "customSubiraPeopleAlt": "Juma with guests on Watamu Beach",
     "customGalleryAria": "Original Subira and banana boat photographs",
     "customSubiraExtraAlt": "Subira boat at Watamu sandbar",
     "customContactChoiceAria": "Choose Juma or Luisa for your quote",
@@ -191,7 +191,7 @@ window.SW_TRANSLATIONS = {
   },
   "it": {
     "customBananaAlt": "Avventura sul bananone nelle acque di Watamu",
-    "customSubiraPeopleAlt": "Clienti a bordo della barca Subira a Watamu",
+    "customSubiraPeopleAlt": "Juma con i clienti sulla spiaggia di Watamu",
     "customGalleryAria": "Fotografie originali della Subira e del bananone",
     "customSubiraExtraAlt": "La Subira vicino al banco di sabbia a Watamu",
     "customContactChoiceAria": "Scegli Juma o Luisa per il preventivo",
@@ -380,7 +380,7 @@ window.SW_TRANSLATIONS = {
   },
   "de": {
     "customBananaAlt": "Bananenboot-Erlebnis auf dem Wasser in Watamu",
-    "customSubiraPeopleAlt": "Gäste auf dem Glasbodenboot Subira in Watamu",
+    "customSubiraPeopleAlt": "Juma mit Gästen am Strand von Watamu",
     "customGalleryAria": "Originalfotos der Subira und des Bananenboots",
     "customSubiraExtraAlt": "Das Boot Subira an der Sandbank von Watamu",
     "customContactChoiceAria": "Juma oder Luisa für das Angebot auswählen",
@@ -626,7 +626,7 @@ window.SW_TRANSLATIONS = {
   },
   "fr": {
     "customBananaAlt": "Sortie en bateau banane sur les eaux de Watamu",
-    "customSubiraPeopleAlt": "Passagers à bord du bateau Subira à Watamu",
+    "customSubiraPeopleAlt": "Juma avec les clients sur la plage de Watamu",
     "customGalleryAria": "Photos authentiques du Subira et du bateau banane",
     "customSubiraExtraAlt": "Le bateau Subira près du banc de sable de Watamu",
     "customContactChoiceAria": "Choisir Juma ou Luisa pour le devis",
