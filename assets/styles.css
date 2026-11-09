@@ -986,3 +986,43 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 .custom-trip-contact-options .custom-trip-submit-luisa:hover{background:#0e665e}
 @media(max-width:850px){#meet-juma .juma-journey-columns{grid-template-columns:1fr;gap:26px}}
 @media(max-width:450px){.custom-trip-contact-options{grid-template-columns:1fr}.custom-trip-contact-options .custom-trip-submit{min-height:59px}}
+
+/* Itinerary first, exactly as the original full-width interactive section;
+   custom tailored experience follows beneath it. */
+#meet-juma .journey-stacked-layout{display:flex;flex-direction:column;gap:clamp(32px,5vw,64px)}
+#meet-juma .journey-stacked-layout>.juma-journey-left,
+#meet-juma .journey-stacked-layout>.juma-journey-right{width:100%;min-width:0}
+#meet-juma .journey-stacked-layout .journey-header{
+ display:flex;align-items:end;justify-content:space-between;
+ gap:30px;margin-bottom:24px
+}
+#meet-juma .journey-stacked-layout .journey-header h2{font-size:clamp(35px,4.5vw,62px);max-width:760px}
+#meet-juma .journey-stacked-layout .journey-header>p{max-width:350px;margin:0}
+#meet-juma .journey-stacked-layout .journey-select{gap:10px;margin-bottom:24px}
+#meet-juma .journey-stacked-layout .journey-choice{padding:11px 17px;font-size:13px}
+#meet-juma .journey-stacked-layout .journey-layout{
+ display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+ align-items:stretch;gap:18px
+}
+#meet-juma .journey-stacked-layout .journey-visual{min-height:455px;height:auto}
+#meet-juma .journey-stacked-layout .journey-panel{padding:clamp(22px,3vw,36px)}
+#meet-juma .journey-stacked-layout .journey-steps li{padding-bottom:15px}
+#meet-juma .journey-stacked-layout>.custom-side{
+ display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+ align-items:start;gap:clamp(22px,5vw,72px);
+ padding-top:clamp(26px,4vw,46px);border-top:1px solid #d0e2d8
+}
+#meet-juma .journey-stacked-layout>.custom-side .custom-trip-intro h2{font-size:clamp(39px,4.8vw,67px)}
+#meet-juma .journey-stacked-layout>.custom-side .custom-trip-form{max-width:700px;width:100%}
+@media(max-width:800px){
+ #meet-juma .journey-stacked-layout .journey-header{display:block}
+ #meet-juma .journey-stacked-layout .journey-header>p{margin-top:14px;max-width:600px}
+ #meet-juma .journey-stacked-layout .journey-layout,
+ #meet-juma .journey-stacked-layout>.custom-side{grid-template-columns:1fr}
+ #meet-juma .journey-stacked-layout .journey-visual{min-height:0;height:300px}
+ #meet-juma .journey-stacked-layout>.custom-side{gap:20px}
+}
+@media(max-width:480px){
+ #meet-juma .journey-stacked-layout .journey-visual{height:235px}
+ #meet-juma .journey-stacked-layout .journey-choice{font-size:12px;padding:10px 12px}
+}
