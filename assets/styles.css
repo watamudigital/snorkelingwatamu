@@ -762,3 +762,8 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .custom-trip-pictures img{height:155px}
 }
 @media(max-width:420px){.custom-trip-options{grid-template-columns:1fr}.journey-choice{padding:10px 13px;font-size:12px}.journey-panel{padding:22px}}
+
+/* Seamless transition from activity cards to the itinerary section. */
+#experiences.section{padding-bottom:0}
+.discovery-journey.section{padding-top:24px}
+@media(max-width:700px){.discovery-journey.section{padding-top:18px}}
