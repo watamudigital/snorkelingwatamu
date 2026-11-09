@@ -1,6 +1,10 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "contactFeatureKicker": "PLAN YOUR EXPERIENCE",
+    "contactFeatureHead1": "Let's plan",
+    "contactFeatureHead2": "together.",
+    "contactFeatureIntro": "Choose who to contact for information and a personalised quote.",
     "customGeneralSubmit": "Request a quote",
     "customBananaAlt": "Banana boat adventure on the water in Watamu",
     "customSubiraPeopleAlt": "Juma with guests on Watamu Beach",
@@ -191,6 +195,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "contactFeatureKicker": "ORGANIZZA LA TUA ESPERIENZA",
+    "contactFeatureHead1": "Parliamone",
+    "contactFeatureHead2": "insieme.",
+    "contactFeatureIntro": "Scegli con chi parlare per ricevere informazioni e un preventivo su misura.",
     "customGeneralSubmit": "Richiedi un preventivo",
     "customBananaAlt": "Avventura sul bananone nelle acque di Watamu",
     "customSubiraPeopleAlt": "Juma con i clienti sulla spiaggia di Watamu",
@@ -381,6 +389,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "contactFeatureKicker": "DEIN ERLEBNIS PLANEN",
+    "contactFeatureHead1": "Planen wir",
+    "contactFeatureHead2": "gemeinsam.",
+    "contactFeatureIntro": "Kontaktiere Juma oder Luisa für Informationen und ein individuelles Angebot.",
     "customGeneralSubmit": "Angebot anfordern",
     "customBananaAlt": "Bananenboot-Erlebnis auf dem Wasser in Watamu",
     "customSubiraPeopleAlt": "Juma mit Gästen am Strand von Watamu",
@@ -628,6 +640,10 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "contactFeatureKicker": "ORGANISEZ VOTRE EXPÉRIENCE",
+    "contactFeatureHead1": "Organisons-la",
+    "contactFeatureHead2": "ensemble.",
+    "contactFeatureIntro": "Choisissez votre interlocuteur pour recevoir des informations et un devis personnalisé.",
     "customGeneralSubmit": "Demander un devis",
     "customBananaAlt": "Sortie en bateau banane sur les eaux de Watamu",
     "customSubiraPeopleAlt": "Juma avec les clients sur la plage de Watamu",
