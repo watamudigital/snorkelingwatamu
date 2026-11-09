@@ -1,6 +1,7 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "customGeneralSubmit": "Request a quote",
     "customBananaAlt": "Banana boat adventure on the water in Watamu",
     "customSubiraPeopleAlt": "Juma with guests on Watamu Beach",
     "customGalleryAria": "Original Subira and banana boat photographs",
@@ -190,6 +191,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "customGeneralSubmit": "Richiedi un preventivo",
     "customBananaAlt": "Avventura sul bananone nelle acque di Watamu",
     "customSubiraPeopleAlt": "Juma con i clienti sulla spiaggia di Watamu",
     "customGalleryAria": "Fotografie originali della Subira e del bananone",
@@ -379,6 +381,7 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "customGeneralSubmit": "Angebot anfordern",
     "customBananaAlt": "Bananenboot-Erlebnis auf dem Wasser in Watamu",
     "customSubiraPeopleAlt": "Juma mit Gästen am Strand von Watamu",
     "customGalleryAria": "Originalfotos der Subira und des Bananenboots",
@@ -625,6 +628,7 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "customGeneralSubmit": "Demander un devis",
     "customBananaAlt": "Sortie en bateau banane sur les eaux de Watamu",
     "customSubiraPeopleAlt": "Juma avec les clients sur la plage de Watamu",
     "customGalleryAria": "Photos authentiques du Subira et du bateau banane",
