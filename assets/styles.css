@@ -813,3 +813,19 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 #experiences.section{padding-bottom:0}
 #meet-juma.section{padding-top:0;margin-top:0}
 @media(max-width:700px){#meet-juma.section{padding-top:0}}
+
+/* Il tuo mare, con Juma: edge-to-edge video without the green letterbox. */
+#meet-juma .juma-story-visual{
+ background:transparent;
+}
+#meet-juma .juma-story-visual .juma-story-video{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:center 38%;
+ background:transparent;
+}
+#meet-juma .juma-story-visual.is-video-ready::after{display:none}
+@media(max-width:800px){
+ #meet-juma .juma-story-visual .juma-story-video{object-position:center 38%}
+}
