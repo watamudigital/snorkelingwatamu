@@ -1026,3 +1026,73 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  #meet-juma .journey-stacked-layout .journey-visual{height:235px}
  #meet-juma .journey-stacked-layout .journey-choice{font-size:12px;padding:10px 12px}
 }
+
+/* Preview proportions — compact, balanced sections, preserving original photo assets. */
+.itinerary-feature.section{
+ padding:clamp(36px,4vw,62px) 0 48px;
+ background:#eaf3ee;
+}
+.itinerary-feature .journey-header{
+ display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:22px;
+}
+.itinerary-feature .journey-header h2{
+ font-size:clamp(36px,4.1vw,59px);line-height:1.08;max-width:760px;
+}
+.itinerary-feature .journey-header>p{
+ font-size:13px;line-height:1.6;max-width:365px;margin:0;
+}
+.itinerary-feature .journey-select{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+.itinerary-feature .journey-choice{padding:10px 15px;font-size:12px}
+.itinerary-feature .journey-layout{
+ display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+ gap:18px;align-items:stretch;
+}
+.itinerary-feature .journey-visual{
+ min-height:0;height:clamp(345px,32vw,430px);border-radius:18px;
+}
+.itinerary-feature .journey-visual img{width:100%;height:100%;object-fit:cover}
+.itinerary-feature .journey-panel{
+ min-height:0;padding:clamp(20px,2.2vw,30px);
+ border-radius:18px;
+}
+.itinerary-feature .journey-panel h3{font-size:clamp(25px,2.7vw,36px)}
+.itinerary-feature .journey-steps{margin:16px 0}
+.itinerary-feature .journey-steps li{padding-bottom:10px}
+.itinerary-feature .journey-disclaimer{font-size:10.5px}
+.experience-personalization.section{
+ padding:clamp(36px,4.5vw,64px) 0;
+ background:#f7faf7;
+}
+.experience-personalization .custom-side{
+ display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+ align-items:start;gap:clamp(22px,4vw,64px);
+}
+.experience-personalization .custom-trip-intro h2{
+ font-size:clamp(39px,4.9vw,69px);line-height:1.08;
+ letter-spacing:-.06em;margin:17px 0 19px;
+}
+.experience-personalization .custom-trip-intro h2 i{color:#168477}
+.experience-personalization .custom-trip-intro p{
+ max-width:460px;font-size:14px;line-height:1.68;color:#527071;
+}
+.experience-personalization .custom-trip-form{
+ width:100%;max-width:680px;padding:clamp(19px,2.6vw,30px);
+}
+.experience-personalization .custom-trip-options{margin:18px 0}
+.experience-personalization .custom-trip-summary{margin:17px 0 12px}
+@media(max-width:800px){
+ .itinerary-feature .journey-header{display:block}
+ .itinerary-feature .journey-header>p{margin-top:14px;max-width:600px}
+ .itinerary-feature .journey-layout,
+ .experience-personalization .custom-side{grid-template-columns:1fr}
+ .itinerary-feature .journey-visual{height:310px}
+ .experience-personalization .custom-trip-intro h2{font-size:clamp(39px,8vw,56px)}
+}
+@media(max-width:480px){
+ .itinerary-feature.section{padding:30px 0 36px}
+ .itinerary-feature .journey-header h2{font-size:clamp(33px,9vw,43px)}
+ .itinerary-feature .journey-choice{padding:9px 12px;font-size:11.5px}
+ .itinerary-feature .journey-visual{height:240px}
+ .itinerary-feature .journey-panel{padding:19px}
+ .experience-personalization.section{padding:36px 0}
+}
