@@ -1393,3 +1393,26 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
   aspect-ratio:4/3;min-height:260px;
  }
 }
+
+/* Reuse the elegant "Prima di tuffarti" split layout for direct contact. */
+.contact-feature.section{padding:clamp(55px,7vw,95px) 0;background:#f7faf7}
+.contact-feature .faq{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(25px,5vw,75px);align-items:start}
+.contact-feature .contact-feature-intro h2{font-size:clamp(41px,5vw,75px);line-height:1.07;margin:17px 0 20px}
+.contact-feature .contact-feature-intro h2 i{color:#18877a}
+.contact-feature .contact-feature-intro>p{max-width:370px;color:#527071;font-size:14px;line-height:1.65}
+.contact-feature .contact-feature-details{width:100%;min-width:0}
+.contact-feature .booking-contact{
+ width:100%;max-width:none;display:flex;flex-direction:column;align-items:flex-start;gap:11px;
+ margin:0;padding:clamp(19px,2.7vw,31px);border:1px solid #d6e6e1;
+ border-radius:17px;background:#fff;box-shadow:0 10px 35px rgba(8,52,54,.045)
+}
+.contact-feature .booking-contact-title,.contact-feature .booking-contact-secondary-title{font-size:17px;font-weight:850;line-height:1.25;margin:0}
+.contact-feature .contact-languages{display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.contact-feature .contact-languages>span{font-size:24px;padding:3px 6px;background:#f2f8f4;border-radius:7px;line-height:1.1}
+.contact-feature .booking-phone{font-size:clamp(23px,2.8vw,35px);font-weight:850;letter-spacing:-.03em;line-height:1.15;color:#0b4750;text-decoration:none}
+.contact-feature .booking-phone:hover{text-decoration:underline}
+.contact-feature .booking-whatsapp{display:inline-flex;align-self:flex-start;min-height:42px;padding:11px 17px;font-size:12px}
+.contact-feature .booking-contact-secondary{display:flex;flex-direction:column;align-items:flex-start;gap:11px;width:100%;border-top:1px solid #d5e4dd;margin:10px 0 0;padding-top:21px}
+.contact-feature .booking-contact-note{font-size:11px;line-height:1.5;margin:6px 0 0;max-width:480px}
+@media(max-width:760px){.contact-feature .faq{grid-template-columns:1fr;gap:24px}.contact-feature.section{padding:45px 0}.contact-feature .booking-contact{padding:19px}}
+@media(max-width:480px){.contact-feature .booking-phone{font-size:clamp(22px,6.5vw,30px)}.contact-feature .booking-whatsapp{align-self:stretch;justify-content:center;width:100%}}
