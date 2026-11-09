@@ -829,3 +829,57 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 @media(max-width:800px){
  #meet-juma .juma-story-visual .juma-story-video{object-position:center 38%}
 }
+
+/* Integrated story: itineraries on left, Juma and original video compact on right. */
+#meet-juma.juma-journey-combined{
+ padding:clamp(35px,4vw,62px) 0;
+ background:#edf5ef;
+}
+.juma-journey-columns{
+ display:grid;
+ grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+ align-items:start;
+ gap:clamp(22px,3.5vw,50px);
+}
+.juma-journey-left,.juma-journey-right{min-width:0}
+.juma-journey-left .journey-header{display:block;margin:0 0 18px}
+.juma-journey-left .journey-header h2{font-size:clamp(31px,3.1vw,46px);line-height:1.08;letter-spacing:-.065em}
+.juma-journey-left .journey-header>p{margin:12px 0 0;max-width:540px}
+.juma-journey-left .journey-select{gap:7px;margin-bottom:15px}
+.juma-journey-left .journey-choice{padding:9px 11px;font-size:11.5px}
+.juma-journey-left .journey-layout{grid-template-columns:1fr;gap:12px}
+.juma-journey-left .journey-visual{height:clamp(180px,18vw,260px);min-height:0}
+.juma-journey-left .journey-panel{padding:20px 23px}
+.juma-journey-left .journey-panel h3{font-size:clamp(22px,2.2vw,31px)}
+.juma-journey-left .journey-steps{margin:15px 0}
+.juma-journey-left .journey-steps li{padding-bottom:9px}
+.juma-journey-right .juma-story-visual{
+ width:100%;min-height:0;
+ height:clamp(210px,24vw,330px);
+ aspect-ratio:1.55;
+ border-radius:16px;
+ background:transparent;
+}
+.juma-journey-right .juma-story-visual .juma-story-video{
+ width:100%;height:100%;object-fit:cover;object-position:center 38%;background:transparent;
+}
+.juma-journey-right .juma-story-copy{padding:18px 2px 0}
+.juma-journey-right .juma-story-copy h2{
+ font-size:clamp(30px,3vw,44px);
+ line-height:1.1;margin:10px 0 13px;
+}
+.juma-journey-right .juma-story-copy p{font-size:13px;line-height:1.55;margin:0 0 10px}
+.juma-journey-right .juma-story-copy .juma-story-lead{font-size:14px;line-height:1.55}
+.juma-journey-right .juma-story-copy .btn{margin-top:9px}
+@media(max-width:800px){
+ .juma-journey-columns{grid-template-columns:1fr;gap:22px}
+ .juma-journey-right{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:center}
+ .juma-journey-right .juma-story-visual{height:270px;aspect-ratio:auto}
+ .juma-journey-right .juma-story-copy{padding:0}
+}
+@media(max-width:570px){
+ .juma-journey-right{grid-template-columns:1fr}
+ .juma-journey-right .juma-story-visual{height:260px;aspect-ratio:auto}
+ .juma-journey-right .juma-story-copy{padding:0 4px}
+ .juma-journey-left .journey-visual{height:210px}
+}
