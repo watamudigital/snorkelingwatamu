@@ -38,7 +38,7 @@
   });
   if(t.pageTitle)document.title=t.pageTitle;
   if(metaDescription&&t.metaDescription)metaDescription.setAttribute('content',t.metaDescription);
-  document.getElementById('status').textContent='';
+
   if(updateUrl){
    // Each language has a real, server-rendered URL. Retain the anchor when switching.
    const destination='/'+code+'/' + (window.location.hash||'');
@@ -53,53 +53,23 @@
  const browserLanguage=(navigator.language||'').slice(0,2).toLowerCase();
  const pathLanguage=(window.location.pathname.match(/^\/(it|en|de|fr)\/?$/)||[])[1]||null;
  const initialLang=pathLanguage||(supported.includes(queryLanguage)?queryLanguage:(supported.includes(browserLanguage)?browserLanguage:'it'));
- document.getElementById('tripDate').min=new Date().toISOString().slice(0,10);
- const tripField=document.getElementById('trip');
- const levelField=document.getElementById('level').closest('.field');
- const syncFishingFields=()=>{levelField.hidden=tripField.value==='Deep-Sea Fishing';};
- tripField.addEventListener('change',syncFishingFields);
- document.querySelectorAll('[data-exp]').forEach(btn=>btn.addEventListener('click',()=>{
-  tripField.value=btn.dataset.exp;
-  syncFishingFields();
-  document.getElementById('booking').scrollIntoView({behavior:'smooth'});
-  setTimeout(()=>tripField.focus({preventScroll:true}),450);
- }));
- syncFishingFields();
- const WA_NUMBER='254741457022'; // Provided contact for Juma, without + as required by wa.me.
-
- function makeText(){
-  const t=tr[lang];
-  const experience=document.getElementById('trip').selectedOptions[0].textContent;
-  const date=document.getElementById('tripDate').value||t.dateFallback;
-  const guests=document.getElementById('people').value||'—';
-  const level=document.getElementById('level').selectedOptions[0].textContent;
-  const note=document.getElementById('note').value.trim();
-  const lines=[t.msgOpening,'',
-    t.msgExperience+': '+experience,
-    t.msgDate+': '+date,
-    t.msgPeople+': '+guests
-  ];
-  if(tripField.value!=='Deep-Sea Fishing')lines.push(t.msgLevel+': '+level);
-  if(note)lines.push(t.msgNotes+': '+note);
-  lines.push('',t.msgEnding);
-  return lines.join('\n');
- }
- document.getElementById('requestForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  if(!e.target.reportValidity())return;
-  const url='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(makeText());
-  window.open(url,'_blank','noopener,noreferrer');
-  document.getElementById('status').textContent=tr[lang].statusSent;
- });
- document.getElementById('copyBtn').addEventListener('click',async()=>{
-  const message=makeText();
-  try{
-   await navigator.clipboard.writeText(message);
-   document.getElementById('status').textContent=tr[lang].statusCopied;
-  }catch(err){
-   window.prompt(tr[lang].copyPrompt,message);
+ // Activity cards now direct visitors to the single personalised WhatsApp enquiry.
+ const customSelect=document.getElementById('customTripExperience');
+ const customSection=document.getElementById('custom-trip');
+ const cardValues={
+  'Blue Safari':'Blue Safari',
+  'Blue Safari Private':'Blue Safari privato',
+  'Deep-Sea Fishing':"Pesca d'altura",
+  'Watersports':'Watersports',
+  'Mida Creek Sunset Cruise':'Tramonto a Mida Creek'
+ };
+ document.querySelectorAll('[data-exp]').forEach(button=>button.addEventListener('click',()=>{
+  if(customSelect){
+   customSelect.value=cardValues[button.dataset.exp]||'Blue Safari';
+   customSelect.dispatchEvent(new Event('change',{bubbles:true}));
   }
- });
+  customSection?.scrollIntoView({behavior:'smooth',block:'start'});
+ }));
  if(pathLanguage){lang=pathLanguage;}else{setLang(initialLang);}
 
 })();
