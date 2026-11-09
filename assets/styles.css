@@ -1453,3 +1453,19 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .experience-personalization .custom-side>.custom-trip-intro,
  .experience-personalization .custom-side>.custom-trip-right{height:auto}
 }
+
+/* With the two thumbnails removed, let the Juma video occupy the left column. */
+.experience-personalization .custom-trip-intro .custom-juma-video{
+ margin-top:20px;padding-top:0;border-top:0;
+}
+@media(min-width:851px){
+ .experience-personalization .custom-trip-intro .custom-juma-video{
+  flex:1 1 auto;min-height:360px;
+ }
+ .experience-personalization .custom-juma-video .juma-story-visual{
+  flex:1 1 auto;min-height:320px;
+ }
+}
+@media(max-width:850px){
+ .experience-personalization .custom-juma-video .juma-story-visual{min-height:300px}
+}
