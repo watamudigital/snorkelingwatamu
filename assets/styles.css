@@ -1416,3 +1416,40 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 .contact-feature .booking-contact-note{font-size:11px;line-height:1.5;margin:6px 0 0;max-width:480px}
 @media(max-width:760px){.contact-feature .faq{grid-template-columns:1fr;gap:24px}.contact-feature.section{padding:45px 0}.contact-feature .booking-contact{padding:19px}}
 @media(max-width:480px){.contact-feature .booking-phone{font-size:clamp(22px,6.5vw,30px)}.contact-feature .booking-whatsapp{align-self:stretch;justify-content:center;width:100%}}
+
+/* Precisely balanced left/right experience columns on desktop. */
+@media (min-width:851px){
+ .experience-personalization .custom-side{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:stretch;
+  column-gap:clamp(18px,3vw,38px);
+ }
+ .experience-personalization .custom-side>.custom-trip-intro,
+ .experience-personalization .custom-side>.custom-trip-right{
+  width:100%;min-width:0;height:100%;
+  display:flex;flex-direction:column;
+ }
+ .experience-personalization .custom-trip-intro .custom-juma-video{
+  display:flex;flex-direction:column;flex:1 1 auto;
+  min-height:0;margin-top:18px;
+ }
+ .experience-personalization .custom-juma-video .juma-story-visual{
+  flex:1 1 auto;min-height:275px;width:100%;
+  aspect-ratio:auto;
+ }
+ .experience-personalization .custom-trip-right .custom-trip-form{
+  flex:1 1 auto;min-height:0;display:flex;flex-direction:column;
+ }
+ .experience-personalization .custom-trip-right .custom-trip-summary{
+  margin-top:auto;
+ }
+}
+@media (max-width:850px){
+ .experience-personalization .custom-side{
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+ }
+ .experience-personalization .custom-side>.custom-trip-intro,
+ .experience-personalization .custom-side>.custom-trip-right{height:auto}
+}
