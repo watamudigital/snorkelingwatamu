@@ -699,3 +699,66 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 .experience-carousel .experience-creek .photo-slide[data-i18n-alt="creekPhotoThreeAlt"]{
  object-fit:contain;object-position:center center;background:#0b4b55;
 }
+
+/* Itineraries and personalised packages: layered onto the original Snorkeling Watamu design. */
+.discovery-journey{background:#eaf3ee}
+.journey-header{display:flex;align-items:end;justify-content:space-between;gap:36px;margin-bottom:28px}
+.journey-header h2{font-size:clamp(35px,4.5vw,65px);max-width:690px}
+.journey-header>p{max-width:360px;margin:0;color:#506e70;font-size:14px;line-height:1.75}
+.journey-select{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 24px}
+.journey-choice{border:1px solid #cadfd6;background:#fff;padding:11px 16px;border-radius:40px;color:#154d50;font-size:13px;font-weight:800;cursor:pointer;transition:background .15s,color .15s}
+.journey-choice.is-selected,.journey-choice:hover{background:#073a43;color:#fff;border-color:#073a43}
+.journey-choice:focus-visible{outline:3px solid #2a897e;outline-offset:3px}
+.journey-layout{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:20px;align-items:stretch}
+.journey-visual{position:relative;border-radius:20px;min-height:490px;background:#0b5263;overflow:hidden}
+.journey-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.journey-stamp{position:absolute;bottom:19px;left:19px;background:rgba(255,255,255,.95);color:#164548;border-radius:30px;padding:10px 15px;font-size:11px;font-weight:850;letter-spacing:.045em}
+.journey-panel{background:#fff;border:1px solid #ddece5;border-radius:20px;padding:clamp(23px,3vw,38px)}
+.journey-eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:#128276;margin:0 0 12px}
+.journey-panel h3{font-size:clamp(26px,3vw,40px);letter-spacing:-.055em;line-height:1.12;margin:0 0 10px}
+.journey-panel>p:not(.journey-eyebrow):not(.journey-disclaimer){color:#597478;font-size:14px;line-height:1.65}
+.journey-steps{counter-reset:journey;list-style:none;padding:0 0 0 18px;margin:21px 0;border-left:2px solid #c5ded5}
+.journey-steps li{counter-increment:journey;position:relative;padding:0 0 16px 21px}
+.journey-steps li:last-child{padding-bottom:0}
+.journey-steps li:before{content:counter(journey);position:absolute;left:-32px;top:0;width:24px;height:24px;background:#c9f37b;border-radius:50%;display:grid;place-items:center;color:#123b3e;font-size:11px;font-weight:900}
+.journey-steps strong{font-size:14px;color:#143e43}
+.journey-steps p{margin:5px 0 0;color:#647e80;font-size:12.5px;line-height:1.55}
+.journey-disclaimer{color:#697d7e;font-size:11px;line-height:1.6;margin-bottom:16px}
+.journey-cta{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;background:#073a43;color:#fff;border-radius:50px;font-size:12px;font-weight:850;text-decoration:none}
+.journey-cta:hover{background:#11605d}
+.custom-trip-section{background:#f7faf7}
+.custom-trip-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,75px);align-items:start}
+.custom-trip-intro h2{font-size:clamp(43px,5vw,76px)}
+.custom-trip-intro h2 i{color:#168477}
+.custom-trip-intro>p{max-width:510px;color:#567275;line-height:1.7;font-size:14px}
+.custom-trip-pictures{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:29px}
+.custom-trip-pictures img{width:100%;height:195px;object-fit:cover;border-radius:14px}
+.custom-trip-form{background:#fff;border:1px solid #dbe9e2;border-radius:20px;padding:clamp(20px,3vw,32px);box-shadow:0 10px 35px rgba(5,50,40,.055)}
+.custom-trip-form label,.custom-trip-options legend{display:block;font-size:12px;font-weight:850;color:#234c4e;margin-bottom:9px}
+.custom-trip-form select,.custom-trip-form input[type="date"],.custom-trip-form input[type="number"]{display:block;width:100%;border:1px solid #d3e3dc;border-radius:10px;background:#fff;min-height:43px;padding:10px 12px;color:#123d44;font:inherit;font-size:13px}
+.custom-trip-options{border:0;padding:0;margin:23px 0 18px;min-width:0}
+.custom-trip-options legend{margin-bottom:11px}
+.custom-trip-options label{display:flex;gap:10px;align-items:center;padding:12px;background:#f1f8f4;border:1px solid #d8e9df;border-radius:11px;margin:0;font-weight:650;cursor:pointer}
+.custom-trip-options label:has(input:checked){border-color:#168477;background:#e8f7ed}
+.custom-trip-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.custom-trip-options legend{grid-column:1/-1}
+.custom-trip-options input{accent-color:#087e70}
+.custom-trip-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.custom-trip-summary{background:#e9f5ec;border-radius:12px;margin:24px 0 14px;padding:16px;color:#16484a}
+.custom-trip-summary strong{font-size:14px}
+.custom-trip-summary p{font-size:12px;line-height:1.6;margin:8px 0}
+.custom-trip-summary span{font-size:12px;font-weight:850;color:#087e70}
+.custom-trip-submit{display:block;width:100%;border:0;background:#073b44;color:#fff;padding:15px 18px;border-radius:100px;font-size:13px;font-weight:850;cursor:pointer}
+.custom-trip-submit:hover{background:#136560}
+.custom-trip-note{font-size:11px;color:#687f80;line-height:1.55;margin:14px 0 0}
+.watamu-closing-photo{height:clamp(240px,34vw,460px);position:relative;background:linear-gradient(0deg,rgba(4,28,39,.5),rgba(4,28,39,.02) 60%),url('/assets/images/IMG_0137.jpeg') center 56%/cover no-repeat;color:white;display:flex;align-items:end}
+.watamu-closing-photo .wrap{padding-bottom:26px}
+.watamu-closing-photo span{font-size:11px;letter-spacing:.2em;font-weight:850;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+@media(max-width:760px){
+ .journey-header{display:block}
+ .journey-header>p{margin-top:20px}
+ .journey-layout,.custom-trip-grid{grid-template-columns:1fr}
+ .journey-visual{min-height:325px}
+ .custom-trip-pictures img{height:155px}
+}
+@media(max-width:420px){.custom-trip-options{grid-template-columns:1fr}.journey-choice{padding:10px 13px;font-size:12px}.journey-panel{padding:22px}}
