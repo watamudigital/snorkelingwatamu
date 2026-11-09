@@ -962,3 +962,27 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  #booking .booking-grid .lede{max-width:none;margin-bottom:15px}
  #booking .booking-contact{width:100%;padding:16px}
 }
+
+/* Editorial pairing: sample itinerary on the left, bespoke quote on the right. */
+#meet-juma.juma-journey-combined{padding:clamp(34px,4.5vw,64px) 0;background:#edf5ef}
+#meet-juma .juma-journey-columns{grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(22px,3vw,45px);align-items:start}
+#meet-juma .custom-side .custom-trip-intro{margin-bottom:15px}
+#meet-juma .custom-side .custom-trip-intro h2{
+ font-size:clamp(33px,3vw,47px);
+ line-height:1.07;letter-spacing:-.055em;margin:12px 0;
+}
+#meet-juma .custom-side .custom-trip-intro h2 i{color:#168477}
+#meet-juma .custom-side .custom-trip-intro p{font-size:13px;line-height:1.6;color:#527071;margin:0}
+#meet-juma .custom-side .custom-trip-form{padding:clamp(18px,2vw,26px)}
+#meet-juma .custom-side .custom-trip-options{margin:16px 0 15px}
+#meet-juma .custom-side .custom-trip-summary{margin:16px 0 12px}
+.custom-trip-contact-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.custom-trip-contact-options .custom-trip-submit{
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+ min-height:80px;padding:12px 10px;text-align:center;line-height:1.25;
+}
+.custom-trip-contact-options .custom-trip-submit small{font-size:11px;font-weight:650;white-space:nowrap;color:inherit;opacity:.85}
+.custom-trip-contact-options .custom-trip-submit-luisa{background:#157d72}
+.custom-trip-contact-options .custom-trip-submit-luisa:hover{background:#0e665e}
+@media(max-width:850px){#meet-juma .juma-journey-columns{grid-template-columns:1fr;gap:26px}}
+@media(max-width:450px){.custom-trip-contact-options{grid-template-columns:1fr}.custom-trip-contact-options .custom-trip-submit{min-height:59px}}
