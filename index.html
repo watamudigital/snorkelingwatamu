@@ -45,8 +45,13 @@
   <div class="experience-body"><h3 id="experience-title-1" data-i18n="card2Title">Blue Safari</h3><p data-i18n="card2Text">Sali a bordo della Subira, osserva i fondali attraverso il fondo trasparente e goditi lo snorkeling, già incluso nell'escursione quando il mare lo permette.</p><div class="card-foot"><span data-i18n="cardFoot">Preventivo su richiesta</span><button class="round-arrow" data-exp="Blue Safari" aria-label="Scegli Blue Safari">↗</button></div></div>
 </article>
 <article class="experience experience-private-safari" data-experience-card aria-labelledby="private-safari-title">
-    <div class="experience-photo private-safari-media">
-      <video class="private-safari-video" controls playsinline preload="none" poster="/assets/images/blue-safari-private-poster.jpg" src="/assets/videos/blue-safari-private-latest.mp4" data-i18n-aria-label="privateSafariVideoAria" aria-label="Video del Blue Safari privato con Juma"></video>
+    <div class="experience-photo private-safari-media private-safari-dual-video">
+      <div class="private-safari-video-picker" role="group" data-i18n-aria-label="privateSafariVideoPickerAria" aria-label="Scegli il video del safari privato">
+        <button type="button" class="private-safari-video-choice is-selected" data-private-video="private" aria-pressed="true" data-i18n="privateSafariVideoTab">Safari privato</button>
+        <button type="button" class="private-safari-video-choice" data-private-video="dolphins" aria-pressed="false" data-i18n="privateSafariDolphinsTab">Delfini</button>
+      </div>
+      <video class="private-safari-video" data-private-video-player="private" controls playsinline preload="none" poster="/assets/images/blue-safari-private-poster.jpg" src="/assets/videos/blue-safari-private-latest.mp4" data-i18n-aria-label="privateSafariVideoAria" aria-label="Video del Blue Safari privato con Juma"></video>
+      <video class="private-safari-video" data-private-video-player="dolphins" controls playsinline preload="none" poster="/assets/images/blue-safari-dolphins-video-poster.jpg" src="/assets/videos/blue-safari-dolphins.mp4" data-i18n-aria-label="privateSafariDolphinsVideoAria" aria-label="Video dei delfini a Watamu nel Safari privato" hidden></video>
     </div>
     <div class="experience-body">
       <h3 id="private-safari-title" data-i18n="privateSafariTitle">Blue Safari privato</h3>
