@@ -47,3 +47,9 @@
 - Search Console: https://search.google.com/search-console
 - Documentazione Google: https://developers.google.com/search/docs/specialty/international/localized-versions
 - Decisione: mantenere la produzione esistente fino alla verifica delle condizioni commerciali e alla chiusura positiva della PR.
+
+## 7. Evidenze della verifica tecnica (10 novembre 2026)
+- GitHub Actions, run 42820161873: **SUCCESS** sul commit e4b3beacd474843219c46d8d939ea22624297948. Convalida controlli statici Python, JavaScript, i18n, build locale, SEO e ECM.
+- Vercel Preview collegata allo stesso commit: **READY**, deployment dpl_J7jNCxLmcg4LzcMCqowTpeafxvKj, URL https://snorkelingwatamu-1g8j9h32p-equipecreative.vercel.app/.
+- Il risultato dei test automatici non sostituisce la verifica via browser di performance, resa mobile, HTTP status, response headers e dei link WhatsApp.
+- Produzione **non modificata**, PR #3 lasciata in draft e non unita a main: https://github.com/watamudigital/snorkelingwatamu/pull/3.
