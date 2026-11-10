@@ -53,3 +53,9 @@
 - Vercel Preview collegata allo stesso commit: **READY**, deployment dpl_J7jNCxLmcg4LzcMCqowTpeafxvKj, URL https://snorkelingwatamu-1g8j9h32p-equipecreative.vercel.app/.
 - Il risultato dei test automatici non sostituisce la verifica via browser di performance, resa mobile, HTTP status, response headers e dei link WhatsApp.
 - Produzione **non modificata**, PR #3 lasciata in draft e non unita a main: https://github.com/watamudigital/snorkelingwatamu/pull/3.
+
+## 8. Controllo regressione e navigazione caroselli
+- Confronto PR con main: i cambiamenti precedenti in index.html sono limitati a title, description, meta robots, badge demo e footer: non sono state eliminate sezioni o sorgenti multimediali.
+- Rese visibili frecce ad alto contrasto in tutte e quattro le gallerie delle schede; contatore slide, trascinamento desktop, swipe touch e tastiera.
+- Conservato il sistema video originale, incluse le due clip nel Blue Safari privato; lightbox con frecce evidenti e drag desktop.
+- Aggiunti test di regressione per i controlli dei caroselli e per la presenza dei video privati.

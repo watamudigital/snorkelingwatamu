@@ -42,4 +42,13 @@ assert(html.includes('src="/assets/videos/blue-safari-dolphins.mp4"'),'Blue Safa
 assert(html.includes('src="/assets/videos/watersports-latest.mp4"'),'Watersports video missing');
 assert(html.includes('data-i18n="creekDesc"'),'Translated Mida Creek story missing');
 assert(!html.includes('Concept preview'),'Preview footer must not go live');
+const galleryJs=fs.readFileSync('assets/experience-carousel.js','utf8');
+const galleryCss=fs.readFileSync('assets/styles.css','utf8');
+assert(galleryJs.includes('function addVisibleControls('),'Missing visible on-card navigation');
+assert(galleryJs.includes('refreshVisibleCount=addVisibleControls(gallery,media,showSlide)'),'Missing arrows for Watersports and Creek');
+assert(galleryJs.includes('refreshVisibleCount=addVisibleControls(gallery,media,showBasicSlide)'),'Missing arrows for Blue Safari and Fishing');
+assert(galleryJs.includes("stage.addEventListener('pointerup'"),'Lightbox desktop drag missing');
+assert(galleryJs.includes("track.setPointerCapture"),'On-card pointer drag missing');
+assert(galleryJs.includes("const privateMedia=region.querySelector('.private-safari-dual-video')"),'Private video switch missing');
+assert(galleryCss.includes('.visible-gallery-arrow'),'High contrast on-card arrows CSS missing');
 console.log('OK: four language dictionaries, five experiences, media and WhatsApp enquiry');
