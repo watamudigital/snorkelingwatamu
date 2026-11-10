@@ -41,7 +41,7 @@ assert "Allow: /" in robots
 assert "Sitemap: https://www.snorkelingwatamu.com/sitemap.xml" in robots
 assert all(h.get("key", "").lower() != "x-robots-tag" for rule in conf["headers"] for h in rule["headers"])
 assert conf["buildCommand"] == "node scripts/build-locales.cjs" and conf["outputDirectory"] == "dist"
-assert "WA_NUMBER='254741457022'" in js
+assert "https://wa.me/254741457022?text=" in (ROOT / "assets/journey-builder.js").read_text(encoding="utf-8")
 assert "https://wa.me/254741457022" in html
 assert "tel:+254741457022" in html
 assert "https://wa.me/41775129241" in html
