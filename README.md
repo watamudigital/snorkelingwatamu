@@ -1,4 +1,7 @@
-# Snorkeling Watamu · demo v0.2
+# Snorkeling Watamu · demo e preparazione lancio SEO
+
+> **Release SEO preparata (10/11/2026):** il branch di pre-lancio elimina i blocchi tecnici all'indicizzazione, aggiorna i metadati e ripristina i test automatici per le cinque offerte attuali. La versione pubblica su main rimane invariata fino al merge della PR. Prima del merge verificare titolarità operatore, privacy, condizioni e autorizzazioni. Vedere docs/SEO_PRELAUNCH_REPORT_2026-11-10.md per stato e procedure. Le note sottostanti conservano informazioni storiche sulla demo.
+
 
 Landing page **dimostrativa** mobile-first, in quattro lingue: italiano, inglese, tedesco e francese, per un futuro sito dedicato allo snorkeling a Watamu (Kenya).
 

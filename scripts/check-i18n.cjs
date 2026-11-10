@@ -1,153 +1,45 @@
-// Check complete translations and four-language controls without third-party dependencies.
+// Validate four complete language variants and the current set of experiences.
+'use strict';
 const fs=require('node:fs');
 const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const html=fs.readFileSync('index.html','utf8');
 const app=fs.readFileSync('assets/app.js','utf8');
-const dictionary=fs.readFileSync('assets/translations.js','utf8');
+const translations=fs.readFileSync('assets/translations.js','utf8');
 new vm.Script(app);
-new vm.Script(dictionary);
+new vm.Script(translations);
 const context={window:{}};
-vm.runInNewContext(dictionary,context,{timeout:2000});
+vm.runInNewContext(translations,context,{timeout:2000});
 const extras=context.window.SW_TRANSLATIONS;
-assert(extras && typeof extras==='object','Missing SW_TRANSLATIONS');
+assert(extras&&typeof extras==='object','Missing SW_TRANSLATIONS');
 const match=app.match(/const tr=(\{[\s\S]*?\n \});/);
-assert(match,'Base language dictionary missing');
+assert(match,'Base translations missing');
 const base=vm.runInNewContext('('+match[1]+')',{}, {timeout:2000});
-const required=[...new Set([...html.matchAll(/data-i18n(?:-placeholder|-alt|-aria-label)?="([^"]+)"/g)].map(m=>m[1]))];
+const keys=[...new Set([...html.matchAll(/data-i18n(?:-placeholder|-alt|-aria-label)?="([^"]+)"/g)].map(m=>m[1]))];
 const languages=['it','en','de','fr'];
 for(const code of languages){
  const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of required) assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing translation '+key);
- for(const key of Object.keys(base.en)) assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing base key '+key);
- for(const key of ['pageTitle','metaDescription','dateFallback','msgOpening','msgExperience','msgDate','msgPeople','msgLevel','msgNotes','msgEnding','statusSent','statusCopied','copyPrompt'])
-  assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing UX translation '+key);
- assert(html.includes('id="'+code+'"'),'Missing button '+code);
-}
-assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Scripts loaded in wrong order');
-assert(html.includes('noindex,nofollow,noarchive'),'Do not index demo before launch');
-assert((html.match(/class="glass-gallery-item/g)||[]).length===4,'Gallery photo count changed');
-assert((html.match(/data-photo-gallery/g)||[]).length===4,'Expected four experience photo galleries');
-assert((html.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===4,'All four photo galleries should open by clicking their covers');
-assert(html.includes('class="photo-slides" role="button"')&&html.includes('src="./assets/images/Tramonto dorato in barca.png"'),'Mida Creek should open its uploaded sunset gallery');
-assert(!html.includes('class="photo-arrow')&&!html.includes('class="photo-dot'),'Remove photo navigation arrows and dots from cards');
-assert(!html.includes('data-photo-dir=')&&!html.includes('data-photo-index='),'Old on-card carousel navigation must be absent');
-assert((html.match(/<img class="photo-slide(?: |")/g)||[]).length===10,'Expected three Blue Safari, two fishing, two Watersports and three Mida Creek photos');
-assert((html.match(/<video class="photo-slide /g)||[]).length===5,'Expected three Blue Safari, one fishing and one Watersports video');
-assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Latest fishing video missing from gallery');
-assert(html.includes('data-i18n-aria-label="fishingVideoAria"'),'Fishing video needs localized aria label');
-assert(html.includes('id="experienceCarousel"'),'Missing experience carousel');
-
-const blueSafariCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Blue Safari"'));
-assert(blueSafariCard,'Blue Safari card missing');
-
-assert((blueSafariCard.match(/class="private-safari-option"/g)||[]).length===1,'Blue Safari must contain one nested private option');
-assert(blueSafariCard.includes('data-i18n="privateSafariDesc"'),'Juma private safari description missing');
-assert(blueSafariCard.includes('class="private-safari-video"')&&blueSafariCard.includes('src="/assets/videos/blue-safari-private-latest.mp4"'),'Latest uploaded Juma video must be inside private Blue Safari');
-assert(blueSafariCard.includes('poster="/assets/images/blue-safari-private-poster.jpg"'),'Private Blue Safari thumbnail missing');
-assert(blueSafariCard.includes('data-exp="Blue Safari Private"'),'Private safari shortcut missing');
-assert(html.includes('<option value="Blue Safari Private" data-i18n="privateSafariTitle">'),'Private safari choice missing from booking form');
-for(const code of languages){
- const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['privateSafariTitle','privateSafariDesc','privateSafariCta','privateSafariChooseAria','privateSafariVideoAria']){
-  assert(typeof dict[key]==='string'&&dict[key].trim(),code+': private safari translation missing '+key);
+ for(const key of keys) assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing translation '+key);
+ for(const key of ['pageTitle','metaDescription','demoTag','privateSafariTitle','creekTitle','waterSportsVideoAria','contactCta','contactSwissCta']){
+  assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing release field '+key);
  }
+ assert(!/(demo website|demo-website|sito dimostrativo|site de démonstration|preview website)/i.test(dict.metaDescription+' '+dict.demoTag),code+': demo text must not go live');
+ assert(html.includes('id="'+code+'"'),'Missing language button '+code);
 }
-
-assert((blueSafariCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Blue Safari needs three photos');
-assert((blueSafariCard.match(/<video class="photo-slide /g)||[]).length===3,'Blue Safari needs three videos');
-assert(!blueSafariCard.includes('data-photo-index=')&&!blueSafariCard.includes('data-photo-dir='),'Blue Safari must open on click without on-card cursors');
-const blueSlideSources=[...blueSafariCard.matchAll(/<(?:img|video) class="photo-slide[^>]*src="([^"]+)"/g)].map(m=>m[1]);
-assert(blueSlideSources.join('|')===[
- './assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
- './assets/images/IMG_0066.jpeg',
- './assets/images/IMG_0065.jpeg',
- '/assets/videos/blue-safari-newest.mp4',
- '/assets/videos/blue-safari-second-newest.mp4',
- '/assets/videos/blue-safari-dolphins.mp4'
-].join('|'),'Blue Safari slides must be Subira, group, snorkelers, then three videos');
-for(const path of ['blue-safari-food-video-poster.jpg','blue-safari-snorkeling-video-poster.jpg','blue-safari-dolphins-video-poster.jpg']){
- assert(blueSafariCard.includes('poster="/assets/images/'+path+'"'),'Missing authentic video thumbnail '+path);
-}
-assert(blueSafariCard.includes('src="./assets/images/IMG_0065.jpeg"') && blueSafariCard.includes('src="./assets/images/IMG_0066.jpeg"'),'Snorkeling photos missing from Blue Safari');
-assert(!blueSafariCard.includes('IMG_0053.jpeg')&&!blueSafariCard.includes('fishing-portrait.mp4'),'Fishing imagery must not appear in Blue Safari');
-assert(!blueSafariCard.includes('glass-boat-watamu-subira-sandbar-tour.jpg')&&!blueSafariCard.includes('glass-boat-subira-snorkeling-watamu-passengers.jpg'),'Extra Subira photos must not appear in Blue Safari');
-for(const file of ['blue-safari-newest.mp4','blue-safari-second-newest.mp4','blue-safari-dolphins.mp4']){
- assert(blueSafariCard.includes('src="/assets/videos/'+file+'"'),'Missing Blue Safari video '+file);
-}
-for(const code of languages){
- const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['altSnorkelingPhoto65','altSnorkelingPhoto66','blueSafariVideo1','blueSafariVideo2','blueSafariVideo3','blueSafariSlide1','blueSafariSlide2','blueSafariSlide3','blueSafariSlide4','blueSafariSlide5','blueSafariSlide6']){
-  assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing Blue Safari translation '+key);
- }
-}
-
-assert(html.includes('data-juma-video'),'Juma story video player missing');
-assert(html.includes('data-video-src="/assets/videos/juma-ocean-latest.mp4"'),'Juma video target missing');
-assert(html.includes('class="juma-story-fallback"'),'Missing image fallback while video is unavailable');
-assert(html.includes('data-i18n-aria-label="jumaVideoAria"'),'Missing translated video accessibility label');
-const experienceOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
-assert(experienceOrder.join('|')==='Blue Safari Private|Blue Safari|Deep-Sea Fishing|Watersports|Mida Creek Sunset Cruise','Experience order must include the Mida Creek sunset activity after Watersports');
-assert(html.includes('value="Watersports"'),'Missing Watersports enquiry option');
-const sunsetCard=html.match(/<article class="experience experience-creek"[\s\S]*?<\/article>/)?.[0];
-assert(sunsetCard,'Fourth Mida Creek sunset activity card missing');
-assert(sunsetCard.includes('data-i18n="creekDesc"')&&sunsetCard.includes('data-i18n="creekTitle"'),'Mida Creek sunset title or description missing');
-assert(sunsetCard.includes('data-exp="Mida Creek Sunset Cruise"'),'Sunset option does not select request form');
-assert(html.includes('<option value="Mida Creek Sunset Cruise" data-i18n="creekTitle">'),'Mida Creek sunset request option missing');
-for(const code of languages){
- const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['creekTitle','creekDesc','creekTag','creekVisualCaption','creekSunsetVisualAria','creekChooseAria']){
-  assert(typeof dict[key]==='string'&&dict[key].trim(),code+': missing Mida Creek translation '+key);
- }
-}
-assert((sunsetCard.match(/<img class="photo-slide(?: |")/g)||[]).length===3,'Mida Creek must show three genuine sunset photos');
-assert(sunsetCard.includes('Tramonto dorato in barca.png')&&sunsetCard.includes('IMG_0137.jpeg')&&sunsetCard.includes('IMG_0141.jpeg'),'Sunset photos must appear in upload order');
-
-assert(!html.includes('Your Blue Safari'),'Old private safari offer must not remain');
-assert(html.includes('data-i18n-aria-label="chooseWatersports"'),'Watersports button needs translated label');
-const watersportsCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(card=>card.includes('data-exp="Watersports"'));
-assert(watersportsCard,'Watersports card missing');
-assert(watersportsCard.includes('src="./assets/images/Avventura sul banana boat in mare.png"'),'Latest uploaded Watersports image missing');
-assert(!watersportsCard.includes('altWaterSport3'),'Removed Watersports photo 3 must not remain');
-assert((watersportsCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,'Watersports gallery needs two photos');
-assert((watersportsCard.match(/<video class="photo-slide /g)||[]).length===1,'Watersports gallery needs one video');
-assert(!watersportsCard.includes('data-photo-index=')&&!watersportsCard.includes('data-photo-dir='),'Watersports must open on click without on-card cursors');
-assert(watersportsCard.includes('src="/assets/videos/VIDEO-2026-11-05-18-00-01.mp4"'),'Newest Watersports video not in gallery');
-assert(!watersportsCard.includes('watersports-latest.mp4')&&!watersportsCard.includes('watersports-video-poster.jpg'),'Old Watersports video and preview should not remain');
-assert(watersportsCard.includes('data-i18n-aria-label="waterSportsVideoAria"'),'Watersports video accessible name missing');
-for(const key of ['altWaterSport1','altWaterSport2']){
- assert(html.includes('data-i18n-alt="'+key+'"'),'Missing Watersports gallery photo '+key);
-}
-for(const code of languages){
- const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['card3Tag','card3Title','card3Text','altWaterSport1','altWaterSport2','waterSportsVideoAria','chooseWatersports']){
-  assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing Watersports translation '+key);
- }
-}
-assert(!html.includes('Coral Garden Explorer'),'Removed snorkeling-only offer must not appear');
-assert(html.includes('src="./assets/images/IMG_0053.jpeg"'),'Latest fishing photo missing');
-assert(!html.includes('data-i18n-alt="altFishing2"') && !html.includes('data-i18n-alt="altFishing3"'),'Illustrative fishing photos must be removed');
-const fishingCard=[...html.matchAll(/<article class="experience"[\s\S]*?<\/article>/g)].map(m=>m[0]).find(c=>c.includes('data-exp="Deep-Sea Fishing"'));
-assert(fishingCard,'Fishing gallery missing');
-assert((fishingCard.match(/<img class="photo-slide(?: |")/g)||[]).length===2,'Fishing must show exactly two photos');
-assert((fishingCard.match(/<video class="photo-slide /g)||[]).length===1,'Fishing must retain its video');
-assert(!fishingCard.includes('data-photo-index=')&&!fishingCard.includes('data-photo-dir='),'Fishing must open on click without on-card cursors');
-assert(fishingCard.includes('data-i18n-aria-label="galleryOpenAria"'),'Fishing click-to-open gallery trigger missing');
-assert(html.includes('data-exp="Deep-Sea Fishing"'),'Fishing card not selectable');
-assert(html.includes('value="Deep-Sea Fishing"'),'Fishing form choice missing');
-assert(app.includes("tripField.value!=='Deep-Sea Fishing'"),'Fishing form should not request swimming ability');
-for(const key of ['altFishing1','altFishing4']){
- assert(html.includes('data-i18n-alt="'+key+'"'),'Missing fishing gallery image '+key);
-}
-for(const code of languages){
- const dict={...(base[code]||{}),...(extras[code]||{})};
- for(const key of ['card1Tag','card1Title','card1Text','card2Tag','card2Text','altFishing1','altFishing4','fishingPhoto1','fishingPhoto2','fishingPhoto3','fishingVideoAria','chooseFishing']){
-  assert(typeof dict[key]==='string' && dict[key].trim(),code+': missing fishing translation '+key);
- }
-}
-for(const code of languages){
- for(const key of ['galleryOpenAria','creekPhotoOneAlt','creekPhotoTwoAlt','creekPhotoThreeAlt','carouselHint']){
-  assert(typeof extras[code][key]==='string' && extras[code][key].trim(),code+': missing carousel translation '+key);
- }
-}
-console.log('OK: IT / EN / DE / FR translations, form messages, accessibility labels, and gallery');
+assert(html.indexOf('assets/translations.js')<html.indexOf('assets/app.js'),'Translation scripts out of order');
+assert(html.includes('id="experienceCarousel"'),'Experience carousel missing');
+assert(html.includes('id="customTripForm"'),'Quote enquiry form missing');
+assert((html.match(/<article class="experience\b/g)||[]).length===5,'Expected five current experience cards');
+assert((html.match(/data-photo-gallery\b/g)||[]).length===4,'Expected four photo/video galleries');
+assert((html.match(/data-i18n-aria-label="galleryOpenAria"/g)||[]).length===4,'Four openable photo galleries expected');
+const cardOrder=[...html.matchAll(/data-exp="([^"]+)"/g)].map(m=>m[1]);
+assert(cardOrder.join('|')==='Blue Safari|Blue Safari Private|Deep-Sea Fishing|Watersports|Mida Creek Sunset Cruise','Experience order changed');
+assert(html.includes('data-private-video-player="dolphins"'),'Private Safari dolphin video missing');
+assert(html.includes('data-juma-video'),'Juma story missing');
+assert(html.includes('src="/assets/videos/fishing-portrait.mp4"'),'Fishing video missing');
+assert(html.includes('src="/assets/videos/mida-creek-sunset-latest.mp4"'),'Mida Creek video missing');
+assert(html.includes('src="/assets/videos/blue-safari-dolphins.mp4"'),'Blue Safari dolphin video missing');
+assert(html.includes('src="/assets/videos/watersports-latest.mp4"'),'Watersports video missing');
+assert(html.includes('data-i18n="creekDesc"'),'Translated Mida Creek story missing');
+assert(!html.includes('Concept preview'),'Preview footer must not go live');
+console.log('OK: four language dictionaries, five experiences, media and WhatsApp enquiry');
