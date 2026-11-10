@@ -1,5 +1,5 @@
-/* Click-to-enlarge galleries for the four experiences; no arrows or dots on cards.
-   Full-screen media supports touch swipes, image clicks, and keyboard arrows. */
+/* Accessible four-card galleries with visible arrows, swipe and desktop drag.
+   Full-screen media preserves native video playback and keyboard navigation. */
 (()=>{
  'use strict';
  const region=document.getElementById('experienceCarousel');
@@ -24,6 +24,7 @@
  let selection=null;
  let index=0;
  let previousFocus=null;
+ let suppressLightboxClick=false;
 
  function show(next){
   if(!selection||!selection.length)return;
@@ -56,7 +57,7 @@
    content.alt=source.getAttribute('alt')||'';
    content.draggable=false;
    content.decoding='async';
-   content.addEventListener('click',()=>show(index+1));
+   content.addEventListener('click',()=>{if(suppressLightboxClick){suppressLightboxClick=false;return;}show(index+1);});
    content.title=language().hint;
   }
   stage.appendChild(content);
@@ -71,6 +72,7 @@
  function open(items,title,startIndex=0){
   if(!items.length)return;
   previousFocus=document.activeElement;
+  suppressLightboxClick=false;
   selection=items;
   dialog.setAttribute('aria-label',title);
   show(startIndex);
@@ -118,15 +120,80 @@
   const dx=event.changedTouches[0].clientX-touchStart.x;
   const dy=event.changedTouches[0].clientY-touchStart.y;
   touchStart=null;
-  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.2)show(index+(dx<0?1:-1));
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.2){suppressLightboxClick=true;show(index+(dx<0?1:-1));}
  },{passive:true});
  stage.addEventListener('touchcancel',()=>{touchStart=null;},{passive:true});
+
+ // Desktop mouse drag in the enlarged gallery (touch remains handled above).
+ let modalDrag=null;
+ stage.addEventListener('dragstart',event=>event.preventDefault());
+ stage.addEventListener('pointerdown',event=>{
+  if(event.pointerType==='touch'||event.button!==0||event.target.closest('video'))return;
+  suppressLightboxClick=false;
+  modalDrag={id:event.pointerId,x:event.clientX,y:event.clientY};
+  if(stage.setPointerCapture)stage.setPointerCapture(event.pointerId);
+ });
+ stage.addEventListener('pointerup',event=>{
+  if(!modalDrag||event.pointerId!==modalDrag.id)return;
+  const dx=event.clientX-modalDrag.x;
+  const dy=event.clientY-modalDrag.y;
+  modalDrag=null;
+  if(Math.abs(dx)>42&&Math.abs(dx)>Math.abs(dy)*1.2&&selection?.length>1){
+   suppressLightboxClick=true;
+   show(index+(dx<0?1:-1));
+  }
+ });
+ stage.addEventListener('pointercancel',()=>{modalDrag=null;});
+
+
+
+ // Visible arrows on every card. Navigation buttons are siblings of the image track,
+ // so clicks and pointer swipes never interfere with each other.
+ function addVisibleControls(gallery,media,move){
+  const controls=document.createElement('div');
+  controls.className='visible-gallery-controls';
+  const previous=document.createElement('button');
+  const next=document.createElement('button');
+  const count=document.createElement('span');
+  const titles={
+   it:['Foto o video precedente','Foto o video successivo'],
+   en:['Previous photo or video','Next photo or video'],
+   de:['Vorheriges Foto oder Video','Nächstes Foto oder Video'],
+   fr:['Photo ou vidéo précédente','Photo ou vidéo suivante']
+  };
+  const labels=titles[document.documentElement.lang]||titles.it;
+  for(const [button,direction] of [[previous,-1],[next,1]]){
+   button.type='button';
+   button.className='visible-gallery-arrow '+(direction<0?'visible-gallery-prev':'visible-gallery-next');
+   button.textContent=direction<0?'‹':'›';
+   button.setAttribute('aria-label',labels[direction<0?0:1]);
+   button.addEventListener('click',event=>{
+    event.preventDefault();
+    event.stopPropagation();
+    const current=Math.max(0,media.findIndex(item=>item.classList.contains('is-active')));
+    move(current+direction);
+   });
+   controls.appendChild(button);
+  }
+  count.className='visible-gallery-count';
+  count.setAttribute('aria-live','polite');
+  controls.appendChild(count);
+  gallery.appendChild(controls);
+  const update=()=>{
+   count.textContent=(media.findIndex(item=>item.classList.contains('is-active'))+1)+' / '+media.length;
+   previous.hidden=next.hidden=media.length<2;
+  };
+  update();
+  return update;
+ }
 
  region.querySelectorAll('[data-photo-gallery]').forEach(gallery=>{
   const track=gallery.querySelector('.photo-slides');
   const media=Array.from(gallery.querySelectorAll('.photo-slide'));
   const title=gallery.closest('.experience')?.querySelector('h3');
   if(!track||!media.length)return;
+  media.filter(item=>item.tagName==='IMG').forEach(image=>{image.draggable=false;});
+  track.addEventListener('dragstart',event=>event.preventDefault());
   // Preserve first cover photo, but render other photos and videos only in the modal.
   media.forEach((item,i)=>{
    item.classList.toggle('is-active',i===0);
@@ -159,6 +226,7 @@
      open(media,title?.textContent||'Galleria',current);
     }
    });
+   let refreshVisibleCount=()=>{};
    const showSlide=n=>{
     current=(n+media.length)%media.length;
     media.forEach((item,i)=>{
@@ -168,6 +236,7 @@
      if(item.tagName==='VIDEO'&&!visible)item.pause();
     });
     counter.textContent=(current+1)+' / '+media.length;
+    refreshVisibleCount();
     const activeVideo=media[current]?.tagName==='VIDEO';
     playVideo.hidden=!activeVideo;
     if(activeVideo){
@@ -179,6 +248,7 @@
     }
    };
    showSlide(0);
+   refreshVisibleCount=addVisibleControls(gallery,media,showSlide);
    // Videos launch enlarged with next/previous arrows; the small card stays arrow-free.
    media.filter(item=>item.tagName==='VIDEO').forEach(video=>{
     video.controls=false;
@@ -187,10 +257,11 @@
    });
    track.addEventListener('pointerdown',event=>{
     if(event.target.closest('video'))return;
-    gesture={x:event.clientX,y:event.clientY};
+    gesture={id:event.pointerId,x:event.clientX,y:event.clientY};
+    if(track.setPointerCapture)track.setPointerCapture(event.pointerId);
    });
    track.addEventListener('pointerup',event=>{
-    if(!gesture)return;
+    if(!gesture||event.pointerId!==gesture.id)return;
     const dx=event.clientX-gesture.x;
     const dy=event.clientY-gesture.y;
     gesture=null;
@@ -260,11 +331,61 @@
    gallery.appendChild(controls);
    showCard(0);
   }
-  // Clicking the gallery image opens the full-size image; the modal has click arrows.
-  const activate=()=>open(media,title?.textContent||'Galleria');
-  track.addEventListener('click',activate);
+  // Blue Safari and Fishing: on-card arrows and mouse/touch drag, with click-to-enlarge.
+  let cardIndex=0;
+  let refreshVisibleCount=()=>{};
+  const playVideo=document.createElement('button');
+  playVideo.type='button';
+  playVideo.className='gallery-video-play';
+  playVideo.textContent='▶';
+  playVideo.setAttribute('aria-label',({it:'Riproduci video',en:'Play video',de:'Video abspielen',fr:'Lire la vidéo'})[document.documentElement.lang]||'Play video');
+  gallery.appendChild(playVideo);
+  media.filter(item=>item.tagName==='VIDEO').forEach(video=>{
+   video.controls=false;
+   video.tabIndex=-1;
+   video.style.pointerEvents='none';
+  });
+  const showBasicSlide=n=>{
+   cardIndex=(n+media.length)%media.length;
+   media.forEach((item,i)=>{
+    const active=i===cardIndex;
+    item.classList.toggle('is-active',active);
+    item.setAttribute('aria-hidden',active?'false':'true');
+    if(item.tagName==='VIDEO'&&!active)item.pause();
+   });
+   playVideo.hidden=media[cardIndex]?.tagName!=='VIDEO';
+   refreshVisibleCount();
+  };
+  showBasicSlide(0);
+  refreshVisibleCount=addVisibleControls(gallery,media,showBasicSlide);
+  const activate=()=>open(media,title?.textContent||'Galleria',cardIndex);
+  playVideo.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();activate();});
+  let drag=null,suppressClick=false;
+  track.addEventListener('pointerdown',event=>{
+   if(event.button!==0)return;
+   suppressClick=false;
+   drag={id:event.pointerId,x:event.clientX,y:event.clientY};
+   if(track.setPointerCapture)track.setPointerCapture(event.pointerId);
+  });
+  track.addEventListener('pointerup',event=>{
+   if(!drag||drag.id!==event.pointerId)return;
+   const dx=event.clientX-drag.x,dy=event.clientY-drag.y;
+   drag=null;
+   if(Math.abs(dx)>42&&Math.abs(dx)>Math.abs(dy)*1.2){
+    suppressClick=true;
+    showBasicSlide(cardIndex+(dx<0?1:-1));
+   }
+  });
+  track.addEventListener('pointercancel',()=>{drag=null;});
+  track.addEventListener('click',()=>{
+   if(suppressClick){suppressClick=false;return;}
+   activate();
+  });
   track.addEventListener('keydown',event=>{
-   if(event.key==='Enter'||event.key===' '){
+   if(event.key==='ArrowRight'||event.key==='ArrowLeft'){
+    event.preventDefault();
+    showBasicSlide(cardIndex+(event.key==='ArrowRight'?1:-1));
+   }else if(event.key==='Enter'||event.key===' '){
     event.preventDefault();
     activate();
    }

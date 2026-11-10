@@ -38,12 +38,39 @@ const canonical=(code)=>ORIGIN+'/'+code+'/';
 function withSeo(document,code,dictionary){
  const title=escapeHtml(dictionary.pageTitle);
  const description=escapeHtml(dictionary.metaDescription);
+ const pageUrl=canonical(code);
+ const photoUrl=ORIGIN+'/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg';
+ const socialLocale={it:'it_IT',en:'en_GB',de:'de_DE',fr:'fr_FR'}[code];
  document=document.replace(/<html lang="[^"]*">/,'<html lang="'+code+'">');
  document=document.replace(/<title>[\s\S]*?<\/title>/,'<title>'+title+'</title>');
  document=document.replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+description+'">');
- const seo=['  <link rel="canonical" href="'+canonical(code)+'">',alternateLinks].join('\n');
+ const structuredData={
+  '@context':'https://schema.org',
+  '@graph':[
+   {'@type':'WebSite','@id':ORIGIN+'/#website',name:'Snorkeling Watamu',url:ORIGIN+'/',inLanguage:LANGUAGES},
+   {'@type':'WebPage','@id':pageUrl+'#webpage',url:pageUrl,name:dictionary.pageTitle,description:dictionary.metaDescription,inLanguage:code,isPartOf:{'@id':ORIGIN+'/#website'}}
+  ]
+ };
+ const seo=[
+  '  <link rel="canonical" href="'+pageUrl+'">',
+  alternateLinks,
+  '  <meta property="og:type" content="website">',
+  '  <meta property="og:site_name" content="Snorkeling Watamu">',
+  '  <meta property="og:locale" content="'+socialLocale+'">',
+  '  <meta property="og:url" content="'+pageUrl+'">',
+  '  <meta property="og:title" content="'+title+'">',
+  '  <meta property="og:description" content="'+description+'">',
+  '  <meta property="og:image" content="'+photoUrl+'">',
+  '  <meta property="og:image:alt" content="Subira glass-bottom boat in Watamu, Kenya">',
+  '  <meta name="twitter:card" content="summary_large_image">',
+  '  <meta name="twitter:title" content="'+title+'">',
+  '  <meta name="twitter:description" content="'+description+'">',
+  '  <meta name="twitter:image" content="'+photoUrl+'">',
+  '  <script type="application/ld+json">'+JSON.stringify(structuredData).replace(/</g,'\\u003c')+'</script>'
+ ].join('\n');
  return document.replace('</head>',seo+'\n</head>');
 }
+
 function localize(templateHtml,code,dictionary){
  let html=withSeo(templateHtml,code,dictionary);
  for(const key of allowedKeys){
@@ -106,4 +133,4 @@ const itDictionary={...(base.it||{}),...(extra.it||{})};
 // Root is a backwards-compatible multilingual entry point. Its canonical is /it/.
 fs.writeFileSync(path.join(DIST,'index.html'),withSeo(template,'it',itDictionary).replace(/(\b(?:src|href)=")\.\/assets\//g,'$1/assets/'),'utf8');
 fs.writeFileSync(path.join(DIST,'sitemap.xml'),sitemap(),'utf8');
-console.log('Built multilingual static site: '+LANGUAGES.join(', ')+'; noindex kept until launch.');
+console.log('Built multilingual static site: '+LANGUAGES.join(', ')+'; release SEO metadata prepared.');
