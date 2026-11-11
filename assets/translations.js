@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "privateSafariGalleryPhotoOneAlt": "Guests enjoying a private safari in Watamu",
+    "privateSafariGalleryPhotoTwoAlt": "Guests aboard the Subira boat in Watamu",
     "quoteQrAria": "Open Juma's WhatsApp to request a quote",
     "quoteQrAlt": "QR code for Juma's WhatsApp",
     "quoteQrTitle": "Scan to request a quote",
@@ -216,6 +218,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "privateSafariGalleryPhotoOneAlt": "Ospiti durante il safari privato a Watamu",
+    "privateSafariGalleryPhotoTwoAlt": "Ospiti sulla barca Subira durante un'escursione a Watamu",
     "quoteQrAria": "Apri WhatsApp di Juma per chiedere un preventivo",
     "quoteQrAlt": "Codice QR per il WhatsApp di Juma",
     "quoteQrTitle": "Scansiona per un preventivo",
@@ -431,6 +435,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "privateSafariGalleryPhotoOneAlt": "Gäste auf einer privaten Safari in Watamu",
+    "privateSafariGalleryPhotoTwoAlt": "Gäste an Bord der Subira in Watamu",
     "quoteQrAria": "Jumas WhatsApp für ein Angebot öffnen",
     "quoteQrAlt": "QR-Code für Jumas WhatsApp",
     "quoteQrTitle": "Scannen und Angebot anfordern",
@@ -703,6 +709,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "privateSafariGalleryPhotoOneAlt": "Passagers lors d'un safari privé à Watamu",
+    "privateSafariGalleryPhotoTwoAlt": "Passagers à bord du bateau Subira à Watamu",
     "quoteQrAria": "Ouvrir WhatsApp de Juma pour demander un devis",
     "quoteQrAlt": "Code QR pour le WhatsApp de Juma",
     "quoteQrTitle": "Scannez pour un devis",
