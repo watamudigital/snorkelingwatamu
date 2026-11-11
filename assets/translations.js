@@ -1,6 +1,10 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "quoteQrAria": "Open Juma's WhatsApp to request a quote",
+    "quoteQrAlt": "QR code for Juma's WhatsApp",
+    "quoteQrTitle": "Scan to request a quote",
+    "quoteQrDescription": "Open WhatsApp and talk directly to Juma.",
     "dhowLatestVideoAria": "Latest video from the Dhow Experience in Watamu",
     "experienceDetailsLink": "Explore this experience",
     "dhowPhotoOneAlt": "First photo of the Dhow Experience in Watamu",
@@ -212,6 +216,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "quoteQrAria": "Apri WhatsApp di Juma per chiedere un preventivo",
+    "quoteQrAlt": "Codice QR per il WhatsApp di Juma",
+    "quoteQrTitle": "Scansiona per un preventivo",
+    "quoteQrDescription": "Apri WhatsApp e parla direttamente con Juma.",
     "dhowLatestVideoAria": "Ultimo video dell'escursione Dhow Experience a Watamu",
     "experienceDetailsLink": "Scopri l'esperienza",
     "dhowPhotoOneAlt": "Prima fotografia della Dhow Experience a Watamu",
@@ -423,6 +431,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "quoteQrAria": "Jumas WhatsApp für ein Angebot öffnen",
+    "quoteQrAlt": "QR-Code für Jumas WhatsApp",
+    "quoteQrTitle": "Scannen und Angebot anfordern",
+    "quoteQrDescription": "Öffne WhatsApp und kontaktiere Juma direkt.",
     "dhowLatestVideoAria": "Neuestes Video von der Dhow Experience in Watamu",
     "experienceDetailsLink": "Erlebnis entdecken",
     "dhowPhotoOneAlt": "Erstes Foto der Dhow Experience in Watamu",
@@ -691,6 +703,10 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "quoteQrAria": "Ouvrir WhatsApp de Juma pour demander un devis",
+    "quoteQrAlt": "Code QR pour le WhatsApp de Juma",
+    "quoteQrTitle": "Scannez pour un devis",
+    "quoteQrDescription": "Ouvrez WhatsApp et contactez Juma directement.",
     "dhowLatestVideoAria": "Dernière vidéo de la Dhow Experience à Watamu",
     "experienceDetailsLink": "Découvrir l'expérience",
     "dhowPhotoOneAlt": "Première photo de la Dhow Experience à Watamu",
