@@ -111,6 +111,8 @@ function localize(templateHtml,code,dictionary){
 }
 function copyAssets(){
  fs.cpSync(path.join(ROOT,'assets'),path.join(DIST,'assets'),{recursive:true});
+ // Retain the latest Blue Safari MP4 uploaded at the repository root.
+ fs.copyFileSync(path.join(ROOT,'36f95496-5d16-4335-a76d-f92f0eff487e.mp4'),path.join(DIST,'36f95496-5d16-4335-a76d-f92f0eff487e.mp4'));
  // The newest Mida Creek sunset image was uploaded at the repository root.
  fs.copyFileSync(path.join(ROOT,'IMG_0256.jpeg'),path.join(DIST,'assets','images','IMG_0256.jpeg'));
  fs.copyFileSync(path.join(ROOT,'robots.txt'),path.join(DIST,'robots.txt'));
