@@ -1620,3 +1620,62 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 .footer-social .facebook-footer:hover{text-decoration:underline}
 .footer-social .facebook-footer svg{flex:0 0 19px}
 @media(max-width:700px){.navright .facebook-nav{width:31px;height:31px;flex-basis:31px}.navright .facebook-nav svg{width:17px;height:17px}}
+
+/* Compact, legible QR code beside the quote request. */
+.experience-personalization .quote-qr-block{
+ display:flex;align-items:center;gap:12px;max-width:100%;min-width:0;
+ padding:10px 12px;margin-top:12px;
+ background:#f6faf7;border:1px solid #d9e8df;border-radius:12px;
+}
+.experience-personalization .quote-qr-link{
+ display:flex;align-items:center;justify-content:center;
+ flex:0 0 70px;width:70px;height:70px;border-radius:8px;background:white;
+}
+.experience-personalization .quote-qr-link img{
+ display:block!important;width:70px!important;height:70px!important;
+ max-width:70px!important;max-height:70px!important;object-fit:contain;
+}
+.experience-personalization .quote-qr-block>div{min-width:0}
+.experience-personalization .quote-qr-block strong{display:block;color:#154c49;font-size:12px;line-height:1.35}
+.experience-personalization .quote-qr-block p{font-size:11px;line-height:1.45;margin:3px 0 0;color:#56746d}
+/* Subtle navigation: preserve swipe, keyboard and lightbox controls. */
+.experience-carousel .visible-gallery-arrow,
+.experience-carousel .oncard-gallery-arrow{
+ width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;
+ font-size:21px!important;line-height:1!important;
+ background:rgba(5,38,44,.56)!important;color:white!important;
+ border:1px solid rgba(255,255,255,.65)!important;
+ box-shadow:0 2px 8px rgba(0,0,0,.2)!important;
+}
+.experience-carousel .visible-gallery-prev{left:8px!important}
+.experience-carousel .visible-gallery-next{right:8px!important}
+.experience-carousel .visible-gallery-count,
+.experience-carousel .oncard-gallery-count{
+ padding:5px 8px!important;font-size:10px!important;
+ background:rgba(5,38,44,.6)!important;
+ border:0!important;
+}
+.experience-carousel .visible-gallery-count{bottom:9px!important}
+/* Both social links visible beside the language switcher on desktop and mobile. */
+.topbar .navright .instagram-nav,.topbar .navright .facebook-nav{
+ display:inline-flex!important;visibility:visible!important;opacity:1!important;
+ position:relative;flex-shrink:0;z-index:2;
+}
+@media(max-width:920px){
+ .topbar .navlinks{display:none}
+ .topbar .nav{gap:8px}
+ .topbar .navright{gap:7px;min-width:0}
+}
+@media(max-width:560px){
+ .topbar .nav{padding-left:10px;padding-right:10px}
+ .topbar .brand{gap:5px;font-size:12px}
+ .topbar .brand small{font-size:7px;letter-spacing:.08em}
+ .topbar .brand-icon{width:27px;height:27px}
+ .topbar .navright{gap:4px}
+ .topbar .navright .instagram-nav,.topbar .navright .facebook-nav{
+  flex:0 0 27px;width:27px;height:27px;border:0;
+ }
+ .topbar .navright .instagram-nav svg,.topbar .navright .facebook-nav svg{width:18px;height:18px}
+ .topbar .lang{padding:2px;gap:0}
+ .topbar .lang button{min-width:24px;padding:6px 3px;font-size:10px}
+}
