@@ -1679,3 +1679,11 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  .topbar .lang{padding:2px;gap:0}
  .topbar .lang button{min-width:24px;padding:6px 3px;font-size:10px}
 }
+
+/* No visible browsing cursors/arrows over excursion photos or videos.
+   Keep swipe/drag, tapping, keyboard navigation and discreet slide counts. */
+.experience-carousel .visible-gallery-arrow,
+.experience-carousel .oncard-gallery-arrow,
+.experience-carousel .photo-arrow{
+ display:none!important;
+}
