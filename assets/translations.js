@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "dhowLatestVideoAria": "Latest video from the Dhow Experience in Watamu",
+    "experienceDetailsLink": "Explore this experience",
     "dhowPhotoOneAlt": "First photo of the Dhow Experience in Watamu",
     "dhowPhotoTwoAlt": "Second photo of the Dhow Experience in Watamu",
     "dhowTitle": "Dhow Experience",
@@ -210,6 +212,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "dhowLatestVideoAria": "Ultimo video dell'escursione Dhow Experience a Watamu",
+    "experienceDetailsLink": "Scopri l'esperienza",
     "dhowPhotoOneAlt": "Prima fotografia della Dhow Experience a Watamu",
     "dhowPhotoTwoAlt": "Seconda fotografia della Dhow Experience a Watamu",
     "dhowTitle": "Dhow Experience",
@@ -419,6 +423,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "dhowLatestVideoAria": "Neuestes Video von der Dhow Experience in Watamu",
+    "experienceDetailsLink": "Erlebnis entdecken",
     "dhowPhotoOneAlt": "Erstes Foto der Dhow Experience in Watamu",
     "dhowPhotoTwoAlt": "Zweites Foto der Dhow Experience in Watamu",
     "dhowTitle": "Dhow Experience",
@@ -685,6 +691,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "dhowLatestVideoAria": "Dernière vidéo de la Dhow Experience à Watamu",
+    "experienceDetailsLink": "Découvrir l'expérience",
     "dhowPhotoOneAlt": "Première photo de la Dhow Experience à Watamu",
     "dhowPhotoTwoAlt": "Deuxième photo de la Dhow Experience à Watamu",
     "dhowTitle": "Dhow Experience",
