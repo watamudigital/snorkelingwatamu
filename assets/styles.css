@@ -1579,3 +1579,26 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 @media(prefers-reduced-motion:reduce){
  .experience-carousel .visible-gallery-arrow{transition:none}
 }
+
+/* Dhow Experience — same proportions and card typography, pending user-supplied photos. */
+.experience-carousel .experience-dhow .dhow-photo-placeholder{
+ position:relative;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:12px;
+ min-height:260px;
+ background:linear-gradient(145deg,#0d565a,#1e7f85 65%,#75a9a4);
+ overflow:hidden;
+}
+.experience-carousel .experience-dhow .dhow-photo-placeholder::before{
+ content:"";position:absolute;inset:auto -10% -30% -10%;height:62%;
+ background:rgba(255,255,255,.09);border-radius:50%;
+}
+.experience-carousel .experience-dhow .dhow-placeholder-mark{
+ position:relative;font-size:clamp(54px,6vw,80px);line-height:1;
+ filter:drop-shadow(0 4px 15px rgba(0,0,0,.22));
+}
+.experience-carousel .experience-dhow .dhow-placeholder-caption{
+ position:relative;color:#fff;font-size:13px;font-weight:750;
+ letter-spacing:.035em;text-align:center;padding:0 15px;
+}
+.experience-carousel .experience-dhow .experience-body{min-width:0}
