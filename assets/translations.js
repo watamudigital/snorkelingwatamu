@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "dhowPhotoOneAlt": "First photo of the Dhow Experience in Watamu",
+    "dhowPhotoTwoAlt": "Second photo of the Dhow Experience in Watamu",
     "dhowTitle": "Dhow Experience",
     "dhowTag": "Traditional dhow cruise",
     "dhowDesc": "Explore Watamu aboard a traditional dhow. A sailing experience tailored to you, with route and details to be agreed.",
@@ -208,6 +210,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "dhowPhotoOneAlt": "Prima fotografia della Dhow Experience a Watamu",
+    "dhowPhotoTwoAlt": "Seconda fotografia della Dhow Experience a Watamu",
     "dhowTitle": "Dhow Experience",
     "dhowTag": "Escursione in dhow",
     "dhowDesc": "Scopri Watamu a bordo di un dhow tradizionale. Un'esperienza di navigazione da organizzare su misura, con itinerario e dettagli da concordare.",
@@ -415,6 +419,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "dhowPhotoOneAlt": "Erstes Foto der Dhow Experience in Watamu",
+    "dhowPhotoTwoAlt": "Zweites Foto der Dhow Experience in Watamu",
     "dhowTitle": "Dhow Experience",
     "dhowTag": "Ausflug mit einer Dhow",
     "dhowDesc": "Erkunde Watamu an Bord einer traditionellen Dhow. Ein Segelerlebnis nach deinen Wünschen; Route und Details werden gemeinsam vereinbart.",
@@ -679,6 +685,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "dhowPhotoOneAlt": "Première photo de la Dhow Experience à Watamu",
+    "dhowPhotoTwoAlt": "Deuxième photo de la Dhow Experience à Watamu",
     "dhowTitle": "Dhow Experience",
     "dhowTag": "Excursion en dhow",
     "dhowDesc": "Découvrez Watamu à bord d'un dhow traditionnel. Une expérience de navigation personnalisée, avec parcours et détails à convenir.",
