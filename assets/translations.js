@@ -1,6 +1,15 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "dhowTitle": "Dhow Experience",
+    "dhowTag": "Traditional dhow cruise",
+    "dhowDesc": "Explore Watamu aboard a traditional dhow. A sailing experience tailored to you, with route and details to be agreed.",
+    "dhowPlaceholderAria": "Space reserved for upcoming Dhow Experience photographs",
+    "dhowPlaceholderLabel": "Photos coming soon",
+    "dhowChooseAria": "Ask about the Dhow Experience",
+    "blueSafariLatestPhotoAlt": "Juma and guests on a Blue Safari excursion in Watamu",
+    "blueSafariLatestVideoOneAria": "New Blue Safari excursion video",
+    "blueSafariLatestVideoTwoAria": "Second new Blue Safari excursion video",
     "privateSafariVideoPickerAria": "Choose a private safari video",
     "privateSafariVideoTab": "Private safari",
     "privateSafariDolphinsTab": "Dolphins",
@@ -199,6 +208,15 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "dhowTitle": "Dhow Experience",
+    "dhowTag": "Escursione in dhow",
+    "dhowDesc": "Scopri Watamu a bordo di un dhow tradizionale. Un'esperienza di navigazione da organizzare su misura, con itinerario e dettagli da concordare.",
+    "dhowPlaceholderAria": "Spazio riservato alle future foto dell'escursione in dhow",
+    "dhowPlaceholderLabel": "Le foto arrivano presto",
+    "dhowChooseAria": "Richiedi informazioni sulla Dhow Experience",
+    "blueSafariLatestPhotoAlt": "Juma e gli ospiti durante un'escursione Blue Safari a Watamu",
+    "blueSafariLatestVideoOneAria": "Nuovo video dell'escursione Blue Safari",
+    "blueSafariLatestVideoTwoAria": "Secondo nuovo video dell'escursione Blue Safari",
     "privateSafariVideoPickerAria": "Scegli un video del Safari privato",
     "privateSafariVideoTab": "Safari privato",
     "privateSafariDolphinsTab": "Delfini",
@@ -397,6 +415,15 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "dhowTitle": "Dhow Experience",
+    "dhowTag": "Ausflug mit einer Dhow",
+    "dhowDesc": "Erkunde Watamu an Bord einer traditionellen Dhow. Ein Segelerlebnis nach deinen Wünschen; Route und Details werden gemeinsam vereinbart.",
+    "dhowPlaceholderAria": "Platzhalter für kommende Fotos der Dhow Experience",
+    "dhowPlaceholderLabel": "Fotos folgen in Kürze",
+    "dhowChooseAria": "Informationen zur Dhow Experience anfragen",
+    "blueSafariLatestPhotoAlt": "Juma und Gäste auf einem Blue-Safari-Ausflug in Watamu",
+    "blueSafariLatestVideoOneAria": "Neues Video vom Blue Safari",
+    "blueSafariLatestVideoTwoAria": "Zweites neues Video vom Blue Safari",
     "privateSafariVideoPickerAria": "Video für die private Safari auswählen",
     "privateSafariVideoTab": "Private Safari",
     "privateSafariDolphinsTab": "Delfine",
@@ -652,6 +679,15 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "dhowTitle": "Dhow Experience",
+    "dhowTag": "Excursion en dhow",
+    "dhowDesc": "Découvrez Watamu à bord d'un dhow traditionnel. Une expérience de navigation personnalisée, avec parcours et détails à convenir.",
+    "dhowPlaceholderAria": "Espace réservé aux prochaines photos de l'excursion en dhow",
+    "dhowPlaceholderLabel": "Photos à venir",
+    "dhowChooseAria": "Demander des informations sur la Dhow Experience",
+    "blueSafariLatestPhotoAlt": "Juma et les passagers pendant un Blue Safari à Watamu",
+    "blueSafariLatestVideoOneAria": "Nouvelle vidéo de l'excursion Blue Safari",
+    "blueSafariLatestVideoTwoAria": "Deuxième nouvelle vidéo de l'excursion Blue Safari",
     "privateSafariVideoPickerAria": "Choisir une vidéo du safari privé",
     "privateSafariVideoTab": "Safari privé",
     "privateSafariDolphinsTab": "Dauphins",
