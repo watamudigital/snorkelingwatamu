@@ -1602,3 +1602,12 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  letter-spacing:.035em;text-align:center;padding:0 15px;
 }
 .experience-carousel .experience-dhow .experience-body{min-width:0}
+
+/* Juma Adventures Instagram: consistent header + footer links. */
+.navright .instagram-nav{display:inline-flex;align-items:center;justify-content:center;flex:0 0 36px;width:36px;height:36px;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:50%;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.navright .instagram-nav:hover,.navright .instagram-nav:focus-visible{color:#092f35;background:#c9f37b;border-color:#c9f37b}
+.footer-social{margin:12px 0 6px}
+.footer-social .instagram-footer{display:inline-flex;align-items:center;gap:9px;color:#c9f37b;text-decoration:none;font-size:14px;font-weight:750}
+.footer-social .instagram-footer:hover{text-decoration:underline}
+.footer-social .instagram-footer svg{flex:0 0 19px}
+@media(max-width:700px){.navright .instagram-nav{width:31px;height:31px;flex-basis:31px}.navright .instagram-nav svg{width:17px;height:17px}}
