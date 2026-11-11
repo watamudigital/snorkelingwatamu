@@ -61,7 +61,8 @@
   'Blue Safari Private':'Blue Safari privato',
   'Deep-Sea Fishing':"Pesca d'altura",
   'Watersports':'Watersports',
-  'Mida Creek Sunset Cruise':'Tramonto a Mida Creek'
+  'Mida Creek Sunset Cruise':'Tramonto a Mida Creek',
+  'Dhow Experience':'Dhow Experience'
  };
  document.querySelectorAll('[data-exp]').forEach(button=>button.addEventListener('click',()=>{
   if(customSelect){
