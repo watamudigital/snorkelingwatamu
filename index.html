@@ -276,8 +276,35 @@
    </article>
   </div>
   <div class="reviews-contribute">
-   <div><strong data-i18n="reviewsContributeHeading">Hai vissuto il mare con Juma?</strong><p data-i18n="reviewsContributeText">Raccontaci com'è andata: la tua recensione arriverà a Juma su WhatsApp. Con il tuo permesso potremo pubblicarla qui.</p></div>
-   <a class="reviews-contribute-cta" href="https://wa.me/254741457022?text=Ciao%20Juma%21%20Vorrei%20lasciare%20una%20recensione%20della%20mia%20esperienza%20a%20Watamu%3A%20" target="_blank" rel="noopener noreferrer" data-i18n-aria-label="reviewsContributeAria" aria-label="Apri WhatsApp di Juma per lasciare una recensione"><span data-i18n="reviewsContributeButton">Lascia una recensione</span><span aria-hidden="true">↗</span></a>
+   <div class="reviews-form-intro"><strong data-i18n="reviewsContributeHeading">Hai vissuto il mare con Juma?</strong><p data-i18n="reviewsFormDescription">Scrivi la tua recensione: dopo l'invio sarà pubblicata automaticamente e visibile agli altri visitatori.</p></div>
+   <form id="guestReviewForm" class="guest-review-form" autocomplete="on">
+    <div class="guest-review-fields">
+     <label><span data-i18n="reviewsNameLabel">Il tuo nome</span><input type="text" name="reviewName" maxlength="50" minlength="2" autocomplete="given-name" required placeholder="Nome" data-i18n-placeholder="reviewsNamePlaceholder"></label>
+     <label><span data-i18n="reviewsExperienceLabel">Esperienza</span>
+      <select name="experience" required>
+       <option value="blue-safari" data-i18n="card2Title">Blue Safari</option>
+       <option value="blue-safari-privato" data-i18n="privateSafariTitle">Blue Safari privato</option>
+       <option value="tramonto-mida-creek" data-i18n="creekTitle">Tramonto a Mida Creek</option>
+       <option value="pesca-altura" data-i18n="card1Title">Pesca d'altura</option>
+       <option value="watersports" data-i18n="card3Title">Watersports</option>
+       <option value="dhow-experience" data-i18n="dhowTitle">Dhow Experience</option>
+      </select>
+     </label>
+    </div>
+    <fieldset class="guest-review-rating"><legend data-i18n="reviewsRatingLabel">La tua valutazione</legend>
+     <div class="guest-review-stars" role="radiogroup" aria-label="Valutazione da 1 a 5 stelle" data-i18n-aria-label="reviewsRatingAria">
+      <label><input type="radio" name="rating" value="1" required><span aria-hidden="true">★</span><span class="sr-only">1</span></label>
+      <label><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><span class="sr-only">2</span></label>
+      <label><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><span class="sr-only">3</span></label>
+      <label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="sr-only">4</span></label>
+      <label><input type="radio" name="rating" value="5" checked><span aria-hidden="true">★</span><span class="sr-only">5</span></label>
+     </div>
+    </fieldset>
+    <label class="guest-review-message"><span data-i18n="reviewsMessageLabel">La tua recensione</span><textarea name="reviewText" required minlength="20" maxlength="900" rows="4" placeholder="Raccontaci la tua esperienza..." data-i18n-placeholder="reviewsMessagePlaceholder"></textarea></label>
+    <label class="guest-review-consent"><input name="consent" type="checkbox" required><span data-i18n="reviewsConsentText">Autorizzo la pubblicazione del mio nome e della recensione su questo sito.</span></label>
+    <label class="guest-review-honeypot" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    <div class="guest-review-actions"><button class="reviews-contribute-cta" type="submit" disabled data-i18n="reviewsSubmitButton">Pubblica la recensione</button><p class="guest-review-status" id="guestReviewStatus" role="status" aria-live="polite" data-i18n="reviewsNotReady">Pubblicazione online non ancora attiva.</p></div>
+   </form>
   </div>
  </div>
 </section>
@@ -287,6 +314,7 @@
 <footer class="footer"><div class="wrap"><div class="foot-head"><h2><span data-i18n="footerH">The ocean is calling.</span><br><span style="color:#c9f37b" data-i18n="footerH2">Watamu is waiting.</span></h2><a href="#booking" class="btn btn-lime"><span data-i18n="footerCta">Progetta la tua uscita</span> ↗</a></div><div class="foot-bottom"><div><strong style="font-size:17px;color:#fff">snorkeling<span style="color:#c9f37b">watamu</span></strong><p data-i18n="footerNote">Fotografie autentiche delle nostre escursioni a Watamu.</p><p class="footer-contact"><span data-i18n="footerContactLabel">Contatto diretto Juma:</span> <a href="tel:+254741457022">+254 741 457 022</a></p><p class="footer-contact footer-contact-secondary"><span data-i18n="footerSwissContactLabel">Contatto diretto Luisa:</span> <a href="https://wa.me/41775129241" target="_blank" rel="noopener noreferrer" aria-label="Apri WhatsApp per scrivere al numero +41 77 512 92 41" data-i18n-aria-label="contactSwissAria">+41 77 512 92 41</a></p><div class="footer-social"><a class="instagram-link instagram-footer" href="https://www.instagram.com/juma.dventures/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Juma Adventures" title="Instagram · @juma.dventures"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>@juma.dventures</span></a><a class="facebook-link facebook-footer" href="https://www.facebook.com/venerdi.juma" target="_blank" rel="noopener noreferrer" aria-label="Facebook Venerdi Juma" title="Facebook · Venerdi Juma"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.98H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.9h-2.33v6.98A10 10 0 0 0 22 12Z"/></svg><span>Venerdi Juma</span></a></div></div><div><a href="https://kws.go.ke/park/watamu-marine-national-park-reserve/" target="_blank" rel="noopener noreferrer">Kenya Wildlife Service ↗</a><br><span>© 2026 Snorkeling Watamu · Watamu, Kenya</span></div></div></div></footer>
 <div class="watamu-closing-photo" role="img" data-i18n-aria-label="closingPhotoAria" aria-label="Tramonto dorato sulle acque di Mida Creek, fotografia originale"><div class="wrap"><span data-i18n="closingPhotoLabel">WATAMU · KENYA</span></div></div>
 <a href="https://wa.me/254741457022" class="sticky-cta" target="_blank" rel="noopener noreferrer" aria-label="Apri WhatsApp per scrivere a Juma" data-i18n-aria-label="contactAria"><span data-i18n="contactCta">Invia messaggio WhatsApp</span> ↗</a>
+<script src="./assets/reviews.js" defer></script>
 <script src="./assets/translations.js" defer></script>
 <script src="./assets/app.js" defer></script>
 <script src="./assets/experience-carousel.js" defer></script>
