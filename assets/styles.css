@@ -1823,3 +1823,24 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 }
 .contact-feature .contact-feature-simple-link:hover{background:#0b5146}
 .contact-feature .contact-feature-simple-link:focus-visible{outline:3px solid #85bca5;outline-offset:3px}
+
+/* Slightly larger names, phone numbers and language flags in quote contacts. */
+.experience-personalization .quote-direct-person{padding:15px 13px;gap:11px}
+.experience-personalization .quote-person-info{gap:7px}
+.experience-personalization .quote-person-info strong{
+ font-size:clamp(15px,1.55vw,18px);line-height:1.2;gap:7px;
+}
+.experience-personalization .quote-person-info strong span{
+ font-size:clamp(13px,1.18vw,15px);line-height:1.3;
+}
+.experience-personalization .quote-person-number{
+ font-size:clamp(13px,1.28vw,15px);font-weight:800;letter-spacing:0;
+}
+.experience-personalization .quote-person-icon{flex-basis:33px;width:33px;height:33px;font-size:19px}
+@media(min-width:1251px) and (max-width:1550px){
+ .experience-personalization .quote-direct-grid{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+ .experience-personalization .quote-direct-person{padding:13px 11px}
+ .experience-personalization .quote-person-number{font-size:14px}
+}
