@@ -1,6 +1,10 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "reviewsContributeHeading": "Have you explored the ocean with Juma?",
+    "reviewsContributeText": "Tell us about your experience: send your review to Juma on WhatsApp. With your permission, we may share it here.",
+    "reviewsContributeButton": "Leave a review",
+    "reviewsContributeAria": "Open Juma's WhatsApp to leave a review",
     "reviewsKicker": "YOUR EXPERIENCES",
     "reviewsHeadingOne": "Your stories.",
     "reviewsHeadingTwo": "Our ocean.",
@@ -225,6 +229,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "reviewsContributeHeading": "Hai vissuto il mare con Juma?",
+    "reviewsContributeText": "Raccontaci com'è andata: la tua recensione arriverà a Juma su WhatsApp. Con il tuo permesso potremo pubblicarla qui.",
+    "reviewsContributeButton": "Lascia una recensione",
+    "reviewsContributeAria": "Apri WhatsApp di Juma per lasciare una recensione",
     "reviewsKicker": "LE VOSTRE ESPERIENZE",
     "reviewsHeadingOne": "Le vostre storie.",
     "reviewsHeadingTwo": "Il nostro mare.",
@@ -449,6 +457,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "reviewsContributeHeading": "Warst du mit Juma auf dem Meer?",
+    "reviewsContributeText": "Erzähle uns von deinem Erlebnis: Schicke deine Bewertung per WhatsApp an Juma. Mit deiner Erlaubnis können wir sie hier veröffentlichen.",
+    "reviewsContributeButton": "Bewertung abgeben",
+    "reviewsContributeAria": "Jumas WhatsApp öffnen und eine Bewertung abgeben",
     "reviewsKicker": "EURE ERLEBNISSE",
     "reviewsHeadingOne": "Eure Geschichten.",
     "reviewsHeadingTwo": "Unser Meer.",
@@ -730,6 +742,10 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "reviewsContributeHeading": "Vous avez découvert la mer avec Juma ?",
+    "reviewsContributeText": "Racontez-nous votre expérience : envoyez votre avis à Juma sur WhatsApp. Avec votre accord, nous pourrons le publier ici.",
+    "reviewsContributeButton": "Laisser un avis",
+    "reviewsContributeAria": "Ouvrir WhatsApp de Juma pour laisser un avis",
     "reviewsKicker": "VOS EXPÉRIENCES",
     "reviewsHeadingOne": "Vos histoires.",
     "reviewsHeadingTwo": "Notre océan.",
