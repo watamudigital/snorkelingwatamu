@@ -1,6 +1,10 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "quoteContactsAria": "Direct contacts for a personalised quote",
+    "quoteContactsHeading": "Or speak with us directly",
+    "quoteJumaAria": "Message Juma on WhatsApp: +254 741 457 022",
+    "quoteLuisaAria": "Message Luisa on WhatsApp: +41 77 512 92 41",
     "reviewsFormDescription": "Tell us about your experience. With your consent, the review will appear on the website.",
     "reviewsNameLabel": "Your name",
     "reviewsNamePlaceholder": "First name",
@@ -246,6 +250,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "quoteContactsAria": "Contatti diretti per un preventivo",
+    "quoteContactsHeading": "Oppure parlane direttamente con noi",
+    "quoteJumaAria": "Scrivi a Juma su WhatsApp: +254 741 457 022",
+    "quoteLuisaAria": "Scrivi a Luisa su WhatsApp: +41 77 512 92 41",
     "reviewsFormDescription": "Raccontaci la tua esperienza. Con il tuo consenso, la recensione verrà pubblicata sul sito.",
     "reviewsNameLabel": "Il tuo nome",
     "reviewsNamePlaceholder": "Nome",
@@ -491,6 +499,10 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "quoteContactsAria": "Direkter Kontakt für ein individuelles Angebot",
+    "quoteContactsHeading": "Oder sprich direkt mit uns",
+    "quoteJumaAria": "Juma über WhatsApp kontaktieren: +254 741 457 022",
+    "quoteLuisaAria": "Luisa über WhatsApp kontaktieren: +41 77 512 92 41",
     "reviewsFormDescription": "Erzähle uns von deinem Erlebnis. Mit deiner Einwilligung wird die Bewertung auf der Website veröffentlicht.",
     "reviewsNameLabel": "Dein Name",
     "reviewsNamePlaceholder": "Vorname",
@@ -793,6 +805,10 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "quoteContactsAria": "Contacts directs pour un devis personnalisé",
+    "quoteContactsHeading": "Ou contactez-nous directement",
+    "quoteJumaAria": "Écrire à Juma sur WhatsApp : +254 741 457 022",
+    "quoteLuisaAria": "Écrire à Luisa sur WhatsApp : +41 77 512 92 41",
     "reviewsFormDescription": "Racontez votre expérience. Avec votre accord, votre avis sera publié sur le site.",
     "reviewsNameLabel": "Votre prénom",
     "reviewsNamePlaceholder": "Prénom",
