@@ -1,6 +1,8 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "contactSimpleCopy": "Have an idea for your day in Watamu? Choose an experience and contact Juma or Luisa using the form above.",
+    "contactSimpleLink": "Go to the quote and contacts",
     "quoteContactsAria": "Direct contacts for a personalised quote",
     "quoteContactsHeading": "Or speak with us directly",
     "quoteJumaAria": "Message Juma on WhatsApp: +254 741 457 022",
@@ -250,6 +252,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "contactSimpleCopy": "Hai un'idea per la tua giornata a Watamu? Scegli l'escursione e contatta Juma o Luisa nel modulo qui sopra.",
+    "contactSimpleLink": "Vai al preventivo e ai contatti",
     "quoteContactsAria": "Contatti diretti per un preventivo",
     "quoteContactsHeading": "Oppure parlane direttamente con noi",
     "quoteJumaAria": "Scrivi a Juma su WhatsApp: +254 741 457 022",
@@ -499,6 +503,8 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "contactSimpleCopy": "Du hast eine Idee für deinen Tag in Watamu? Wähle dein Erlebnis und kontaktiere Juma oder Luisa über das Formular oben.",
+    "contactSimpleLink": "Zum Angebot und den Kontakten",
     "quoteContactsAria": "Direkter Kontakt für ein individuelles Angebot",
     "quoteContactsHeading": "Oder sprich direkt mit uns",
     "quoteJumaAria": "Juma über WhatsApp kontaktieren: +254 741 457 022",
@@ -805,6 +811,8 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "contactSimpleCopy": "Une idée pour votre journée à Watamu ? Choisissez votre excursion et contactez Juma ou Luisa dans le formulaire ci-dessus.",
+    "contactSimpleLink": "Voir le devis et les contacts",
     "quoteContactsAria": "Contacts directs pour un devis personnalisé",
     "quoteContactsHeading": "Ou contactez-nous directement",
     "quoteJumaAria": "Écrire à Juma sur WhatsApp : +254 741 457 022",
