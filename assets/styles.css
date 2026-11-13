@@ -1802,3 +1802,24 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
 .experience-personalization .quote-person-arrow{font-size:16px;align-self:flex-start;color:#158a75}
 @media(max-width:1250px){.experience-personalization .quote-direct-grid{grid-template-columns:1fr}}
 @media(min-width:1251px) and (max-width:1450px){.experience-personalization .quote-direct-person{padding:10px 7px;gap:6px}.experience-personalization .quote-person-icon{flex-basis:25px;width:25px;height:25px}}
+
+/* A concise contact invitation; detailed phone numbers are shown only at the quote. */
+.contact-feature .contact-feature-simple{
+ display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+ min-height:185px;padding:clamp(20px,3.5vw,34px);
+ border-radius:19px;border:1px solid #d2e6d9;background:#edf7f0;
+}
+.contact-feature .contact-feature-simple-icon{
+ display:grid;place-items:center;width:36px;height:36px;margin-bottom:14px;
+ border-radius:50%;background:#d1ecd9;color:#138b77;font-size:20px;
+}
+.contact-feature .contact-feature-simple p{
+ max-width:500px;color:#315d55;font-size:15px;line-height:1.65;margin:0 0 17px;
+}
+.contact-feature .contact-feature-simple-link{
+ display:inline-flex;align-items:center;gap:8px;
+ background:#126956;color:white;border-radius:100px;
+ padding:11px 19px;text-decoration:none;font-size:13px;font-weight:800;
+}
+.contact-feature .contact-feature-simple-link:hover{background:#0b5146}
+.contact-feature .contact-feature-simple-link:focus-visible{outline:3px solid #85bca5;outline-offset:3px}
