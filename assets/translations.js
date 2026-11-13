@@ -1,6 +1,13 @@
 /* Localisation data for Snorkeling Watamu. No tracking or external requests. */
 window.SW_TRANSLATIONS = {
   "en": {
+    "reviewsKicker": "YOUR EXPERIENCES",
+    "reviewsHeadingOne": "Your stories.",
+    "reviewsHeadingTwo": "Our ocean.",
+    "reviewsIntro": "A space for the words of those who explored Watamu with Juma. Genuine guest reviews will be shared here.",
+    "reviewsCardsAria": "Space for guest reviews",
+    "reviewsPlaceholder": "The next story could be yours.",
+    "reviewsPending": "Awaiting our first reviews",
     "privateSafariGalleryPhotoOneAlt": "Guests enjoying a private safari in Watamu",
     "privateSafariGalleryPhotoTwoAlt": "Guests aboard the Subira boat in Watamu",
     "quoteQrAria": "Open Juma's WhatsApp to request a quote",
@@ -218,6 +225,13 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma can confirm availability, itinerary, equipment, safety arrangements and price with you directly."
   },
   "it": {
+    "reviewsKicker": "LE VOSTRE ESPERIENZE",
+    "reviewsHeadingOne": "Le vostre storie.",
+    "reviewsHeadingTwo": "Il nostro mare.",
+    "reviewsIntro": "Uno spazio dedicato alle parole di chi ha vissuto Watamu con Juma. Qui pubblicheremo le recensioni autentiche dei nostri ospiti.",
+    "reviewsCardsAria": "Spazio per le recensioni degli ospiti",
+    "reviewsPlaceholder": "La prossima storia potrebbe essere la tua.",
+    "reviewsPending": "In attesa delle prime recensioni",
     "privateSafariGalleryPhotoOneAlt": "Ospiti durante il safari privato a Watamu",
     "privateSafariGalleryPhotoTwoAlt": "Ospiti sulla barca Subira durante un'escursione a Watamu",
     "quoteQrAria": "Apri WhatsApp di Juma per chiedere un preventivo",
@@ -435,6 +449,13 @@ window.SW_TRANSLATIONS = {
     "step3P": "Juma potrà confermare direttamente disponibilità, itinerario, attrezzatura, condizioni di sicurezza e prezzo."
   },
   "de": {
+    "reviewsKicker": "EURE ERLEBNISSE",
+    "reviewsHeadingOne": "Eure Geschichten.",
+    "reviewsHeadingTwo": "Unser Meer.",
+    "reviewsIntro": "Ein Platz für die Erfahrungen der Gäste, die Watamu mit Juma entdeckt haben. Hier veröffentlichen wir echte Gästebewertungen.",
+    "reviewsCardsAria": "Platz für Gästebewertungen",
+    "reviewsPlaceholder": "Die nächste Geschichte könnte deine sein.",
+    "reviewsPending": "Erste Bewertungen folgen",
     "privateSafariGalleryPhotoOneAlt": "Gäste auf einer privaten Safari in Watamu",
     "privateSafariGalleryPhotoTwoAlt": "Gäste an Bord der Subira in Watamu",
     "quoteQrAria": "Jumas WhatsApp für ein Angebot öffnen",
@@ -709,6 +730,13 @@ window.SW_TRANSLATIONS = {
     "footerContactLabel": "Direkter Kontakt zu Juma:"
   },
   "fr": {
+    "reviewsKicker": "VOS EXPÉRIENCES",
+    "reviewsHeadingOne": "Vos histoires.",
+    "reviewsHeadingTwo": "Notre océan.",
+    "reviewsIntro": "Un espace dédié aux témoignages de celles et ceux qui ont découvert Watamu avec Juma. Nous y publierons les avis authentiques de nos visiteurs.",
+    "reviewsCardsAria": "Espace dédié aux avis des visiteurs",
+    "reviewsPlaceholder": "La prochaine histoire pourrait être la vôtre.",
+    "reviewsPending": "En attente des premiers avis",
     "privateSafariGalleryPhotoOneAlt": "Passagers lors d'un safari privé à Watamu",
     "privateSafariGalleryPhotoTwoAlt": "Passagers à bord du bateau Subira à Watamu",
     "quoteQrAria": "Ouvrir WhatsApp de Juma pour demander un devis",
