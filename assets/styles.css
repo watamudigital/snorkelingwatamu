@@ -1781,3 +1781,24 @@ html[lang="fr"] .hero .hero-inner h1 [data-i18n="heroThree"]{
  position:absolute;width:1px;height:1px;overflow:hidden;
  clip:rect(0,0,0,0);white-space:nowrap;
 }
+
+/* Direct human contacts beside the custom quote CTA. */
+.experience-personalization .quote-direct-contacts{margin-top:13px;min-width:0}
+.experience-personalization .quote-direct-heading{display:flex;align-items:center;gap:10px;margin:0 0 11px;font-size:11px;line-height:1.4;color:#607e75;text-align:center;font-weight:700}
+.experience-personalization .quote-direct-line{flex:1;min-width:10px;height:1px;background:#cbded4}
+.experience-personalization .quote-direct-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.experience-personalization .quote-direct-person{
+ display:flex;align-items:center;gap:10px;min-width:0;padding:12px 11px;
+ border:1px solid #cde2d7;border-radius:14px;background:#f8fcf9;
+ color:#133c40;text-decoration:none;transition:border-color .2s,background .2s,transform .2s;
+}
+.experience-personalization .quote-direct-person:hover{border-color:#78b3a0;background:#ecf8f0;transform:translateY(-2px)}
+.experience-personalization .quote-direct-person:focus-visible{outline:3px solid #1b8f7f;outline-offset:2px}
+.experience-personalization .quote-person-icon{display:grid;place-items:center;flex:0 0 29px;width:29px;height:29px;border-radius:50%;background:#d7efe0;color:#126353;font-size:17px}
+.experience-personalization .quote-person-info{display:flex;flex:1;flex-direction:column;min-width:0;gap:4px}
+.experience-personalization .quote-person-info strong{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:13px;line-height:1.15;color:#154c44}
+.experience-personalization .quote-person-info strong span{font-size:11px;white-space:nowrap}
+.experience-personalization .quote-person-number{font-size:clamp(11px,1.15vw,13px);font-weight:800;letter-spacing:-.025em;white-space:nowrap}
+.experience-personalization .quote-person-arrow{font-size:16px;align-self:flex-start;color:#158a75}
+@media(max-width:1250px){.experience-personalization .quote-direct-grid{grid-template-columns:1fr}}
+@media(min-width:1251px) and (max-width:1450px){.experience-personalization .quote-direct-person{padding:10px 7px;gap:6px}.experience-personalization .quote-person-icon{flex-basis:25px;width:25px;height:25px}}
