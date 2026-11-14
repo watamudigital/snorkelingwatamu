@@ -8,6 +8,7 @@ const ROOT=path.resolve(__dirname,'..');
 const DIST=path.join(ROOT,'dist');
 const ORIGIN='https://www.snorkelingwatamu.com';
 const LANGS=['it','en','de','fr'];
+const home=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
 const app=fs.readFileSync(path.join(ROOT,'assets/app.js'),'utf8');
 const extras=fs.readFileSync(path.join(ROOT,'assets/translations.js'),'utf8');
 const baseMatch=app.match(/const tr=(\{[\s\S]*?\n \});/);
@@ -23,13 +24,26 @@ en:{home:'All experiences',subtitle:'Watamu · Kenya · Indian Ocean',back:'Back
 de:{home:'Alle Erlebnisse',subtitle:'Watamu · Kenia · Indischer Ozean',back:'Zurück zu den Erlebnissen',intro:'Erlebe dieses Abenteuer mit Juma',gallery:'Authentische Fotos und Videos',plan:'Plane deinen Ausflug',custom:'Individuelles Angebot anfordern',contact:'Direkt kontaktieren',juma:'Mit Juma sprechen',luisa:'Mit Luisa sprechen',availability:'Route, Dauer, Verfügbarkeit und Preis werden direkt vereinbart. Die Aktivitäten hängen von den Meeresbedingungen und der Sicherheit ab.',choice:'Weitere Erlebnisse',quote:'Preis auf Anfrage',note:'Keine automatische Buchung oder Zahlung auf dieser Website.',whatsapp:'WhatsApp-Nachricht senden',video:'Video vom Erlebnis',lang:'Sprache',details:'Ein Erlebnis nach deinen Wünschen'},
 fr:{home:'Toutes les expériences',subtitle:'Watamu · Kenya · Océan Indien',back:'Retour aux expériences',intro:'Vivez cette expérience avec Juma',gallery:'Photos et vidéos authentiques',plan:'Organisez votre sortie',custom:'Demander un devis personnalisé',contact:'Contacter directement',juma:'Parler avec Juma',luisa:'Parler avec Luisa',availability:'Le parcours, la durée, la disponibilité et le prix sont convenus directement. Les activités dépendent des conditions de mer et de la sécurité.',choice:'Autres expériences',quote:'Devis sur demande',note:'Aucune réservation ni paiement automatique sur le site.',whatsapp:'Envoyer un message WhatsApp',video:'Vidéo de l’expérience',lang:'Langue',details:'Une expérience sur mesure'}
 };
+// Keep the Safari detail pages in the same media order as the home galleries.
+function safariSlides(titleId){
+ const marker='aria-labelledby="'+titleId+'">';
+ const start=home.indexOf(marker);
+ if(start<0)throw Error('Safari gallery not found: '+titleId);
+ const article=home.slice(start,home.indexOf('</article>',start));
+ return [...article.matchAll(/<(img|video) class="photo-slide\b[^>]*>/g)].map(([tag,type])=>{
+  const attr=name=>tag.match(new RegExp(' '+name+'="([^"]*)"'))?.[1];
+  return {
+   type,
+   src:attr('src').replace(/^\.\//,'/'),
+   poster:attr('poster'),
+   labelKey:attr(type==='img'?'data-i18n-alt':'data-i18n-aria-label'),
+   label:attr(type==='img'?'alt':'aria-label')
+  };
+ });
+}
 const definitions=[
-{slug:'blue-safari',title:'card2Title',tag:'card2Tag',desc:'card2Text',cover:'/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
- photos:['watamu-glass-bottom-boat-subira-kenya.jpg','IMG_0066.jpeg','IMG_0065.jpeg','IMG_0259.jpeg','watamu-snorkeling-boat-trip-guests.jpg','glass-boat-subira-snorkeling-watamu-passengers.jpg'],
- videos:['/assets/videos/blue-safari-second-newest.mp4','/assets/videos/blue-safari-newest.mp4','/36f95496-5d16-4335-a76d-f92f0eff487e.mp4','/assets/videos/0c1d5db8-a117-4a0d-8687-e0d3182100d1.mov','/assets/videos/blue-safari-dolphins.mp4','/assets/videos/40eeaf57-4e9c-4e20-a32f-c05ea973ae7e.mov']},
-{slug:'blue-safari-privato',title:'privateSafariTitle',tag:'privateSafariBadge',desc:'privateSafariDesc',cover:'/assets/images/blue-safari-private-poster.jpg',
- photos:[],
- videos:['/assets/videos/blue-safari-private-latest.mp4']},
+ {slug:'blue-safari',title:'card2Title',tag:'card2Tag',desc:'card2Text',cover:'/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',media:safariSlides('experience-title-1')},
+ {slug:'blue-safari-privato',title:'privateSafariTitle',tag:'privateSafariBadge',desc:'privateSafariDesc',cover:'/assets/images/blue-safari-private-poster.jpg',media:safariSlides('private-safari-title')},
 {slug:'pesca-altura',title:'card1Title',tag:'fishingWhiteBadge',desc:'card1Text',cover:'/assets/images/IMG_0053.jpeg',
  photos:['IMG_0053.jpeg','Juma mit Fischen auf sonniger See.png'],
  videos:['/assets/videos/fishing-portrait.mp4']},
@@ -54,11 +68,18 @@ function page(entry,lang){
  const others=definitions.filter(other=>other.slug!==entry.slug).map(other=>{
   return '<a class="more-card" href="'+href(other.slug)+'"><img src="'+safe(other.cover)+'" loading="lazy" alt=""><span>'+safe(cardTitle(other,dict))+' <span aria-hidden="true">↗</span></span></a>';
  }).join('');
- const photos=entry.photos.map((filename,i)=>{
-  const label=title+' · '+(i+1);
-  return '<figure class="media-tile"><img loading="lazy" decoding="async" src="/assets/images/'+encodeURIComponent(filename)+'" alt="'+safe(label)+'"></figure>';
+ const media=entry.media??[
+  ...entry.photos.map((filename,i)=>({type:'img',src:'/assets/images/'+encodeURIComponent(filename),label:title+' · '+(i+1)})),
+  ...entry.videos.map((src,i)=>({type:'video',src,label:w.video+' '+(i+1)}))
+ ];
+ const tiles=media.map(({type,src,poster,labelKey,label})=>{
+  const text=safe(dict[labelKey]||label);
+  const image=poster?' poster="'+safe(poster)+'"':'';
+  const element=type==='img'
+   ? '<img loading="lazy" decoding="async" src="'+safe(src)+'" alt="'+text+'">'
+   : '<video controls playsinline preload="metadata" src="'+safe(src)+'"'+image+' aria-label="'+text+'"></video>';
+  return '<figure class="media-tile">'+element+'</figure>';
  }).join('');
- const videos=entry.videos.map((src,i)=>'<figure class="media-tile"><video controls playsinline preload="metadata" src="'+safe(src)+'" aria-label="'+safe(w.video+' '+(i+1))+'"></video></figure>').join('');
  const languages=LANGS.map(code=>'<a href="/'+code+'/'+entry.slug+'/" lang="'+code+'" '+(code===lang?'aria-current="page"':'')+'>'+code.toUpperCase()+'</a>').join('');
  const jumaMsg=encodeURIComponent(title+' – '+w.custom);
  const contact=(number,name,flags)=>'<div class="contact-person"><span class="contact-name">'+safe(name)+'</span><span class="flags">'+flags+'</span><a class="phone" href="tel:+'+number+'">+'+(number==='254741457022'?'254 741 457 022':'41 77 512 92 41')+'</a><a class="whatsapp" href="https://wa.me/'+number+'?text='+jumaMsg+'" target="_blank" rel="noopener noreferrer">'+safe(w.whatsapp)+' ↗</a></div>';
@@ -77,7 +98,7 @@ function page(entry,lang){
  '<header class="subpage-nav"><div class="subpage-wrap subpage-nav-inner"><a class="subpage-brand" href="/'+lang+'/">snorkeling<em>watamu</em></a><nav class="subpage-lang" aria-label="'+safe(w.lang)+'">'+languages+'</nav></div></header>'+
  '<main class="subpage-wrap"><a class="subpage-back" href="/'+lang+'/#experiences">← '+safe(w.back)+'</a>'+
  '<section class="subpage-hero"><div><div class="subpage-kicker">'+safe(w.subtitle)+'</div><h1>'+safe(title)+'</h1><p class="subpage-lead">'+safe(desc)+'</p><a class="subpage-btn" href="/'+lang+'/#custom-trip">'+safe(w.custom)+' ↗</a></div><img src="'+safe(entry.cover)+'" alt="'+safe(title)+'"></section>'+
- '<section class="subpage-section"><h2>'+safe(w.gallery)+'</h2><div class="subpage-media">'+photos+videos+'</div></section>'+
+ '<section class="subpage-section"><h2>'+safe(w.gallery)+'</h2><div class="subpage-media">'+tiles+'</div></section>'+
  '<section class="subpage-section subpage-info"><div class="subpage-note"><div class="subpage-kicker">'+safe(w.details)+'</div><h2>'+safe(w.plan)+'</h2><p>'+safe(w.availability)+'</p><p>'+safe(w.note)+'</p><a class="subpage-btn" href="/'+lang+'/#custom-trip">'+safe(w.custom)+' ↗</a></div><div class="subpage-contacts" id="contacts"><h2>'+safe(w.contact)+'</h2>'+contact('254741457022',w.juma,'🇬🇧 🇮🇹 🇰🇪')+contact('41775129241',w.luisa,'🇫🇷 🇮🇹 🇬🇧 🇪🇸 🇩🇪')+'</div></section>'+
  '<section class="subpage-section"><h2>'+safe(w.choice)+'</h2><div class="more-grid">'+others+'</div></section>'+
  '</main><footer class="subpage-footer"><a href="/'+lang+'/">'+safe(w.home)+'</a> · Watamu, Kenya</footer></body></html>';

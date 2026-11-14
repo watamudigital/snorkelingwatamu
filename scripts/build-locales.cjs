@@ -135,4 +135,5 @@ const itDictionary={...(base.it||{}),...(extra.it||{})};
 // Root is a backwards-compatible multilingual entry point. Its canonical is /it/.
 fs.writeFileSync(path.join(DIST,'index.html'),withSeo(template,'it',itDictionary).replace(/(\b(?:src|href)=")\.\/assets\//g,'$1/assets/'),'utf8');
 fs.writeFileSync(path.join(DIST,'sitemap.xml'),sitemap(),'utf8');
+require('./build-experiences.cjs');
 console.log('Built multilingual static site: '+LANGUAGES.join(', ')+'; release SEO metadata prepared.');

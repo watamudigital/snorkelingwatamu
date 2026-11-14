@@ -45,7 +45,7 @@ for(const lang of langs){
  assert(!src.includes('href="./assets/'),p+' relative stylesheet/script');
  const assets=[...src.matchAll(/(?:src|href|poster|data-video-src)="(\/assets\/[^"?#]+)/g)].map(m=>m[1]);
  for(const asset of new Set(assets)){
-  assert(fs.existsSync(path.join('dist',asset)),p+' missing asset: '+asset);
+  assert(fs.existsSync(path.join('dist',decodeURIComponent(asset))),p+' missing asset: '+asset);
  }
 }
 assert(titles.size===4,'Localized SEO titles must be distinct');
