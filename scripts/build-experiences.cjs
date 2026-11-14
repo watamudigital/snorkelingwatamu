@@ -24,8 +24,8 @@ en:{home:'All experiences',subtitle:'Watamu · Kenya · Indian Ocean',back:'Back
 de:{home:'Alle Erlebnisse',subtitle:'Watamu · Kenia · Indischer Ozean',back:'Zurück zu den Erlebnissen',intro:'Erlebe dieses Abenteuer mit Juma',gallery:'Authentische Fotos und Videos',plan:'Plane deinen Ausflug',custom:'Individuelles Angebot anfordern',contact:'Direkt kontaktieren',juma:'Mit Juma sprechen',luisa:'Mit Luisa sprechen',availability:'Route, Dauer, Verfügbarkeit und Preis werden direkt vereinbart. Die Aktivitäten hängen von den Meeresbedingungen und der Sicherheit ab.',choice:'Weitere Erlebnisse',quote:'Preis auf Anfrage',note:'Keine automatische Buchung oder Zahlung auf dieser Website.',whatsapp:'WhatsApp-Nachricht senden',video:'Video vom Erlebnis',lang:'Sprache',details:'Ein Erlebnis nach deinen Wünschen'},
 fr:{home:'Toutes les expériences',subtitle:'Watamu · Kenya · Océan Indien',back:'Retour aux expériences',intro:'Vivez cette expérience avec Juma',gallery:'Photos et vidéos authentiques',plan:'Organisez votre sortie',custom:'Demander un devis personnalisé',contact:'Contacter directement',juma:'Parler avec Juma',luisa:'Parler avec Luisa',availability:'Le parcours, la durée, la disponibilité et le prix sont convenus directement. Les activités dépendent des conditions de mer et de la sécurité.',choice:'Autres expériences',quote:'Devis sur demande',note:'Aucune réservation ni paiement automatique sur le site.',whatsapp:'Envoyer un message WhatsApp',video:'Vidéo de l’expérience',lang:'Langue',details:'Une expérience sur mesure'}
 };
-// Keep the Safari detail pages in the same media order as the home galleries.
-function safariSlides(titleId){
+// Keep detail pages in the same media order as their home galleries.
+function gallerySlides(titleId){
  const marker='aria-labelledby="'+titleId+'">';
  const start=home.indexOf(marker);
  if(start<0)throw Error('Safari gallery not found: '+titleId);
@@ -42,14 +42,12 @@ function safariSlides(titleId){
  });
 }
 const definitions=[
- {slug:'blue-safari',title:'card2Title',tag:'card2Tag',desc:'card2Text',cover:'/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',media:safariSlides('experience-title-1')},
- {slug:'blue-safari-privato',title:'privateSafariTitle',tag:'privateSafariBadge',desc:'privateSafariDesc',cover:'/assets/images/blue-safari-private-poster.jpg',media:safariSlides('private-safari-title')},
+ {slug:'blue-safari',title:'card2Title',tag:'card2Tag',desc:'card2Text',cover:'/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',media:gallerySlides('experience-title-1')},
+ {slug:'blue-safari-privato',title:'privateSafariTitle',tag:'privateSafariBadge',desc:'privateSafariDesc',cover:'/assets/images/blue-safari-private-poster.jpg',media:gallerySlides('private-safari-title')},
 {slug:'pesca-altura',title:'card1Title',tag:'fishingWhiteBadge',desc:'card1Text',cover:'/assets/images/IMG_0053.jpeg',
  photos:['IMG_0053.jpeg','Juma mit Fischen auf sonniger See.png'],
  videos:['/assets/videos/fishing-portrait.mp4']},
-{slug:'watersports',title:'card3Title',tag:'card3Tag',desc:'card3Text',cover:'/assets/images/IMG_0034.jpeg',
- photos:['IMG_0034.jpeg','Avventura sul banana boat in mare.png','IMG_0252.jpeg','IMG_0251.jpeg'],
- videos:['/assets/videos/VIDEO-2026-11-05-18-00-01.mp4','/assets/videos/watersports-latest.mp4']},
+ {slug:'watersports',title:'card3Title',tag:'card3Tag',desc:'card3Text',cover:'/assets/images/IMG_0034.jpeg',media:gallerySlides('experience-title-3')},
 {slug:'tramonto-mida-creek',title:'creekTitle',tag:'creekTag',desc:'creekDesc',cover:'/assets/images/IMG_0141.jpeg',
  photos:['Tramonto dorato in barca.png','IMG_0141.jpeg','IMG_0256.jpeg'],
  videos:['/assets/videos/mida-creek-sunset-latest.mp4']},
