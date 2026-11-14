@@ -25,11 +25,11 @@ fr:{home:'Toutes les expériences',subtitle:'Watamu · Kenya · Océan Indien',b
 };
 const definitions=[
 {slug:'blue-safari',title:'card2Title',tag:'card2Tag',desc:'card2Text',cover:'/assets/images/watamu-glass-bottom-boat-subira-kenya.jpg',
- photos:['watamu-glass-bottom-boat-subira-kenya.jpg','IMG_0066.jpeg','IMG_0065.jpeg','IMG_0252.jpeg','IMG_0251.jpeg','IMG_0259.jpeg'],
- videos:['/assets/videos/blue-safari-newest.mp4','/assets/videos/blue-safari-second-newest.mp4','/36f95496-5d16-4335-a76d-f92f0eff487e.mp4','/assets/videos/0c1d5db8-a117-4a0d-8687-e0d3182100d1.mov','/assets/videos/blue-safari-dolphins.mp4']},
+ photos:['watamu-glass-bottom-boat-subira-kenya.jpg','IMG_0066.jpeg','IMG_0065.jpeg','IMG_0259.jpeg','watamu-snorkeling-boat-trip-guests.jpg','glass-boat-subira-snorkeling-watamu-passengers.jpg'],
+ videos:['/assets/videos/blue-safari-second-newest.mp4','/assets/videos/blue-safari-newest.mp4','/36f95496-5d16-4335-a76d-f92f0eff487e.mp4','/assets/videos/0c1d5db8-a117-4a0d-8687-e0d3182100d1.mov','/assets/videos/blue-safari-dolphins.mp4','/assets/videos/40eeaf57-4e9c-4e20-a32f-c05ea973ae7e.mov']},
 {slug:'blue-safari-privato',title:'privateSafariTitle',tag:'privateSafariBadge',desc:'privateSafariDesc',cover:'/assets/images/blue-safari-private-poster.jpg',
- photos:['watamu-snorkeling-boat-trip-guests.jpg','glass-boat-subira-snorkeling-watamu-passengers.jpg'],
- videos:['/assets/videos/blue-safari-private-latest.mp4','/assets/videos/40eeaf57-4e9c-4e20-a32f-c05ea973ae7e.mov']},
+ photos:[],
+ videos:['/assets/videos/blue-safari-private-latest.mp4']},
 {slug:'pesca-altura',title:'card1Title',tag:'fishingWhiteBadge',desc:'card1Text',cover:'/assets/images/IMG_0053.jpeg',
  photos:['IMG_0053.jpeg','Juma mit Fischen auf sonniger See.png'],
  videos:['/assets/videos/fishing-portrait.mp4']},
