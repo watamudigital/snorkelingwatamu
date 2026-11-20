@@ -10,7 +10,21 @@ const titles=new Set();
 const metas=new Set();
 const sitemap=fs.readFileSync('dist/sitemap.xml','utf8');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
-assert.deepEqual(urls,langs.map(code=>origin+'/'+code+'/'),'Sitemap should list exactly four canonicals');
+const slugs=['blue-safari','blue-safari-privato','pesca-altura','watersports','tramonto-mida-creek','dhow-experience'];
+const expectedUrls=langs.flatMap(code=>[origin+'/'+code+'/',...slugs.map(slug=>origin+'/'+code+'/'+slug+'/')]);
+assert.deepEqual(urls,expectedUrls,'Sitemap should list home and all six experience pages in each language');
+for(const code of langs){
+ for(const slug of slugs){
+  const file='dist/'+code+'/'+slug+'/index.html';
+  assert(fs.existsSync(file),file+' missing');
+  const html=fs.readFileSync(file,'utf8');
+  const url=origin+'/'+code+'/'+slug+'/';
+  assert(html.includes('<html lang="'+code+'">'),file+' wrong language');
+  assert(html.includes('<link rel="canonical" href="'+url+'">'),file+' missing canonical');
+  assert(html.includes('content="index,follow,max-image-preview:large"'),file+' not indexable');
+  assert(html.includes('<h1>'),file+' missing main heading');
+ }
+}
 for(const lang of langs){
  const p='dist/'+lang+'/index.html';
  const src=fs.readFileSync(p,'utf8');
@@ -57,4 +71,4 @@ assert(!robots.includes('Disallow: /'),'Crawl is blocked in robots.txt');
 assert(robots.includes('Sitemap: '+origin+'/sitemap.xml'),'Sitemap missing in robots.txt');
 const config=JSON.parse(fs.readFileSync('vercel.json','utf8'));
 assert(config.headers.every(rule=>rule.headers.every(h=>h.key.toLowerCase()!=='x-robots-tag')),'X-Robots-Tag override remains');
-console.log('OK: 4 canonical URLs, metadata, hreflang, Open Graph, JSON-LD, sitemap,  assets and crawl policy');
+console.log('OK: 28 canonical URLs, metadata, hreflang, Open Graph, JSON-LD, sitemap,  assets and crawl policy');
