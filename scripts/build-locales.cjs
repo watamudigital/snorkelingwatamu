@@ -118,9 +118,15 @@ function copyAssets(){
  fs.copyFileSync(path.join(ROOT,'robots.txt'),path.join(DIST,'robots.txt'));
 }
 function sitemap(){
- const locations=LANGUAGES.map(lang=>'  <url><loc>'+canonical(lang)+'</loc></url>').join('\n');
+ // Keep URLs aligned with the experience pages built by build-experiences.cjs.
+ const experienceSlugs=['blue-safari','blue-safari-privato','pesca-altura','watersports','tramonto-mida-creek','dhow-experience'];
+ const urls=LANGUAGES.flatMap(lang=>[
+  canonical(lang),
+  ...experienceSlugs.map(slug=>ORIGIN+'/'+lang+'/'+slug+'/')
+ ]);
+ const locations=urls.map(url=>'  <url><loc>'+url+'</loc></url>').join('\n');
  return '<?xml version="1.0" encoding="UTF-8"?>\n'+
-   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+locations+'\n</urlset>\n';
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+locations+'\n</urlset>\n';
 }
 fs.rmSync(DIST,{recursive:true,force:true});
 fs.mkdirSync(DIST,{recursive:true});
